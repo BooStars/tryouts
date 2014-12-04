@@ -1,12 +1,59 @@
 <menumain x="0" y="0" width="100%" height="100%" fadetime="0">
-
-<header>
-	<area x="0%" y="0%" width="70%" height="7%" layer="2">
-		<drawimage name="vdrlogo" imagetype="icon" path="vdrlogo" x="0" width="{areawidth}/7" height="{areaheight}" valign="top" />
-		<drawtext x="{width(vdrlogo)}" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{vdrversion}" />
+<background>
+	<!-- header background -->
+		<area x="0" y="0" width="70%" height="8%" layer="1">
+			 <drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			 <drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
+		</area>
+<!-- date background -->
+		<area x="70%" y="0%" width="30%" height="10%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
+			<drawellipse x="0" y="{areaheight} - {areaheight}*0.15" width="{areaheight}*0.15" height="{areaheight}*0.15" color="{clrTransparent}" quadrant="-3"/>
+		</area>
+	<!-- list background -->
+		<area x="0" y="45%" width="33%" height="55%" layer="1">
+            <drawrectangle x="0" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
+			<drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" y="10%" width="2" height="{areaheight}"/>
+			<drawellipse x="{areawidth} - {areaheight}*0.10" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-1"/>
+        </area>
+	<!-- button background -->
+	
+		<area x="35%" y="93%" width="65%" height="8%" layer="1">
+			<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/1.5" height="2"/>
+			<drawrectangle x="0" y="2" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawellipse x="0" y="0" width="{areaheight}*0.50" height="{areaheight}*0.50" color="{clrTransparent}" quadrant="-2"/>
+	    </area>
 		
-	</area>
+<!-- timer background -->
+		<area x="70%" y="15%" width="30%" height="55%" layer="1">
+			<drawimage name="line_left" imagetype="skinpart" path="line_left" x="0" y="0" valign="center" width="2" height="{areaheight}/1.25"/>
+			
+			<drawrectangle x="2" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
+			
+			<drawellipse x="0" y="{areaheight} - {areaheight}*0.10" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-3"/>
+			<drawellipse x="0" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-2"/>
+	
+		</area>
+</background>
+<header>
+<area x="0%" y="0%" width="70%" height="7%" layer="2">
+	<drawimage name="vdrlogo" imagetype="icon" path="vdrlogo" x="0" width="{areawidth}/7" height="{areaheight}" valign="top" />
+	<drawtext x="{width(vdrlogo)}" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{vdrversion}" />	
+</area>
 </header>
+
+<timers>
+<area x="71%" y="16%" width="29%" height="53%" layer="2">
+	<loop name="timers" x="0" y="0" orientation="vertical" columnwidth="{areawidth}" rowheight="{areaheight}/7">
+		<drawimage  cache="true" name="logo" imagetype="channellogo" path="{timers[channelid]}" x="{areawidth}-{width(logo)}*1.075" y="0" width="20%" height="{areaheight}/7" />
+		<drawtext name="datetime" x="{areawidth}-{width(logo)}*1.15-{width(datetime)}" y="0%" font="{light}" fontsize="7%" color="{clrWhite}" text="{timers[datetime]}" />
+		<drawtextbox name="title" x="0" y="{height(datetime)}" width="{columnwidth}-{width(logo)}*1.15" align="right" maxlines="1" font="{light}" fontsize="7%" color="{clrWhite}" text="{timers[title]}" />     
+		<drawimage condition="{timers[recording]}" name="rec" imagetype="icon" path="ico_timer_recording" x="{areawidth}-{width(logo)}*1.15-{width(datetime)}-{height(datetime)}*1.2" width="{height(datetime)}*1.2" height="{height(datetime)}*1.2" y="0" />
+		<drawimage name="timer_sep" imagetype="skinpart" path="timer_sep" align="right" valign="bottom" width="{areawidth}" height="2"/>
+	</loop>
+</area>
+</timers>
 
 <menuitems x="0" y="45%" orientation="vertical" width="100%" height="55%" numlistelements="8">
 
