@@ -19,7 +19,7 @@
 	<!-- list background -->
 		<area x="0" y="45%" width="33%" height="55%" layer="1">
             <drawrectangle x="0" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
-			<drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" y="10%" width="2" height="{areaheight}/1.5"/>
+			<drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" y="10%" width="2" height="{areaheight}"/>
 			<drawellipse x="{areawidth} - {areaheight}*0.10" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-1"/>
         </area>
 	<!-- button background -->
