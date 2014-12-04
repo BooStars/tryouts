@@ -1,0 +1,184 @@
+<menuschedules x="0" y="0" width="100%" height="100%" fadetime="0">
+
+<background>
+<!-- header background -->
+
+		<area x="0" y="0" width="70%" height="8%" layer="1">
+			 <drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			 <drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
+		</area>
+<!-- date background -->
+		<area x="70%" y="0%" width="30%" height="10%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
+			<drawellipse x="0" y="{areaheight} - {areaheight}*0.15" width="{areaheight}*0.15" height="{areaheight}*0.15" color="{clrTransparent}" quadrant="-3"/>
+		</area>
+
+<!--list-->
+	<area x="0" y="12%" width="78%" height="51%" layer="1">
+		<drawrectangle x="0" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
+		<drawellipse x="{areawidth} - {areaheight}*0.10" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse x="{areawidth} - {areaheight}*0.10" y="{areaheight} - {areaheight}*0.10" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-4"/>
+		<drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" y="15%" width="2" height="{areaheight}/1.5"/>
+	</area>
+		
+<!-- background info bar -->
+	<area x="21%" y="65%" width="80%" height="26%" layer="1">
+		<drawrectangle x="2" y="2" width="{areawidth}-2" height="{areaheight}-2" color="{clrTransBlack}" />
+		<drawellipse x="0" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-2"/>
+		<drawellipse x="0" y="{areaheight} - {areaheight}*0.10" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-3"/>
+		
+		<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/2" height="2"/>
+		<drawimage name="line_left" imagetype="skinpart" path="line_left" x="0" valign="center" width="2" height="{areaheight}/1.5"/>
+	</area>
+
+<!-- channellogo background -->
+	<area x="0" y="65%" width="18%" height="26%" layer="1">
+		<drawrectangle x="0" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
+		<drawellipse x="{areawidth} - {areaheight}*0.10" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse x="{areawidth} - {areaheight}*0.10" y="{areaheight} - {areaheight}*0.10" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-4"/>
+		<drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" valign="center" width="2" height="{areaheight}/1.5"/>
+	</area>
+	
+<!-- button background -->
+	
+		<area x="35%" y="93%" width="65%" height="8%" layer="1">
+			<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/1.5" height="2"/>
+			<drawrectangle x="0" y="2" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawellipse x="0" y="0" width="{areaheight}*0.50" height="{areaheight}*0.50" color="{clrTransparent}" quadrant="-2"/>
+	    </area>
+		
+
+</background>
+
+
+<header>
+  <area x="1" y="0" width="68%" height="7%" layer="2">
+		<drawimage condition="{hasicon}" name="menuicon" imagetype="menuicon" path="{icon}" x="0" valign="center" width="{areaheight}" height="{areaheight}"/>
+		<drawtext condition="{hasicon}++{whatson}" x="{width(menuicon)}"  valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{channelnumber} - {channelname}" />
+		<drawtext condition="{hasicon}++{whatsonnow}" x="{width(menuicon)}" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		<drawtext condition="{hasicon}++{whatsonnext}" x="{width(menuicon)}" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+
+		<drawtext condition="not{hasicon}++{whatson}" x="0"  valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{channelnumber} - {channelname}" />
+		<drawtext condition="not{hasicon}++{whatsonnow}||{whatsonnext}" x="0" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+	</area>
+</header>
+
+
+
+<menuitems x="0" y="13%" orientation="vertical" width="100%" height="51%"  numlistelements="12">
+	
+<listelement>
+	<area x="1%" width="77%" layer="2">
+		<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" width="{areawidth}-2" height="{areaheight}-4"/>
+		<drawimage condition="{current}" name="line_top" imagetype="skinpart" path="line_top" x="5%" valign="top" width="{areawidth}/1.5" height="2"/>
+		<drawimage condition="{current}" name="line_bottom" imagetype="skinpart" path="line_bottom" x="5%" valign="bottom" width="{areawidth}/1.5" height="2"/>
+		<drawellipse condition="eq({nummenuitem},1)"  x="{areawidth} - {areaheight}*0.85" y="0" width="{areaheight}*0.85" height="{areaheight}*0.85" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse condition="eq({nummenuitem},12)" x="{areawidth} - {areaheight}*1.0" y="{areaheight} - {areaheight}*1.0" width="{areaheight}*1" height="{areaheight}*1.0" color="{clrTransparent}" quadrant="-4"/>
+	
+	</area>
+         
+			
+<!-- WHATSON -->
+	<!-- <fill color="{clrBlue}" /> -->
+	<area condition="{whatson} ++ not{separator}" x="1%" width="15%" layer="3">
+	
+		<drawimage name="timerfull" condition="{timerfull}++not{running}" imagetype="icon" path="timer" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
+      	<drawimage name="running" condition="{running}" imagetype="icon" path="running" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
+		<drawimage name="timerfullrun" condition="{timerfull}++{running}" imagetype="icon" path="running_rec" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />	
+		<drawtext name="date" x="{width(timerfull)}/0.75" font="{light}" fontsize="90%" color="{clrWhite}" text="{day} {daynumeric} - {start}" />		
+	</area>
+
+	<areascroll condition="{whatson}++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="17%" width="60%" layer="3">	
+		<drawtext name="menutext" x="0" font="{light}" fontsize="90%" color="{clrWhite}" text=" {title}" />
+    </areascroll>
+		
+			
+<!-- WHATSONNOW -->
+	<area condition="{whatsonnow} ++ not{separator}" x="1%" width="22%" layer="3">	
+		<drawimage name="running" condition="{running}" imagetype="icon" path="running" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
+		<drawimage name="timerfullrun" condition="{timerfull}++{running}" imagetype="icon" path="running_rec" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />	
+		<drawimage name="logo" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" x="{width(timerfullrun)}/0.75" y="0" width="{areawidth}/4" height="100%" />
+        <!-- <drawtext name="notlogo" condition="not{channellogoexists}" x="{posx(logo)}+{width(logo)}/2-{width(notlogo)}/2" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{number}" /> -->
+		<drawtext name="date" x="{width(logo)}+{posx(logo)}/0.75" font="{light}" fontsize="90%" color="{clrWhite}" text="{day} {daynumeric} - {start}" />	
+	
+	</area>
+
+	<areascroll condition="{whatsonnow} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="23%" width="54%" layer="3">
+		<drawtext name="menutext" x="0" font="{light}" fontsize="90%" color="{clrWhite}" text="{title}" />
+	</areascroll>
+		
+			
+			
+<!-- WHATSONNEXT  -->
+	<area condition="{whatsonnext} ++ not{separator}" x="1%" width="22%" layer="3">	
+	
+		<drawimage name="timerfull" condition="{timerfull}" imagetype="icon" path="timer" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
+      
+		<drawimage name="logo" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" x="{width(timerfull)}/0.75" y="0" width="{areawidth}/4" height="100%" />
+        <!-- <drawtext name="notlogo" condition="not{channellogoexists}" x="{posx(logo)}+{width(logo)}/2-{width(notlogo)}/2" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{channelnumber}" /> -->
+		<drawtext name="date" x="{width(logo)}+{posx(logo)}/0.75" font="{light}" fontsize="90%" color="{clrWhite}" text="{day} {daynumeric} - {start}" />	
+	</area>
+
+	<areascroll condition="{whatsonnext} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="23%" width="54%" layer="3">
+		<drawtext name="menutext" x="0" font="{light}" fontsize="90%" color="{clrWhite}" text="{title}" />	
+    </areascroll>
+	
+<!-- separator -->
+<area condition="{separator}++{whatson}" x="0%" width="76%" layer="4">
+      <drawtext x="0" y="0" font="{light}" fontsize="95%" color="{clrOwnCyan}" text=" {title}" />
+ </area>	
+ <area condition="{separator}++not{whatson}" x="1%" width="76%" layer="4">
+      <drawtext x="0" y="0" font="{light}" fontsize="95%" color="{clrOwnCyan}" text="{title}" />
+ </area>	
+</listelement>
+    	
+<currentelement delay="250" fadetime="0">
+
+
+<!-- text infobar -->
+	<area x="22%" y="105%" width="78%" height="45%" layer="2">
+        <drawtext name="title" x="0" y="0" font="{semibold}" width="{areawidth}" fontsize="20%" color="{clrOwnCyan}" text="{title}" />
+		<drawtext name="shorttext" x="0" y="{height(title)}" font="{semibold}" width="{areawidth}" fontsize="15%" color="{clrWhite}" text="{shorttext}" />
+		
+        <drawtext condition="{running}" name="start" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="12%" color="{clrWhite}" text="{start}" />
+        <drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2" width="{areawidth}/2" height="1" color="{clrOwnCyan}" />
+        <drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2-2" width="{areawidth}/2 * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrOwnCyan}" />
+        <drawtext condition="{running}" name="stop" x="{width(sb2)}+{width(start)}+{width(start)}/4"  y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="12%" color="{clrWhite}" text="{stop}" />
+        <drawtext condition="not{running}" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="12%" color="{clrWhite}" text="{start} - {stop} ({duration} min)" />
+		
+	</area>
+
+    <areascroll  mode="forthandback" orientation="vertical" delay="1000" scrollspeed="medium" x="22%" y="130%" width="78%" height="20%" layer="2">
+		<drawtextbox x="0" y="0" width="95%" height="{areaheight} - {posy(poster)}" float="topleft"  font="{light}" fontsize="30%" color="{clrWhite}" text="{description}" />
+	</areascroll>
+
+			
+<!-- channellogo  -->
+	<area x="1%" y="106%" width="16%" height="43%" layer="2">
+	        <drawimage cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" align="center" valign="center" width="{areawidth}" height="{areaheight}" />
+            <!--  <drawtext condition="not{channellogoexists}" align="center" valign="center" font="{light}" fontsize="40%" color="{clrWhite}" text="{number}" /> -->
+	</area> 
+		
+	<!-- scraper poster -->
+		<area x="80%" y="0" width="18%" height="95%" layer="3">
+			
+			<drawimage condition="{hasposter}" name="recback" imagetype="image" path="{ressourcedir}/images/recback_movie.png" x="0" y="0" valign="top" align="center" width="{areaheight} * 0.88  * {posterwidth} / {posterheight}" height="{areaheight} * 0.95" />
+			<drawimage  condition="{hasposter}" name="poster" imagetype="image" path="{posterpath}" x="0" y="0" align="center" valign="center" width="{areaheight} * 0.8  * {posterwidth} / {posterheight}" height="{areaheight} * 0.8"/>	
+
+	</area>
+		
+</currentelement>
+</menuitems>	
+
+ <scrollbar>
+
+	<area x="0" y="12%" width="1%" height="51%" layer="5">
+		<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
+		<drawrectangle x="0" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}/1.35" height="{areaheight} * {height} / 1000" color="{clrOwnCyan}" />			
+		
+	</area>
+
+</scrollbar>
+
+</menuschedules>

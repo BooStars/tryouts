@@ -1,0 +1,37 @@
+<menumain x="0" y="0" width="100%" height="100%" fadetime="0">
+
+<header>
+	<area x="0%" y="0%" width="70%" height="7%" layer="2">
+		<drawimage name="vdrlogo" imagetype="icon" path="vdrlogo" x="0" width="{areawidth}/7" height="{areaheight}" valign="top" />
+		<drawtext x="{width(vdrlogo)}" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{vdrversion}" />
+		
+	</area>
+</header>
+
+<menuitems x="0" y="45%" orientation="vertical" width="100%" height="55%" numlistelements="8">
+
+<listelement >
+<!--active item -->
+	<area x="1%" width="32%" layer="2">
+		<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" y="2" width="{areawidth}-2" height="{areaheight}-4"/>
+		<drawimage condition="{current}" name="line" imagetype="skinpart" path="line_top" x="5%" valign="top" width="{areawidth}/1.3" height="2"/>
+		<drawimage condition="{current}" name="line" imagetype="skinpart" path="line_bottom" x="5%" valign="bottom" width="{areawidth}/1.3" height="2"/>
+		<drawellipse condition="eq({nummenuitem},1)" x="{areawidth} - {areaheight}*0.80" y="0" width="{areaheight}*0.80" height="{areaheight}*0.80" color="{clrTransparent}" quadrant="-1"/>
+	</area>
+			
+	<areascroll scrollelement="menutext" mode="forthandback" orientation="horizontal" delay="1000" scrollspeed="medium" x="2%" width="30%"  layer="3">
+		<drawtext name="menutext" x="0" valign="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{number} {label}" />
+    </areascroll>
+
+</listelement>
+</menuitems>
+  
+ <scrollbar>
+	<area x="0" y="45%" width="1%" height="55%" layer="5">
+		<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
+		<drawrectangle x="0" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}/1.35" height="{areaheight} * {height} / 1000" color="{clrOwnCyan}" />			
+</area>
+</scrollbar>
+
+
+</menumain>

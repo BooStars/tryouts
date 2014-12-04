@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE displaymessage SYSTEM "../../../dtd/displaymessage.dtd">
+
+<displaymessage x="0" y="75%" width="90%" height="15%" fadetime="0">
+
+<message>
+	  <area x="0" y="0%" width="100%" height="100%" layer="7">  
+				  
+		<drawimage condition="{error}" name="message_red" imagetype="skinpart" path="message_red" x="0" valign="bottom" width="100%" height="100%"/>
+		<drawimage condition="{status}" name="message_green" imagetype="skinpart" path="message_green" x="0" valign="bottom" width="100%" height="100%"/>
+		<drawimage condition="{warning}" name="message_yellow" imagetype="skinpart" path="message_yellow" x="0" valign="bottom" width="100%" height="100%"/>
+		<drawimage condition="{info}" name="message_blue" imagetype="skinpart" path="message_blue" x="0" valign="bottom" width="100%" height="100%"/>
+	
+		<drawellipse x="{areawidth} - {areaheight}*0.30" y="0" width="{areaheight}*0.30" height="{areaheight}*0.30" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse x="{areawidth} - {areaheight}*0.30" y="{areaheight} - {areaheight}*0.30" width="{areaheight}*0.30" height="{areaheight}*0.30" color="{clrTransparent}" quadrant="-4"/>
+	
+	</area>
+	<area x="0" y="0%" width="100%" height="100%" layer="7">    
+	
+		<drawtext align="center" valign="center" font="{light}" fontsize="45%" color="{clrWhite}" text="{text}" />
+	</area>
+</message>
+</displaymessage>

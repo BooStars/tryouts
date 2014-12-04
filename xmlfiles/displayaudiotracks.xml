@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE displayaudiotracks SYSTEM "../../../dtd/displayaudiotracks.dtd">
+
+<displayaudiotracks x="0" y="0" width="100%" height="100%" fadetime="0">
+    <background>
+        <area x="{areawidth}/4" y="{areaheight} - {numtracks} * {areaheight} / 10 - {areaheight} / 10" width="50%" height="{areaheight} / 10 + {areaheight} / 10 * {numtracks}" layer="1">
+            <drawrectangle x="0" y="2" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawellipse x="0" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-2"/>
+			<drawellipse x="{areawidth} - {areaheight}*0.10" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-1"/>
+			<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/2" height="2"/>
+        </area>
+    </background>
+
+    <header>
+        <area x="{areawidth}/4" y="{areaheight} - {numtracks} * {areaheight} / 10 - {areaheight} / 10" width="50%" height="{areaheight} / 10" layer="2">
+            <drawtext x="1%" valign="center" font="{light}" fontsize="80%" color="{clrOwnCyan}" text="{title}" />
+            <drawimage name="stereo" condition="{isstereo}" imagetype="icon" path="stereo_on" x="{areawidth} - {width(stereo)}" valign="center" width="{areawidth}/8" height="{areawidth}/9"/>
+            <drawimage name="dd" condition="{isac3}" imagetype="icon" path="dd_on" x="{areawidth} - {width(dd)}" valign="center" width="{areawidth}/8" height="{areawidth}/9"/>
+        </area>
+    </header>
+
+
+    <menuitems x="0" y="{areaheight} - {numelements} * {areaheight} / 10" orientation="vertical" width="100%" height="{numelements} * {areaheight} / 10" align="top" numlistelements="{numelements}">
+
+        <listelement>
+            <!-- Background -->
+            <area x="25%" width="50%" layer="2">
+			<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" width="{areawidth}" height="{areaheight}-4"/>
+			<drawimage condition="{current}" name="line_top" imagetype="skinpart" path="line_top" x="5%" valign="top" width="{areawidth}/1.5" height="2"/>
+			<drawimage condition="{current}" name="line_bottom" imagetype="skinpart" path="line_bottom" x="5%" valign="bottom" width="{areawidth}/1.5" height="2"/>
+			</area>
+         
+            <area x="25%" width="50%" layer="3">
+                <drawtext x="1%" valign="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{title}" />
+            </area>
+        </listelement>
+    </menuitems>
+
+</displayaudiotracks>

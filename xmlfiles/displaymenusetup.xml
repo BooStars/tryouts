@@ -1,0 +1,43 @@
+<menusetup x="0" y="0" width="100%" height="100%" fadetime="0">
+<header>
+	<area x="1%" y="0" width="65%" height="7%" layer="2">
+		<drawtext x="0" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+	</area>
+</header>
+
+<datetime>
+	<area x="70%" y="0%" width="30%" height="10%" layer="2">
+		<drawtext name="dayname" x="2%" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
+		<drawtext x="2%" y="{height(dayname)}" font="{light}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
+		<drawtext align="right" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{time}" />
+    </area>
+</datetime>
+
+    
+<menuitems x="0" y="45%" orientation="vertical" width="100%" height="55%"  numlistelements="8">
+
+<listelement>
+<!--active item -->
+	<area x="1%" width="32%" layer="2">
+		<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" width="{areawidth}-2" height="{areaheight}-4"/>
+		<drawimage condition="{current}" name="line_top" imagetype="skinpart" path="line_top" x="5%" valign="top" width="{areawidth}/1.5" height="2"/>
+		<drawimage condition="{current}" name="line_bottom" imagetype="skinpart" path="line_bottom" x="5%" valign="bottom" width="{areawidth}/1.5" height="2"/>
+	
+		<drawellipse condition="eq({nummenuitem},1)" x="{areawidth} - {areaheight}*0.80" y="0" width="{areaheight}*0.80" height="{areaheight}*0.80" color="{clrTransparent}" quadrant="-1"/>
+	</area>				 
+	
+	<areascroll scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="2%" width="30%"  layer="3">
+		<drawtext name="menutext" x="0" valign="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{number} {label}" />
+    </areascroll>
+</listelement>
+     
+</menuitems>
+
+<scrollbar>
+	<area x="0" y="45%" width="1%" height="55%" layer="5">
+	<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
+		<drawrectangle x="0" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}/1.35" height="{areaheight} * {height} / 1000" color="{clrOwnCyan}" />			
+	</area>
+</scrollbar>
+	
+</menusetup>

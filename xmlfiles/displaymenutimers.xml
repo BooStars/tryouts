@@ -1,0 +1,70 @@
+<menutimers x="0" y="0" width="100%" height="100%" fadetime="0">
+<background>
+<!-- header background -->
+	<area x="0" y="0" width="70%" height="8%" layer="1">
+		<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+		 <drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
+	</area>
+<!-- date background -->
+		<area x="70%" y="0%" width="30%" height="10%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
+			<drawellipse x="0" y="{areaheight} - {areaheight}*0.15" width="{areaheight}*0.15" height="{areaheight}*0.15" color="{clrTransparent}" quadrant="-3"/>
+		</area>
+
+<!--list-->
+	<area x="0" y="12%" width="78%" height="75%" layer="1">
+		<drawrectangle x="0" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
+		<drawellipse x="{areawidth} - {areaheight}*0.10" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse x="{areawidth} - {areaheight}*0.10" y="{areaheight} - {areaheight}*0.10" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-4"/>
+		<drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" y="15%" width="2" height="{areaheight}/1.5"/>
+	</area>
+		
+	<!-- button background -->
+	
+		<area x="35%" y="93%" width="65%" height="8%" layer="1">
+			<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/1.5" height="2"/>
+			<drawrectangle x="0" y="2" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawellipse x="0" y="0" width="{areaheight}*0.50" height="{areaheight}*0.50" color="{clrTransparent}" quadrant="-2"/>
+	    </area>
+</background>
+
+<menuitems x="0" y="13%" orientation="vertical" width="100%" height="73%" numlistelements="15">
+<listelement>
+	<area x="1%" width="77%" layer="2">
+		<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" width="{areawidth}-2" height="{areaheight}-4"/>
+		<drawimage condition="{current}" name="line_top" imagetype="skinpart" path="line_top" x="5%" valign="top" width="{areawidth}/1.5" height="2"/>
+		<drawimage condition="{current}" name="line_bottom" imagetype="skinpart" path="line_bottom" x="5%" valign="bottom" width="{areawidth}/1.5" height="2"/>
+		<drawellipse condition="eq({nummenuitem},1)"  x="{areawidth} - {areaheight}*1.2" y="0" width="{areaheight}*1.2" height="{areaheight}*1.2" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse condition="eq({nummenuitem},15)" x="{areawidth} - {areaheight}*1.45" y="{areaheight} - {areaheight}*1.05" width="{areaheight}*1.50" height="{areaheight}*1.00" color="{clrTransparent}" quadrant="-4"/>
+	</area>
+         
+<!--icon + day -->
+	<area x="1%" width="10%" layer="3">
+		
+			 <drawimage condition="{flagactive}" name="active" imagetype="icon" path="ico_timer_active" x="0" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
+             <drawimage condition="not{flagactive}" name="active" imagetype="icon" path="ico_timer_inactive" x="0" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
+             <drawimage condition="{flagrecording}" name="active" imagetype="icon" path="ico_timer_recording" x="0" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
+			 <drawtext name="timerday" x="0" align="right" valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{dayname} {day}" />	 
+		</area>
+<!--timertime -->
+	<area x="13%" width="17%" layer="3">
+		
+		<drawtext name="timertime" x="{width(timerday)}"  valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{timerstart}-{timerstop}" />
+	</area>
+		
+	<areascroll scrollelement="timertext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="27%" width="50%" layer="3">
+		<drawtext name="timertext" x="0" valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{title}" />
+	</areascroll>
+
+</listelement>
+</menuitems>
+  
+ <scrollbar>
+	<area x="0" y="12%" width="1%" height="75%" layer="5">
+		<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
+		<drawrectangle x="0" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}/1.35" height="{areaheight} * {height} / 1000" color="{clrOwnCyan}" />			
+	</area>
+</scrollbar>
+	
+</menutimers>

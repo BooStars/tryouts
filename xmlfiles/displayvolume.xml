@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE displayvolume SYSTEM "../../../dtd/displayvolume.dtd">
+
+<displayvolume  x="0" y="75%" width="100%" height="25%" fadetime="0">
+<background>
+	<area x="{areawidth}/4" y="0" width="50%" height="{areaheight}" layer="1">
+		<drawimage name="line_top" imagetype="skinpart" path="line_top" x="5%" y="0" width="{areawidth}/1.5" height="2"/>
+		<drawrectangle x="0" y="2" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+		<drawellipse x="0" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-2"/>
+		<drawellipse x="{areawidth} - {areaheight}*0.10" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-1"/>	
+	</area>
+</background>
+
+<volume>
+	<area x="{areawidth}/4" y="5%" width="50%" height="{areaheight}" layer="2">
+    <drawtext name="volume" x="1%" valign="top" font="{light}" fontsize="30%" color="{clrWhite}" text="{tr(volume)}: {volumepercent}%" />
+    <drawimage name="muteoff" condition="not{mute}" imagetype="icon" path="mute_off" x="{areawidth} - {width(muteoff)}" y="{posy(volume)}" width="{areawidth}/8" height="{height(volume)}"/>
+    <drawimage name="mute" condition="{mute}" imagetype="icon" path="mute_on" x="{areawidth} - {width(mute)}" y="{posy(volume)}" width="{areawidth}/8" height="{height(volume)}"/>
+    </area>
+     
+	<area x="26%" y="55%" width="48%" height="5%" layer="2">
+	<drawrectangle name="sb1" x="0" y="0" valign="center" width="{areawidth}-{posx(sb1)}" height="{areaheight}/8" color="{clrWhite}" />
+    <drawrectangle name="sb1" x="0" y="0" valign="center" width="{volume}/{maxvolume}*{areawidth}" height="{areaheight}" color="{clrOwnCyan}" />
+    </area>        
+</volume>
+
+</displayvolume>
+
+
+	

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE displaychannel SYSTEM "../../../dtd/displaychannel.dtd">
+
+<displaychannel x="0" y="0" width="100%" height="100%" fadetime="0">
+    <background>
+	<!-- date background -->
+		<area x="70%" y="0%" width="30%" height="10%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
+			<drawellipse x="0" y="{areaheight} - {areaheight}*0.15" width="{areaheight}*0.15" height="{areaheight}*0.15" color="{clrTransparent}" quadrant="-3"/>
+		</area>
+	
+   <!-- infobar background -->
+        <area x="0" y="55%" width="80%" height="35%" layer="1">
+			<drawrectangle x="0" y="2" width="{areawidth}-2" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0"  width="{areawidth}/1.5" height="2"/>
+			<drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" valign="center" width="2" height="{areaheight}/1.5"/>
+		
+			<drawellipse x="{areawidth} - {areaheight}*0.10" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-1"/>
+			<drawellipse x="{areawidth} - {areaheight}*0.10" y="{areaheight} - {areaheight}*0.10" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-4"/>
+		</area>
+		
+		<!-- background channellogo  -->
+		<!-- evtl rundungsfehler -->
+        <area x="81%" y="55%" width="20%" height="35%" layer="1">
+			<drawrectangle x="2" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
+			<drawimage name="line_left" imagetype="skinpart" path="line_left" x="0" valign="center" width="2" height="{areaheight}/1.5"/>
+			<drawellipse x="0" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-2"/>
+			<drawellipse x="0" y="{areaheight} - {areaheight}*0.10" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-3"/>
+			
+	     </area>
+		
+		<!-- iconbar background -->
+		<area x="35%" y="93%" width="65%" height="8%" layer="1">
+			<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/1.5" height="2"/>
+			<drawrectangle x="0" y="2" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawellipse x="0" y="0" width="{areaheight}*0.50" height="{areaheight}*0.50" color="{clrTransparent}" quadrant="-2"/>
+	    </area>
+		 
+</background>
+
+<datetime>
+	<area x="70%" y="0%" width="30%" height="10%" layer="2">
+		<drawtext name="dayname" x="2%" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
+		<drawtext x="2%" y="{height(dayname)}" font="{light}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
+		<drawtext align="right" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{time}" />
+    </area>
+</datetime>
+
+
+<channelinfo>
+
+
+	  <area x="0" y="55%" width="80%" height="8%" layer="2">
+		<drawtext name="channame" x="1%" valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{channelnumber}  {channelname}" />
+	  </area>
+
+	   
+	  <area x="83%" y="55%" width="16%" height="35%" layer="2">
+            <drawimage cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" align="center" valign="center" width="{areawidth}" height="{areaheight}" />
+            <drawtext condition="not{channellogoexists}" align="center" valign="center" font="{light}" fontsize="40%" color="{clrWhite}" text="{channelnumber}" />
+        </area>
+    </channelinfo>
+    
+
+<epginfo>
+	<area x="0" y="63%" width="80%" height="12%" layer="2">
+		
+		<drawtext name="start" x="1%" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{currentstart}" />
+        <drawtext name="title" x="{width(start)}+{posx(start)}*2" y="{posy(start)}" width="{areawidth}-{width(startstop)}-{posx(title)}-{posx(start)}*2" font="{light}" fontsize="50%" color="{clrOwnCyan}" text="{currenttitle}"  />       
+		<drawtext name="subtitle" x="{width(start)}+{posx(start)}*2" y="{posy(title)}+{height(title)}" width="{areawidth}-{width(startstop)}-{posx(title)}-{posx(start)}*2" font="{light}" fontsize="40%" color="{clrWhite}" text="{currentsubtitle}"/>
+		
+		<drawtext name="startstop" x="{areawidth} - {width(startstop)} - {posx(start)}" y="0" font="{light}" fontsize="45%" color="{clrWhite}" text="{currentstart} - {currentstop}" />
+        <drawtext name="currenttimeremaining" x="{areawidth}-{width(currenttimeremaining)} - {posx(start)}" y="{posy(startstop)}+{height(startstop)}" font="{light}" fontsize="40%" color="{clrWhite}" text="+ {currentremaining} min" />			
+	</area>	
+	
+	<area x="0" y="77%" width="80%" height="12%" layer="2">
+		
+		<drawtext name="nextstart" x="1%" y="0" font="{light}" fontsize="50%" color="{clrLightGray}" text="{nextstart}" />
+        <drawtext name="nexttitle" x="{width(nextstart)}+{posx(nextstart)}*2"  y="{posy(nextstart)}" font="{light}" width="{areawidth} - {width(nextstartstop)} - {posx(nexttitle)} - {posx(nextstart)}*2" fontsize="50%" color="{clrLightGray}" text="{nexttitle}"/>
+        <drawtext name="nextsubtitle" x="{width(nextstart)}+{posx(nextstart)}*2"  y="{posy(nexttitle)}+{height(nexttitle)}" width="{areawidth} - {width(nextstartstop)} -{posx(nexttitle)}-{posx(nextstart)}*2" font="{light}" fontsize="40%" color="{clrLightGray}" text="{nextsubtitle}"/>
+            
+		<drawtext name="nextstartstop" x="{areawidth}-{width(nextstartstop)}-{posx(nextstart)}" y="0" font="{light}" fontsize="45%" color="{clrLightGray}" text="{nextstart} - {nextstop}" />
+        <drawtext name="nextduration" x="{areawidth}-{width(nextduration)}-{posx(nextstart)}" y="{posy(nextstartstop)}+{height(nextstartstop)}" font="{light}" fontsize="40%" color="{clrLightGray}" text="{nextduration} min" />
+	</area>
+</epginfo>
+
+
+<progressbar>
+	<area x="1%" y="75%" width="78%" height="1%" layer="3">
+		<drawrectangle  x="0" y="0" align="center" valign="center" width="100%" height="{areaheight}/8" color="{clrWhite}" />
+        <drawrectangle x="0" y="0" width="{elapsed}/{duration}*{areawidth}" height="100%" color="{clrOwnCyan}" />
+    </area>
+	
+</progressbar>
+
+<screenresolution>
+	<area x="35%" y="93%" width="65%" height="8%" layer="2">
+		<drawimage name="res" condition="eq({screenheight},1080)" imagetype="icon" path="1080" align="right" valign="center" width="{areawidth}/13" height="100%" />
+		<drawimage name="res" condition="eq({screenheight},720)" imagetype="icon" path="720" align="right" valign="center" width="{areawidth}/13" height="100%"/>
+		<drawimage name="res" condition="eq({screenheight},576)" imagetype="icon" path="576" align="right" valign="center" width="{areawidth}/13" height="100%" />
+		
+		<drawimage name="aspect" condition="eq({aspect},16:9)" imagetype="icon" path="169" x="{areawidth} - {width(res)}*2" valign="center" width="{areawidth}/13" height="100%" />
+		<drawimage name="aspect" condition="eq({aspect},4:3)" imagetype="icon" path="43" x="{areawidth} - {width(res)}*2" valign="center" width="{areawidth}/13" height="100%" />
+		
+		<drawimage name="hd" condition="{isHD}" imagetype="icon" path="hdtv" x="{areawidth} - {width(res)}*3" valign="center" width="{areawidth}/13" height="100%" />
+		<drawimage name="hd" condition="not{isHD}" imagetype="icon" path="sdtv" x="{areawidth} - {width(res)}*3" valign="center" width="{areawidth}/13" height="100%" />
+	</area>
+</screenresolution>
+
+<statusinfo>
+	<area x="35%" y="93%" width="65%" height="8%" layer="3">
+	<!--  encrypted / decrypted icon -->
+		<drawimage  name="enc" condition="{isEncrypted}" imagetype="icon" path="crypt_on" x="{areawidth} - {width(enc)}*4" valign="center" width="{areawidth}/13" height="100%" />
+		<drawimage condition="not{isEncrypted}" imagetype="icon" path="crypt_off" x="{areawidth} - {width(enc)}*4" valign="center" width="{areawidth}/13" height="100%" />
+	<!-- dolby icon -->
+		<drawimage name="dolby" condition="{isDolby}" imagetype="icon" path="dd_on" x="{posx(enc)} - {width(enc)}"  valign="center" width="{areawidth}/13" height="100%" />		
+        <drawimage condition="not{isDolby}" imagetype="icon" path="dd_off" x="{posx(enc)} - {width(enc)}" valign="center" width="{areawidth}/13" height="100%" />
+	<!-- videotext icon -->
+		<drawimage name="txt" condition="{hasVT}" imagetype="icon" path="vt_on" x="{posx(dolby)} - {width(dolby)}"  valign="center" width="{areawidth}/13" height="100%" />
+		<drawimage condition="not{hasVT}" imagetype="icon" path="vt_off" x="{posx(dolby)} - {width(dolby)}"  valign="center" width="{areawidth}/13" height="100%" />
+	
+		<drawimage name="audiotrack" imagetype="icon" path="audiotrack_off" x="{posx(txt)} - {width(txt)}" valign="center" width="{areawidth}/13" height="100%" />
+		
+	<!-- recording icon -->
+		<drawimage name="rec" condition="{isRecording}" imagetype="icon" path="rec_on" x="{posx(audiotrack)} - {width(audiotrack)}"  valign="center" width="{areawidth}/13" height="100%" />
+		<drawimage condition="not{isRecording}" imagetype="icon" path="rec_off" x="{posx(audiotrack)} - {width(audiotrack)}"  valign="center" width="{areawidth}/13" height="100%" />  
+		
+		</area>
+	
+</statusinfo>
+	
+	
+<audioinfo>
+	<area x="35%" y="93%" width="65%" height="8%" layer="4">
+		    
+		<drawimage condition="eq({numaudiotracks},1)" imagetype="icon" name="audiotrack1" path="audiotrack1" x="{areawidth} - {width(audiotrack1)}*7"  valign="center" width="{areawidth}/13" height="100%" />
+		<drawimage condition="eq({numaudiotracks},2)" imagetype="icon" name="audiotrack2" path="audiotrack2" x="{areawidth} - {width(audiotrack1)}*7"  valign="center" width="{areawidth}/13" height="100%" />
+		<drawimage condition="eq({numaudiotracks},3)" imagetype="icon" name="audiotrack3" path="audiotrack3" x="{areawidth} - {width(audiotrack1)}*7"  valign="center" width="{areawidth}/13" height="100%" />
+		<drawimage condition="eq({numaudiotracks},4)" imagetype="icon" name="audiotrack4" path="audiotrack4" x="{areawidth} - {width(audiotrack1)}*7"  valign="center" width="{areawidth}/13" height="100%" />
+
+	</area>
+</audioinfo>
+
+   
+    <channelgroup>
+
+          <area x="82%" y="55%" width="18%" height="35%" layer="2">
+            <drawimage condition="{sepexists}" imagetype="seplogo" path="{seppath}" align="center" valign="center" width="{areawidth}" height="{areaheight}" />
+            <drawimage condition="not{sepexists}" imagetype="icon" path="default" align="center" valign="center" width="{areawidth}" height="{areaheight}" />
+        </area>
+          <area x="1%" y="55%" width="78%" height="35%" layer="2">
+		<!-- dummies -->
+			<drawrectangle name="prev" x="1%" y="0"  width="29%" height="10" color="{clrTransparent}" />
+			<drawrectangle name="group" x="0" y="0" align="center" width="30%" height="1" color="{clrTransparent}" />
+
+            <drawtext valign="center" align="left" width="29%"  font="{light}" fontsize="18%" color="{clrWhite}" text="{prevgroup}" />
+			<drawimage valign="center" imagetype="icon" path="playback" x="{width(prev)}" width="5%" height="{areaheight}/5" />
+			<drawtext valign="center" align="center" width="30%"  font="{semibold}" fontsize="18%" color="{clrOwnCyan}" text="{group}" />
+            <drawimage valign="center" imagetype="icon" path="play" x="{width(group)}+{posx(group)}"  width="5%" height="{areaheight}/5" />
+            <drawtext valign="center" align="right" width="29%"  font="{light}" fontsize="18%" color="{clrWhite}" text="{nextgroup}" />
+        </area>             
+    </channelgroup>
+
+
+  <message>
+	  <area x="0" y="13%" width="90%" height="15%" layer="7">  
+				  
+		<drawimage condition="{error}" name="message_red" imagetype="skinpart" path="message_red" x="0" valign="bottom" width="100%" height="100%"/>
+		<drawimage condition="{status}" name="message_green" imagetype="skinpart" path="message_green" x="0" valign="bottom" width="100%" height="100%"/>
+		<drawimage condition="{warning}" name="message_yellow" imagetype="skinpart" path="message_yellow" x="0" valign="bottom" width="100%" height="100%"/>
+		<drawimage condition="{info}" name="message_blue" imagetype="skinpart" path="message_blue" x="0" valign="bottom" width="100%" height="100%"/>
+	
+		<drawellipse x="{areawidth} - {areaheight}*0.30" y="0" width="{areaheight}*0.30" height="{areaheight}*0.30" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse x="{areawidth} - {areaheight}*0.30" y="{areaheight} - {areaheight}*0.30" width="{areaheight}*0.30" height="{areaheight}*0.30" color="{clrTransparent}" quadrant="-4"/>
+	
+	</area>
+	<area x="0" y="13%" width="90%" height="15%" layer="7">    
+		<drawtext align="center" valign="center" font="{light}" fontsize="45%" color="{clrWhite}" text="{text}" />
+	</area>
+</message>
+	
+</displaychannel>

@@ -1,0 +1,89 @@
+<menudefault x="0" y="0" width="100%" height="100%" fadetime="0">
+<background>
+<!-- header background -->
+		<area x="0" y="0" width="70%" height="8%" layer="1">
+			 <drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			 <drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
+		</area>
+<!-- date background -->
+		<area x="70%" y="0%" width="30%" height="10%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
+			<drawellipse x="0" y="{areaheight} - {areaheight}*0.15" width="{areaheight}*0.15" height="{areaheight}*0.15" color="{clrTransparent}" quadrant="-3"/>
+		</area>
+<!--list-->
+	<area x="0" y="12%" width="90%" height="77%" layer="1">
+		<drawrectangle x="0" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
+		<drawellipse x="{areawidth} - {areaheight}*0.10" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse x="{areawidth} - {areaheight}*0.10" y="{areaheight} - {areaheight}*0.10" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-4"/>
+		<drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" y="15%" width="2" height="{areaheight}/1.5"/>
+	</area>
+		
+<!-- button background -->
+	
+		<area x="35%" y="93%" width="65%" height="8%" layer="1">
+			<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/1.5" height="2"/>
+			<drawrectangle x="0" y="2" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawellipse x="0" y="0" width="{areaheight}*0.50" height="{areaheight}*0.50" color="{clrTransparent}" quadrant="-2"/>
+	    </area>
+</background>
+
+<header>
+	<area x="0" y="0" width="64%" height="7%" layer="2">
+		<drawtext name="title" condition="not{hasicon}" x="0" width="{areawidth}" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		<drawimage name="menuicon" condition="{hasicon}" imagetype="menuicon" path="{icon}" x="0" valign="center" width="{areaheight}" height="{areaheight}"/>
+		<drawtext name="title" condition="{hasicon}" x="{posx(menuicon)}+{width(menuicon)}" valign="center" width="{areawidth}" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+	</area>
+</header>
+ 
+<datetime>
+	<area x="70%" y="0%" width="30%" height="10%" layer="2">
+		<drawtext name="dayname" x="2%" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
+		<drawtext x="2%" y="{height(dayname)}" font="{light}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
+		<drawtext align="right" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{time}" />
+    </area>
+</datetime>
+
+<scrollbar>
+	<area x="0" y="12%" width="1%" height="77%" layer="5">
+		<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
+		<drawrectangle x="0" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}/1.35" height="{areaheight} * {height} / 1000" color="{clrOwnCyan}" />			
+	</area>
+</scrollbar>
+
+    <!-- IMPORTANT: menuitemwidth and determinatefont have to be defined here. 
+	menuitemwidth defines the total width of the default menu items, 
+	determinatefont the function which sets the actual font to use. With that it is possible to determinate
+    the correct column widths -->
+	
+<menuitems x="0" y="13%" orientation="vertical" width="90%" height="77%" menuitemwidth="96%" determinatefont="column1" numlistelements="15">
+
+<listelement>
+	<area x="1%" width="99%" layer="2">
+		<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" width="{areawidth}-2" height="{areaheight}-4"/>
+		<drawimage condition="{current}" name="line_top" imagetype="skinpart" path="line_top" x="5%" valign="top" width="{areawidth}/1.5" height="2"/>
+		<drawimage condition="{current}" name="line_bottom" imagetype="skinpart" path="line_bottom" x="5%" valign="bottom" width="{areawidth}/1.5" height="2"/>
+		<drawellipse condition="eq({nummenuitem},1)"  x="{areawidth} - {areaheight}*1.10" y="0" width="{areaheight}*1.10" height="{areaheight}*1.10" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse condition="eq({nummenuitem},15)" x="{areawidth} - {areaheight}*1.05" y="{areaheight} - {areaheight}*1.05" width="{areaheight}*1.05" height="{areaheight}*1.05" color="{clrTransparent}" quadrant="-4"/>
+	</area>
+			
+			
+    <areascroll condition="{column2set}" scrollelement="column1" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="1%" width="{column1width}" layer="3">
+		<drawtext  name="column1" x="{column1x}" width="{column1width}" valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{column1}" />
+    </areascroll>
+            
+	<areascroll condition="not{column2set}" scrollelement="column1" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="1%" width="97%" layer="3">
+		<drawtext  name="column1" x="{column1x}" width="{column1width}" valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{column1}" />
+    </areascroll>
+            
+	<area x="0" width="97%" layer="3">
+		<drawtext condition="{column2set}" x="{column2x}" valign="center" width="{column2width}" font="{light}" fontsize="90%" color="{clrWhite}" text="{column2}" />
+		<drawtext condition="{column3set}" x="{column3x}" valign="center" width="{column3width}" font="{light}" fontsize="90%" color="{clrWhite}" text="{column3}" />
+		<drawtext condition="{column4set}" x="{column4x}" valign="center" width="{column4width}" font="{light}" fontsize="90%" color="{clrWhite}" text="{column4}" />
+		<drawtext condition="{column5set}" x="{column5x}" valign="center" width="{column5width}" font="{light}" fontsize="90%" color="{clrWhite}" text="{column5}" />
+		<drawtext condition="{column6set}" x="{column6x}" valign="center" width="{column6width}" font="{light}" fontsize="90%" color="{clrWhite}" text="{column6}" />
+	</area>
+
+</listelement>
+</menuitems>
+</menudefault>
