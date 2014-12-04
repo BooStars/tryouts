@@ -46,7 +46,8 @@
 <timers>
 <area x="71%" y="16%" width="29%" height="53%" layer="2">
 	<loop name="timers" x="0" y="0" orientation="vertical" columnwidth="{areawidth}" rowheight="{areaheight}/7">
-		<drawimage  cache="true" name="logo" imagetype="channellogo" path="{timers[channelid]}" x="{areawidth}-{width(logo)}*1.075" y="0" width="20%" height="{areaheight}/7" />
+		<drawimage  cache="true" condition="{timers[channellogoexists]}" name="logo" imagetype="channellogo" path="{timers[channelid]}" x="{areawidth}-{width(logo)}*1.075" y="0" width="20%" height="{areaheight}/7" />
+		<drawtext condition="not{timers[channellogoexists]}" name="channame" x="{areawidth}-{width(channame)}*1.075" y="0" width="20%" valign="center" font="{light}" fontsize="10%" color="{clrWhite}" text="{timers[channelnumber]}" />		
 		<drawtext name="datetime" x="{areawidth}-{width(logo)}*1.15-{width(datetime)}" y="0%" font="{light}" fontsize="7%" color="{clrWhite}" text="{timers[datetime]}" />
 		<drawtextbox name="title" x="0" y="{height(datetime)}" width="{columnwidth}-{width(logo)}*1.15" align="right" maxlines="1" font="{light}" fontsize="7%" color="{clrWhite}" text="{timers[title]}" />     
 		<drawimage condition="{timers[recording]}" name="rec" imagetype="icon" path="ico_timer_recording" x="{areawidth}-{width(logo)}*1.15-{width(datetime)}-{height(datetime)}*1.2" width="{height(datetime)}*1.2" height="{height(datetime)}*1.2" y="0" />
