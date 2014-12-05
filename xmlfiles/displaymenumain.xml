@@ -26,7 +26,7 @@
 	    </area>
 		
 <!-- timer background -->
-		<area x="70%" y="15%" width="30%" height="55%" layer="1">
+		<area condition="eq({showTimers},1)" x="70%" y="15%" width="30%" height="55%" layer="1">
 			<drawimage name="line_left" imagetype="skinpart" path="line_left" x="0" y="0" valign="center" width="2" height="{areaheight}/1.25"/>
 			
 			<drawrectangle x="2" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
@@ -44,7 +44,7 @@
 </header>
 
 <timers>
-<area x="71%" y="16%" width="29%" height="53%" layer="2">
+<area condition="eq({showTimers},1)" x="71%" y="16%" width="29%" height="53%" layer="2">
 	<loop name="timers" x="0" y="0" orientation="vertical" columnwidth="{areawidth}" rowheight="{areaheight}/7">
 		<drawimage  cache="true" condition="{timers[channellogoexists]}" name="logo" imagetype="channellogo" path="{timers[channelid]}" x="{areawidth}-{width(logo)}*1.075" y="0" width="20%" height="{areaheight}/7" />
 		<drawtext condition="not{timers[channellogoexists]}" name="channame" x="{areawidth}-{width(channame)}*1.075" y="0" width="20%" valign="center" font="{light}" fontsize="10%" color="{clrWhite}" text="{timers[channelnumber]}" />		

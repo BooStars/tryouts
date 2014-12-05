@@ -166,25 +166,25 @@
             <drawtext valign="center" align="right" width="29%"  font="{light}" fontsize="18%" color="{clrWhite}" text="{nextgroup}" />
         </area>             
     </channelgroup>
-<!--
+
 <signalquality>
-	<area x="36%" y="93%" width="65%" height="8%" layer="4">
+	<area condition="eq({showSignal},1)" x="36%" y="93%" width="65%" height="8%" layer="4">
 		<drawimage imagetype="icon" path="signal" x="0"  valign="center" width="{areawidth}/2.6" height="100%" />  
 	</area>
 		 
-	<area x="41%" y="95%" width="12%" height="4%" layer="4">
+	<area condition="eq({showSignal},1)" x="41%" y="95%" width="12%" height="4%" layer="4">
 		<drawrectangle x="{areawidth}*{signalstrength}/100" y="0" width="{areawidth} - {areawidth}*{signalstrength}/100" height="45%" color="{clrTransBlack}" />
         <drawrectangle x="{areawidth}*{signalquality}/100" y="50%" width="{areawidth} - {areawidth}*{signalquality}/100" height="45%" color="{clrTransBlack}" />
     </area>
 </signalquality>
 
 <signalqualityback>
-	<area x="41%" y="95%" width="12%" height="4%" layer="4">
+	<area condition="eq({showSignal},1)" x="41%" y="95%" width="12%" height="4%" layer="4">
         <drawimage imagetype="skinpart" path="signal" x="0" y="0" width="100%" height="45%"/>
         <drawimage imagetype="skinpart" path="signal" x="0" y="50%" width="100%" height="45%"/>
     </area>
 </signalqualityback>
--->
+
   <message>
 	  <area x="0" y="13%" width="90%" height="15%" layer="7">  
 				  

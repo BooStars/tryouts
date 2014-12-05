@@ -34,6 +34,10 @@
         <var type="int" name="border">5</var>
         <var type="int" name="fadeTime">0</var>
         <var type="string" name="stringglobal">hützligrütz</var>
+		
+		<var type="int" name="showSignal">0</var>
+		<var type="int" name="showTimers">1</var>
+		
     </variables>
     <!--
     translations used in the skin
