@@ -99,7 +99,7 @@
 		<drawimage name="running" condition="{running}" imagetype="icon" path="running" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
 		<drawimage name="timerfullrun" condition="{timerfull}++{running}" imagetype="icon" path="running_rec" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />	
 		<drawimage name="logo" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" x="{width(timerfullrun)}/0.75" y="0" width="{areawidth}/4" height="100%" />
-        <!-- <drawtext name="notlogo" condition="not{channellogoexists}" x="{posx(logo)}+{width(logo)}/2-{width(notlogo)}/2" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{number}" /> -->
+        <drawtext name="notlogo" condition="not{channellogoexists}" x="{posx(logo)}+{width(logo)}/2-{width(notlogo)}/2" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{channelnumber}" /> 
 		<drawtext name="date" x="{width(logo)}+{posx(logo)}/0.75" font="{light}" fontsize="90%" color="{clrWhite}" text="{day} {daynumeric} - {start}" />	
 	
 	</area>
@@ -116,7 +116,7 @@
 		<drawimage name="timerfull" condition="{timerfull}" imagetype="icon" path="timer" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
       
 		<drawimage name="logo" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" x="{width(timerfull)}/0.75" y="0" width="{areawidth}/4" height="100%" />
-        <!-- <drawtext name="notlogo" condition="not{channellogoexists}" x="{posx(logo)}+{width(logo)}/2-{width(notlogo)}/2" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{channelnumber}" /> -->
+        <drawtext name="notlogo" condition="not{channellogoexists}" x="{posx(logo)}+{width(logo)}/2-{width(notlogo)}/2" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{channelnumber}" />
 		<drawtext name="date" x="{width(logo)}+{posx(logo)}/0.75" font="{light}" fontsize="90%" color="{clrWhite}" text="{day} {daynumeric} - {start}" />	
 	</area>
 
@@ -157,7 +157,7 @@
 <!-- channellogo  -->
 	<area x="1%" y="106%" width="16%" height="43%" layer="2">
 	        <drawimage cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" align="center" valign="center" width="{areawidth}" height="{areaheight}" />
-            <!--  <drawtext condition="not{channellogoexists}" align="center" valign="center" font="{light}" fontsize="40%" color="{clrWhite}" text="{number}" /> -->
+            <drawtext condition="not{channellogoexists}" align="center" valign="center" font="{light}" fontsize="50%" color="{clrWhite}" text="{channelnumber}" />
 	</area> 
 		
 	<!-- scraper poster -->
