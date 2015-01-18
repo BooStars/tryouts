@@ -81,7 +81,7 @@
 			
 <!-- WHATSON -->
 	<!-- <fill color="{clrBlue}" /> -->
-	<area condition="{whatson} ++ not{separator}" x="1%" width="15%" layer="3">
+	<area condition="{whatson} ++ not{separator}" x="1%" width="16%" layer="3">
 	
 		<drawimage name="timerfull" condition="{timerfull}++not{running}" imagetype="icon" path="timer" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
       	<drawimage name="running" condition="{running}" imagetype="icon" path="running" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
@@ -89,13 +89,13 @@
 		<drawtext name="date" x="{width(timerfull)}/0.75" font="{light}" fontsize="90%" color="{clrWhite}" text="{day} {daynumeric} - {start}" />		
 	</area>
 
-	<areascroll condition="{whatson}++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="17%" width="60%" layer="3">	
+	<areascroll condition="{whatson}++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="18%" width="58%" layer="3">	
 		<drawtext name="menutext" x="0" font="{light}" fontsize="90%" color="{clrWhite}" text=" {title}" />
     </areascroll>
 		
 			
 <!-- WHATSONNOW -->
-	<area condition="{whatsonnow} ++ not{separator}" x="1%" width="22%" layer="3">	
+	<area condition="{whatsonnow} ++ not{separator}" x="1%" width="23%" layer="3">	
 		<drawimage name="running" condition="{running}" imagetype="icon" path="running" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
 		<drawimage name="timerfullrun" condition="{timerfull}++{running}" imagetype="icon" path="running_rec" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />	
 		<drawimage name="logo" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" x="{width(timerfullrun)}/0.75" y="0" width="{areawidth}/4" height="100%" />
@@ -104,14 +104,14 @@
 	
 	</area>
 
-	<areascroll condition="{whatsonnow} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="23%" width="54%" layer="3">
+	<areascroll condition="{whatsonnow} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="25%" width="53%" layer="3">
 		<drawtext name="menutext" x="0" font="{light}" fontsize="90%" color="{clrWhite}" text="{title}" />
 	</areascroll>
 		
 			
 			
 <!-- WHATSONNEXT  -->
-	<area condition="{whatsonnext} ++ not{separator}" x="1%" width="22%" layer="3">	
+	<area condition="{whatsonnext} ++ not{separator}" x="1%" width="23%" layer="3">	
 	
 		<drawimage name="timerfull" condition="{timerfull}" imagetype="icon" path="timer" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
       
@@ -120,7 +120,7 @@
 		<drawtext name="date" x="{width(logo)}+{posx(logo)}/0.75" font="{light}" fontsize="90%" color="{clrWhite}" text="{day} {daynumeric} - {start}" />	
 	</area>
 
-	<areascroll condition="{whatsonnext} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="23%" width="54%" layer="3">
+	<areascroll condition="{whatsonnext} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="25%" width="52%" layer="3">
 		<drawtext name="menutext" x="0" font="{light}" fontsize="90%" color="{clrWhite}" text="{title}" />	
     </areascroll>
 	

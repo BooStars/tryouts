@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE menuplugin SYSTEM "../../../dtd/displaymenuplugin.dtd">
+
+<menuplugin x="0" y="0" width="100%" height="100%" fadetime="0">
+<background>
+<!-- header background -->
+
+		<area x="0" y="0" width="70%" height="8%" layer="1">
+			 <drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			 <drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
+		</area>
+<!-- date background -->
+		<area x="70%" y="0%" width="30%" height="10%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
+			<drawellipse x="0" y="{areaheight} - {areaheight}*0.15" width="{areaheight}*0.15" height="{areaheight}*0.15" color="{clrTransparent}" quadrant="-3"/>
+		</area>
+
+<!--list-->
+	<area x="0" y="12%" width="78%" height="51%" layer="1">
+		<drawrectangle x="0" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
+		<drawellipse x="{areawidth} - {areaheight}*0.10" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse x="{areawidth} - {areaheight}*0.10" y="{areaheight} - {areaheight}*0.10" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-4"/>
+		<drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" y="15%" width="2" height="{areaheight}/1.5"/>
+	</area>
+		
+<!-- background info bar -->
+	<area x="21%" y="65%" width="80%" height="26%" layer="1">
+		<drawrectangle x="2" y="2" width="{areawidth}-2" height="{areaheight}-2" color="{clrTransBlack}" />
+		<drawellipse x="0" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-2"/>
+		<drawellipse x="0" y="{areaheight} - {areaheight}*0.10" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-3"/>
+		
+		<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/2" height="2"/>
+		<drawimage name="line_left" imagetype="skinpart" path="line_left" x="0" valign="center" width="2" height="{areaheight}/1.5"/>
+	</area>
+
+<!-- channellogo background -->
+	<area x="0" y="65%" width="18%" height="26%" layer="1">
+		<drawrectangle x="0" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
+		<drawellipse x="{areawidth} - {areaheight}*0.10" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse x="{areawidth} - {areaheight}*0.10" y="{areaheight} - {areaheight}*0.10" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-4"/>
+		<drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" valign="center" width="2" height="{areaheight}/1.5"/>
+	</area>
+	
+<!-- button background -->
+	
+		<area x="35%" y="93%" width="65%" height="8%" layer="1">
+			<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/1.5" height="2"/>
+			<drawrectangle x="0" y="2" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawellipse x="0" y="0" width="{areaheight}*0.50" height="{areaheight}*0.50" color="{clrTransparent}" quadrant="-2"/>
+	    </area>
+		
+
+</background>
+
+
+ <scrollbar>
+
+	<area x="0" y="12%" width="1%" height="51%" layer="5">
+		<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
+		<drawrectangle x="0" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}/1.35" height="{areaheight} * {height} / 1000" color="{clrOwnCyan}" />			
+		
+	</area>
+
+</scrollbar>
+
+    <!-- Available Variables in detailheader and tab:
+    {summary}                           short summary of weather
+    {icon}                              path to use in <drawimage> to display appropriate weather icon
+    {city}                              configured city to display weather for
+    {latitude}                          latitude
+    {longitude}                         longitude
+
+    {daily[day]}                        day of forecast in dd.mm
+    {daily[dayname]}                    three letter abbrivated day name
+    {daily[temperaturemin]}             minimum temperature at this day in °C
+    {daily[temperaturemintime]}         time of minimum temperature
+    {daily[temperaturemax]}             maximum temperature at this day in °C
+    {daily[temperaturemaxtime]}         time of maximum temperature
+    {daily[summary]}                    short summary
+    {daily[icon]}                       path to use in <drawimage> to display appropriate weather icon
+    {daily[precipitationintensity]}     precipitation intensity in l/qm    
+    {daily[precipitationprobability]}   precipitation probability in %
+    {daily[precipitationtype]}          precipitation type (snow, ...)
+    {daily[humidity]}                   humidity in %
+    {daily[windspeed]}                  wind speed in km/h
+    {daily[windbearing]}                wind bearing in degrees
+    {daily[windbearingstring]}          wind bearing as human readable string (e.g NE, NNE, ...)
+    {daily[visibility]}                 visibility in km
+    {daily[cloudcover]}                 cloud cover in %
+    {daily[pressure]}                   pressure in HPa
+    {daily[ozone]}                      Ozone in DU (Dobson Unit)
+	
+	<drawtext name="w_time" x="{width(icon)}" y="0" valign="center" font="{light}" fontsize="{rowheight}/1.5" color="{clrWhite}" text="{hourly[timestamp]}" />
+                
+    -->
+
+    <detailheader>
+  
+         <area x="0" y="65%" width="18%" height="26%" layer="2">
+             <drawimage imagetype="icon" path="{icon}" align="center" y="10" width="{areaheight}" height="{areaheight}"/>
+        </area>
+         <area x="22%" y="66%" width="78%" height="24%" layer="4">
+            <drawtextbox name="summary" x="0" y="0" width="{areawidth}-10" align="center" height="{areaheight}" font="{light}" fontsize="20%" color="{clrOwnCyan}" text="{summary}" />
+        </area>
+    </detailheader>
+
+    <tab name="current" x="1%" y="13%" width="76%" height="50%" layer="3" scrollheight="{areaheight}/4">
+       <loop name="daily" x="0" y="0" orientation="vertical" columnwidth="{areawidth}" rowheight="{areaheight}/5">
+	   
+			<drawimage name="icon" imagetype="icon" path="{daily[icon]}" align="left" y="0" width="{rowheight}" height="{rowheight}"/>
+            
+			<drawtext x="{width(icon)}" valign="top" font="{semibold}" fontsize="{rowheight}/2" color="{clrWhite}" text="{daily[dayname]}" />
+            <drawtext name="w_date" x="{width(icon)}" valign="bottom" font="{semibold}" fontsize="{rowheight}/2" color="{clrWhite}" text="{daily[day]}" />
+            
+			<drawtext x="{width(icon)}+{width(w_date)}" y="0" valign="top" width="{columnwidth}" font="{light}" fontsize="{rowheight}*0.30" color="{clrWhite}" text=" {daily[summary]}" />
+            <drawtext x="{width(icon)}+{width(w_date)}" y="0" valign="center" width="{columnwidth}" font="{light}" fontsize="{rowheight}*0.30" color="{clrWhite}" text=" {tr(precipitationprobability)} {daily[precipitationprobability]}%, {daily[precipitationintensity]} l/qm, {tr(windspeed)} {daily[windspeed]} km/h {tr(from)} {daily[windbearingstring]}" />
+            <drawtext x="{width(icon)}+{width(w_date)}" y="0" valign="bottom" width="{columnwidth}" font="{light}" fontsize="{rowheight}*0.30" color="{clrWhite}" text=" {tr(cloudcover)} {daily[cloudcover]}%, {tr(visibility)} {daily[visibility]} km, {tr(pressure)} {daily[pressure]} HPa, {tr(ozone)} {daily[ozone]} DU" />
+           	
+			<drawtext name="tempmin" x="{columnwidth}-{width(tempmin)}"  valign="center"  font="{light}" y="0" fontsize="{rowheight}*0.35" color="{clrWhite}" text="{tr(min)}. {daily[temperaturemin]}°C" />
+            <drawtext name="tempmax" x="{columnwidth}-{width(tempmax)}" valign="bottom" font="{light}" y="{rowheight}" fontsize="{rowheight}*0.35" color="{clrWhite}" text="{tr(max)}. {daily[temperaturemax]}°C" />
+      			
+			<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="0" valign="bottom" width="{areawidth}" height="2"/>
+        </loop>
+    </tab>
+</menuplugin>
