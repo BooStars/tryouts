@@ -93,8 +93,8 @@
 				<drawellipse condition="eq({nummenuitem},1)" x="{areawidth} - {areaheight}*1.00" y="0" width="{areaheight}*1.00" height="{areaheight}*1.00" color="{clrTransparent}" quadrant="-1"/>
 			</area>
 			
-         <areascroll scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="3%" width="30%" layer="3">
-			<drawtext name="menutext" x="0"  font="{light}" fontsize="90%" color="{clrWhite}" text="{menuitemtext}" />
+         <areascroll scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="2%" width="30%" layer="3">
+			<drawtext name="menutext" x="0"  font="{light}" fontsize="90%" color="{clrWhite}" text="{nummenuitem} {menuitemtext}" />
          </areascroll> 
 
         </listelement>
