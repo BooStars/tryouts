@@ -1,4 +1,4 @@
-<menurecordings x="0" y="0" width="100%" height="100%" fadetime="0">
+<menurecordings x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
 <background>
 	<!-- header background  -->
 	
@@ -68,7 +68,7 @@
 	</areascroll>
 </listelement>
 
-<currentelement delay="250" fadetime="0">
+<currentelement delay="250" fadetime="{fadeTime}">
 <!-- background info bar -->
 	<area x="33%" y="35%" width="50%" height="45%" layer="3">
 		

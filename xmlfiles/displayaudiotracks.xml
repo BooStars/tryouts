@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE displayaudiotracks SYSTEM "../../../dtd/displayaudiotracks.dtd">
 
-<displayaudiotracks x="0" y="0" width="100%" height="100%" fadetime="0">
+<displayaudiotracks x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
     <background>
         <area x="{areawidth}/4" y="{areaheight} - {numtracks} * {areaheight} / 10 - {areaheight} / 10" width="50%" height="{areaheight} / 10 + {areaheight} / 10 * {numtracks}" layer="1">
             <drawrectangle x="0" y="2" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />

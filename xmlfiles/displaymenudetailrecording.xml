@@ -1,4 +1,4 @@
-<menudetailedrecording x="0" y="0" width="100%" height="100%" fadetime="0">
+<menudetailedrecording x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
 <background>
 <!--header-->
 	<area x="0" y="0" width="100%" height="16%" layer="2">

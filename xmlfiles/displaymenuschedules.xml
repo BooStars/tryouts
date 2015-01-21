@@ -1,4 +1,4 @@
-<menuschedules x="0" y="0" width="100%" height="100%" fadetime="0">
+<menuschedules x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
 
 <background>
 <!-- header background -->
@@ -133,7 +133,7 @@
  </area>	
 </listelement>
     	
-<currentelement delay="250" fadetime="0">
+<currentelement delay="250" fadetime="{fadeTime}">
 
 
 <!-- text infobar -->

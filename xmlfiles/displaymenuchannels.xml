@@ -1,4 +1,4 @@
-<menuchannels x="0" y="0" width="100%" height="100%" fadetime="0">
+<menuchannels x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
 <menuitems x="0" y="45%" orientation="vertical" width="100%" height="55%" numlistelements="11">
 
 <listelement>
@@ -20,7 +20,7 @@
             
 </listelement>
        
-<currentelement delay="250" fadetime="0">
+<currentelement delay="250" fadetime="{fadeTime}">
 <!-- background info bar -->
 	<area x="33%" y="35%" width="50%" height="45%" layer="3">
 		<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/1.5" height="2"/>

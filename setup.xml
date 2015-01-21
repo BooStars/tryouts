@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE setup SYSTEM "../../dtd/setup.dtd">
+
+<setup>
+    <!--
+    define all your parameters here which should be configurable via
+    OSD and the skindesigner setup menu.
+    Parameters must have type "bool" or "integer". For "bool" Parameters
+    a choice yes/no is shown in the setup menu, a "integer" parameter
+    can be configured to a value between "min" and "max". If "min" is not
+    set, "0" is the minimum, if "max" is not set, "1000" is maximum.
+    "displayname" is used to display the option in the setup menu.
+    The configured parameter value is the default value.
+    -->
+    <parameters>
+		<parameter type="int" name="fadeTime" min="0" max="1000" displaytext="{tr(fadetext)}">0</parameter>
+	
+        <parameter type="bool" name="showSignal" displaytext="{tr(showSignal)}">0</parameter>
+        <parameter type="bool" name="showTimers" displaytext="{tr(showTimers)}">1</parameter>
+        <parameter type="bool" name="showWeather" displaytext="{tr(showWeather)}">1</parameter>
+		
+       
+		<!--
+        <parameter type="int" name="nummenuitemsmain" min="6" max="30" displaytext="{tr(nummenuitemsmain)}">10</parameter>
+        <parameter type="int" name="nummenuitems" min="6" max="30" displaytext="{tr(nummenuitems)}">10</parameter>
+        <parameter type="int" name="nummenuitemsdefault" min="6" max="30" displaytext="{tr(nummenuitemsdefault)}">16</parameter>
+        <parameter type="bool" name="showsubtitle" displaytext="{tr(showsubtitle)}">1</parameter>
+		-->
+		
+    </parameters>
+
+    <!--
+    translations of displaytexts
+    -->
+    <translations>
+	  <token name="tr(fadetext)">
+            <trans lang="en_EN">Fade time in ms (needs VDR restart)</trans>
+            <trans lang="de_DE">Einblendzeit in ms (erfordert VDR Neustart)</trans>
+      </token>
+	
+        <token name="tr(showSignal)">
+            <trans lang="en_EN">Show signal info when switching channel</trans>
+            <trans lang="de_DE">Signal Info beim Umschalten anzeigen</trans>
+        </token>
+ 
+        <token name="tr(showTimers)">
+            <trans lang="en_EN">Show Timers in Main Menu</trans>
+            <trans lang="de_DE">Timer im Hauptmenü anzeigen</trans>
+        </token>
+		  <token name="tr(showWeather)">
+            <trans lang="en_EN">Show weather info when switching channel</trans>
+            <trans lang="de_DE">Wetter Info beim Umschalten anzeigen</trans>
+        </token>
+    </translations>
+</setup>

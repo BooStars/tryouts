@@ -1,4 +1,4 @@
-<menusetup x="0" y="0" width="100%" height="100%" fadetime="0">
+<menusetup x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
 <header>
 	<area x="1%" y="0" width="65%" height="7%" layer="2">
 		<drawtext x="0" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />

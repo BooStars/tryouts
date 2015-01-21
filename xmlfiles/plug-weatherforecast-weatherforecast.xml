@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE menuplugin SYSTEM "../../../dtd/displaymenuplugin.dtd">
 
-<menuplugin x="0" y="0" width="100%" height="100%" fadetime="0" >
+<menuplugin x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}" >
  <scrollbar>
 	<area x="0" y="45%" width="1%" height="55%" layer="5">
 		<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
@@ -100,7 +100,7 @@
         </listelement>
         <!-- additional element which is drawn for current element -->
         <!-- All Tokens from listelement are available -->
-        <currentelement delay="100" fadetime="0">
+        <currentelement delay="100" fadetime="{fadeTime}">
 		<!-- background info bar -->
 			<area x="33%" y="35%" width="65%" height="45%" layer="3">
 				<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/1.5" height="2"/>

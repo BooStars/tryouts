@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE displayvolume SYSTEM "../../../dtd/displayvolume.dtd">
 
-<displayvolume  x="0" y="75%" width="100%" height="25%" fadetime="0">
+<displayvolume  x="0" y="75%" width="100%" height="25%" fadetime="{fadeTime}">
 <background>
 	<area x="{areawidth}/4" y="0" width="50%" height="{areaheight}" layer="1">
 		<drawimage name="line_top" imagetype="skinpart" path="line_top" x="5%" y="0" width="{areawidth}/1.5" height="2"/>

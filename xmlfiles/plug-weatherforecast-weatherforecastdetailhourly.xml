@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE menuplugin SYSTEM "../../../dtd/displaymenuplugin.dtd">
 
-<menuplugin x="0" y="0" width="100%" height="100%" fadetime="0" >
+<menuplugin x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}" >
 <background>
 <!-- header background -->
 
