@@ -92,13 +92,20 @@
 	</area>
 </recinfo>
 
+<!--
 <progressbar>
 	<area x="1%" y="72%" width="78%" height="3%" layer="2">
 		<drawrectangle  x="0" y="0" align="center" valign="center" width="100%" height="{areaheight}/8" color="{clrWhite}" />
 		<drawrectangle x="0" y="0" valign="center" width="{current}/{total}*{areawidth}" height="{areaheight}/4" color="{clrOwnCyan}" />
 	</area>
 </progressbar>
-
+-->
+<progressbar>
+ 	<area x="1%" y="72%" width="78%" height="3%" layer="2">
+ 		<drawrectangle  x="0" y="0" align="center" valign="center" width="100%" height="{areaheight}/8" color="{clrWhite}" />
+		<drawrectangle x="0" y="0" valign="center" width="{current}/{total}*{areawidth}" height="{areaheight}/2" color="{clrOwnCyan}" />
+ 	</area>
+ </progressbar>
 <cutmarks>
 	<area x="1%" y="72%" width="78%" height="3%" layer="3">
 		<loop name="marks" x="0" y="0" orientation="absolute">
