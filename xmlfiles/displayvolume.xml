@@ -20,7 +20,7 @@
      
 	<area x="26%" y="55%" width="48%" height="5%" layer="2">
 	<drawrectangle name="sb1" x="0" y="0" valign="center" width="{areawidth}-{posx(sb1)}" height="{areaheight}/8" color="{clrWhite}" />
-    <drawrectangle name="sb1" x="0" y="0" valign="center" width="{volume}/{maxvolume}*{areawidth}" height="{areaheight}" color="{clrOwnCyan}" />
+    <drawrectangle name="sb1" x="0" y="0" valign="center" width="{volume}/{maxvolume}*{areawidth}" height="{areaheight}" color="{clrTheme}" />
     </area>        
 </volume>
 

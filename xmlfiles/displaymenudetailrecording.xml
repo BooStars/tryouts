@@ -16,7 +16,7 @@
 	    </area>
 
 <!-- list -->
-	<area x="1%" y="18%" width="78%" height="61%" layer="1">
+	<area x="0" y="18%" width="79%" height="61%" layer="1">
 
 		<drawrectangle name="background" x="0" y="2" width="{areawidth}-2" height="{areaheight}-2" color="{clrTransBlack}" />
 		<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/1.5" height="2"/>
@@ -54,8 +54,8 @@
         <drawimage name="banner" condition="{isseries}++{banneravailable}" imagetype="image" path="{bannerpath}" x="{areawidth} - {areawidth}/3" valign="center" width="{areawidth}/3" height="{areawidth}/3 * {bannerheight} / {bannerwidth}"/>
         <drawimage name="recimg" condition="{recimgavailable}++not{banneravailable}++not{posteravailable}" imagetype="image" path="{recimgpath}" x="{areawidth} - {areaheight}*8/10 * 174 / 130" valign="center" width="{areaheight}*8/10 * 174 / 130" height="{areaheight}*8 / 10"/>
 
-        <drawtext name="title" condition="{banneravailable}" x="0" width="{areawidth} - {width(banner)}" valign="center" font="{semibold}" fontsize="35%" color="{clrOwnCyan}" text="{name}" />
-        <drawtext name="title" condition="not{banneravailable}" x="0" width="{areawidth}" valign="center" font="{semibold}" fontsize="35%" color="{clrOwnCyan}" text="{name}" />
+        <drawtext name="title" condition="{banneravailable}" x="0" width="{areawidth} - {width(banner)}" valign="center" font="{semibold}" fontsize="35%" color="{clrTheme}" text="{name}" />
+        <drawtext name="title" condition="not{banneravailable}" x="0" width="{areawidth}" valign="center" font="{semibold}" fontsize="35%" color="{clrTheme}" text="{name}" />
            
 		<drawtext name="datetime" x="0" y="{posy(title)} - {height(datetime)}" font="{light}" fontsize="25%" color="{clrWhite}" text="{date} {time} ({duration} mins)" />
         <drawtext name="shorttext" x="0" y="{posy(title)} + {height(title)}" font="{light}" fontsize="25%" color="{clrWhite}" text="{shorttext}" />
@@ -75,13 +75,16 @@
 	
 </detailheader>
 
- <scrollbar>
-	<area x="0" y="18%" width="1%" height="61%" layer="5">
-		<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrTransBlack}" />
-		<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
-		<drawrectangle x="0" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}/1.35" height="{areaheight} * {height} / 1000" color="{clrOwnCyan}" />			
-	</area>
-</scrollbar>
+
+
+<scrollbar>
+       <area x="0" y="18%" width="1%" height="61%" layer="5">
+            <drawimage imagetype="skinpart" path="scroll_back" x="0" y="0" width="{areawidth}/1.5" height="100%"/>
+        </area>
+         <area x="0" y="18%" width="1%" height="61%" layer="6">
+            <drawimage imagetype="skinpart" path="scroll_active" x="0" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.5" height="{areaheight} * {height} / 1000"/>
+        </area>
+    </scrollbar>
    
 
 <tab name="EPG Info" x="1%" y="20%" width="76%" height="57%" layer="2" scrollheight="{areaheight}/4">

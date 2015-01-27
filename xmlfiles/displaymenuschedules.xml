@@ -126,10 +126,10 @@
 	
 <!-- separator -->
 <area condition="{separator}++{whatson}" x="0%" width="76%" layer="4">
-      <drawtext x="0" y="0" font="{light}" fontsize="95%" color="{clrOwnCyan}" text=" {title}" />
+      <drawtext x="0" y="0" font="{light}" fontsize="95%" color="{clrTheme}" text=" {title}" />
  </area>	
  <area condition="{separator}++not{whatson}" x="1%" width="76%" layer="4">
-      <drawtext x="0" y="0" font="{light}" fontsize="95%" color="{clrOwnCyan}" text="{title}" />
+      <drawtext x="0" y="0" font="{light}" fontsize="95%" color="{clrTheme}" text="{title}" />
  </area>	
 </listelement>
     	
@@ -138,12 +138,12 @@
 
 <!-- text infobar -->
 	<area x="22%" y="105%" width="78%" height="45%" layer="2">
-        <drawtext name="title" x="0" y="0" font="{semibold}" width="{areawidth}" fontsize="20%" color="{clrOwnCyan}" text="{title}" />
+        <drawtext name="title" x="0" y="0" font="{semibold}" width="{areawidth}" fontsize="20%" color="{clrTheme}" text="{title}" />
 		<drawtext name="shorttext" x="0" y="{height(title)}" font="{semibold}" width="{areawidth}" fontsize="15%" color="{clrWhite}" text="{shorttext}" />
 		
         <drawtext condition="{running}" name="start" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="12%" color="{clrWhite}" text="{start}" />
-        <drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2" width="{areawidth}/2" height="1" color="{clrOwnCyan}" />
-        <drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2-2" width="{areawidth}/2 * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrOwnCyan}" />
+        <drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2" width="{areawidth}/2" height="1" color="{clrTheme}" />
+        <drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2-2" width="{areawidth}/2 * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrTheme}" />
         <drawtext condition="{running}" name="stop" x="{width(sb2)}+{width(start)}+{width(start)}/4"  y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="12%" color="{clrWhite}" text="{stop}" />
         <drawtext condition="not{running}" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="12%" color="{clrWhite}" text="{start} - {stop} ({duration} min)" />
 		
@@ -171,14 +171,14 @@
 </currentelement>
 </menuitems>	
 
- <scrollbar>
 
-	<area x="0" y="12%" width="1%" height="51%" layer="5">
-		<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
-		<drawrectangle x="0" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}/1.35" height="{areaheight} * {height} / 1000" color="{clrOwnCyan}" />			
-		
-	</area>
-
-</scrollbar>
+<scrollbar>
+       <area x="0" y="12%" width="1%" height="51%" layer="5">
+            <drawimage imagetype="skinpart" path="scroll_back" x="0" y="0" width="{areawidth}/1.5" height="100%"/>
+        </area>
+         <area x="0" y="12%" width="1%" height="51%" layer="6">
+            <drawimage imagetype="skinpart" path="scroll_active" x="0" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.5" height="{areaheight} * {height} / 1000"/>
+        </area>
+    </scrollbar>
 
 </menuschedules>

@@ -13,13 +13,36 @@
     The configured parameter value is the default value.
     -->
     <parameters>
+		<!-- global parameter -->
 		<parameter type="int" name="fadeTime" min="0" max="1000" displaytext="{tr(fadetext)}">0</parameter>
-	
-        <parameter type="bool" name="showSignal" displaytext="{tr(showSignal)}">0</parameter>
-        <parameter type="bool" name="showTimers" displaytext="{tr(showTimers)}">1</parameter>
-        <parameter type="bool" name="showWeather" displaytext="{tr(showWeather)}">1</parameter>
 		
-       
+		<!-- displaychannel -->
+		<parameter type="int" name="channelfadeTime" min="0" max="1000" displaytext="{tr(channelfadetext)}">0</parameter>
+		
+		<parameter type="int" name="channelname_fontSize" min="10" max="100" displaytext="{tr(channelname_fontSize)}">85</parameter>
+		
+		<parameter type="int" name="start_fontSize" min="10" max="100" displaytext="{tr(start_fontSize)}">50</parameter>
+		<parameter type="int" name="title_fontSize" min="10" max="100" displaytext="{tr(title_fontSize)}">50</parameter>
+		<parameter type="int" name="subtitle_fontSize" min="10" max="100" displaytext="{tr(subtitle_fontSize)}">40</parameter>
+		
+		<parameter type="int" name="startstop_fontSize" min="10" max="100" displaytext="{tr(startstop_fontSize)}">45</parameter>
+		<parameter type="int" name="timeremaining_fontSize" min="10" max="100" displaytext="{tr(timeremaining_fontSize)}">40</parameter>
+		
+		<parameter type="int" name="nextstart_fontSize" min="10" max="100" displaytext="{tr(nextstart_fontSize)}">50</parameter>
+		<parameter type="int" name="nexttitle_fontSize" min="10" max="100" displaytext="{tr(nexttitle_fontSize)}">50</parameter>
+		<parameter type="int" name="nextsubtitle_fontSize" min="10" max="100" displaytext="{tr(nextsubtitle_fontSize)}">40</parameter>
+		
+		<parameter type="int" name="nextstartstop_fontSize" min="10" max="100" displaytext="{tr(nextstartstop_fontSize)}">45</parameter>
+		<parameter type="int" name="nextduration_fontSize" min="10" max="100" displaytext="{tr(nextduration_fontSize)}">40</parameter>
+		
+				
+	    <parameter type="bool" name="showSignal" displaytext="{tr(showSignal)}">0</parameter>
+        <parameter type="bool" name="showWeather" displaytext="{tr(showWeather)}">1</parameter>
+	
+		<!-- displaymenumain -->
+       <parameter type="bool" name="showTimers" displaytext="{tr(showTimers)}">1</parameter>
+        
+		
 		<!--
         <parameter type="int" name="nummenuitemsmain" min="6" max="30" displaytext="{tr(nummenuitemsmain)}">10</parameter>
         <parameter type="int" name="nummenuitems" min="6" max="30" displaytext="{tr(nummenuitems)}">10</parameter>
@@ -33,6 +56,25 @@
     translations of displaytexts
     -->
     <translations>
+	  <token name="tr(channelname_fontSize)">
+            <trans lang="en_EN">channelname_fontSize</trans>
+            <trans lang="de_DE">Kanalwechsel - FS - Kanalname</trans>
+      </token>
+	   <token name="tr(start_fontSize)">
+            <trans lang="en_EN">start_fontSize</trans>
+            <trans lang="de_DE">Kanalwechsel - FS - Start</trans>
+      </token>
+	   <token name="tr(title_fontSize)">
+            <trans lang="en_EN">title_fontSize</trans>
+              <trans lang="de_DE">Kanalwechsel - FS - Titel</trans>
+      </token>
+	   <token name="tr(subtitle_fontSize)">
+            <trans lang="en_EN">subtitle_fontSize</trans>
+             <trans lang="de_DE">Kanalwechsel - FS - Untertitel</trans>
+      </token>
+	
+
+	
 	  <token name="tr(fadetext)">
             <trans lang="en_EN">Fade time in ms (needs VDR restart)</trans>
             <trans lang="de_DE">Einblendzeit in ms (erfordert VDR Neustart)</trans>

@@ -54,15 +54,16 @@
 </background>
 
 
+
+
  <scrollbar>
-
-	<area x="0" y="12%" width="1%" height="51%" layer="5">
-		<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
-		<drawrectangle x="0" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}/1.35" height="{areaheight} * {height} / 1000" color="{clrOwnCyan}" />			
-		
-	</area>
-
-</scrollbar>
+       <area x="0" y="12%" width="1%" height="51%" layer="2">
+            <drawimage imagetype="skinpart" path="scroll_back" x="0" y="0" width="{areawidth}/1.5" height="100%"/>
+        </area>
+         <area x="0" y="12%" width="1%" height="51%" layer="3">
+            <drawimage imagetype="skinpart" path="scroll_active" x="0" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.5" height="{areaheight} * {height} / 1000"/>
+        </area>
+    </scrollbar>
     <!-- Available Variables in detailheader and tab:
     {summary}                           short summary of weather
     {icon}                              path to use in <drawimage> to display appropriate weather icon
@@ -95,7 +96,7 @@
             <drawimage imagetype="icon" path="{icon}" align="center" y="10" width="{areaheight}" height="{areaheight}"/>
         </area>
        <area x="22%" y="66%" width="78%" height="24%" layer="4">
-            <drawtext name="summary" x="0" y="0" align="center" valign="center" font="{light}" fontsize="20%" color="{clrOwnCyan}" text="{summary}" />
+            <drawtext name="summary" x="0" y="0" align="center" valign="center" font="{light}" fontsize="20%" color="{clrTheme}" text="{summary}" />
         </area>
     </detailheader>
 

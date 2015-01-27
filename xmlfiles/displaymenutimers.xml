@@ -60,11 +60,15 @@
 </listelement>
 </menuitems>
   
- <scrollbar>
-	<area x="0" y="12%" width="1%" height="75%" layer="5">
-		<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
-		<drawrectangle x="0" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}/1.35" height="{areaheight} * {height} / 1000" color="{clrOwnCyan}" />			
-	</area>
-</scrollbar>
+
+
+	<scrollbar>
+       <area x="0" y="12%" width="1%" height="75%" layer="5">
+            <drawimage imagetype="skinpart" path="scroll_back" x="0" y="0" width="{areawidth}/1.5" height="100%"/>
+        </area>
+         <area x="0" y="12%" width="1%" height="75%" layer="6">
+            <drawimage imagetype="skinpart" path="scroll_active" x="0" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.5" height="{areaheight} * {height} / 1000"/>
+        </area>
+    </scrollbar>
 	
 </menutimers>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE displaychannel SYSTEM "../../../dtd/displaychannel.dtd">
 
-<displaychannel x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
+<displaychannel x="0" y="0" width="100%" height="100%" fadetime="{channelfadeTime}">
     <background>
 	<!-- date background -->
 		<area x="70%" y="0%" width="30%" height="10%" layer="1">
@@ -115,7 +115,7 @@
 
 
 	  <area x="0" y="55%" width="80%" height="8%" layer="2">
-		<drawtext name="channame" x="1%" valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{channelnumber}  {channelname}" />
+		<drawtext name="channelname" x="1%" valign="center" font="{light}" fontsize="{areaheight}/100*{channelname_fontSize}" color="{clrWhite}" text="{channelnumber}  {channelname}" />
 	  </area>
 
 	   
@@ -129,22 +129,22 @@
 <epginfo>
 	<area x="0" y="63%" width="80%" height="12%" layer="2">
 		
-		<drawtext name="start" x="1%" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{currentstart}" />
-        <drawtext name="title" x="{width(start)}+{posx(start)}*2" y="{posy(start)}" width="{areawidth}-{width(startstop)}-{posx(title)}-{posx(start)}*2" font="{light}" fontsize="50%" color="{clrOwnCyan}" text="{currenttitle}"  />       
-		<drawtext name="subtitle" x="{width(start)}+{posx(start)}*2" y="{posy(title)}+{height(title)}" width="{areawidth}-{width(startstop)}-{posx(title)}-{posx(start)}*2" font="{light}" fontsize="40%" color="{clrWhite}" text="{currentsubtitle}"/>
+		<drawtext name="start" x="1%" y="0" font="{light}" fontsize="{areaheight}/100*{start_fontSize}" color="{clrWhite}" text="{currentstart}" />
+        <drawtext name="title" x="{width(start)}+{posx(start)}*2" y="{posy(start)}" width="{areawidth}-{width(startstop)}-{posx(title)}-{posx(start)}*2" font="{light}" fontsize="{areaheight}/100*{title_fontSize}" color="{clrTheme}" text="{currenttitle}"  />       
+		<drawtext name="subtitle" x="{width(start)}+{posx(start)}*2" y="{posy(title)}+{height(title)}" width="{areawidth}-{width(startstop)}-{posx(title)}-{posx(start)}*2" font="{light}" fontsize="{areaheight}/100*{subtitle_fontSize}" color="{clrWhite}" text="{currentsubtitle}"/>
 		
-		<drawtext name="startstop" x="{areawidth} - {width(startstop)} - {posx(start)}" y="0" font="{light}" fontsize="45%" color="{clrWhite}" text="{currentstart} - {currentstop}" />
-        <drawtext name="currenttimeremaining" x="{areawidth}-{width(currenttimeremaining)} - {posx(start)}" y="{posy(startstop)}+{height(startstop)}" font="{light}" fontsize="40%" color="{clrWhite}" text="+ {currentremaining} min" />			
+		<drawtext name="startstop" x="{areawidth} - {width(startstop)} - {posx(start)}" y="0" font="{light}" fontsize="{areaheight}/100*{startstop_fontSize}" color="{clrWhite}" text="{currentstart} - {currentstop}" />
+        <drawtext name="timeremaining" x="{areawidth}-{width(timeremaining)} - {posx(start)}" y="{posy(startstop)}+{height(startstop)}" font="{light}" fontsize="{areaheight}/100*{timeremaining_fontSize}" color="{clrWhite}" text="+ {currentremaining} min" />			
 	</area>	
 	
 	<area x="0" y="77%" width="80%" height="12%" layer="2">
 		
-		<drawtext name="nextstart" x="1%" y="0" font="{light}" fontsize="50%" color="{clrLightGray}" text="{nextstart}" />
-        <drawtext name="nexttitle" x="{width(nextstart)}+{posx(nextstart)}*2"  y="{posy(nextstart)}" font="{light}" width="{areawidth} - {width(nextstartstop)} - {posx(nexttitle)} - {posx(nextstart)}*2" fontsize="50%" color="{clrLightGray}" text="{nexttitle}"/>
-        <drawtext name="nextsubtitle" x="{width(nextstart)}+{posx(nextstart)}*2"  y="{posy(nexttitle)}+{height(nexttitle)}" width="{areawidth} - {width(nextstartstop)} -{posx(nexttitle)}-{posx(nextstart)}*2" font="{light}" fontsize="40%" color="{clrLightGray}" text="{nextsubtitle}"/>
-            
-		<drawtext name="nextstartstop" x="{areawidth}-{width(nextstartstop)}-{posx(nextstart)}" y="0" font="{light}" fontsize="45%" color="{clrLightGray}" text="{nextstart} - {nextstop}" />
-        <drawtext name="nextduration" x="{areawidth}-{width(nextduration)}-{posx(nextstart)}" y="{posy(nextstartstop)}+{height(nextstartstop)}" font="{light}" fontsize="40%" color="{clrLightGray}" text="{nextduration} min" />
+        <drawtext name="nexttitle" x="{width(nextstart)}+{posx(nextstart)}*2"  y="{posy(nextstart)}" font="{light}" width="{areawidth} - {width(nextstartstop)} - {posx(nexttitle)} - {posx(nextstart)}*2" fontsize="{areaheight}/100*{nexttitle_fontSize}" color="{clrLightGray}" text="{nexttitle}"/>
+		<drawtext name="nextstart" x="1%" y="0" font="{light}" fontsize="{areaheight}/100*{nextstart_fontSize}" color="{clrLightGray}" text="{nextstart}" />
+        <drawtext name="nextsubtitle" x="{width(nextstart)}+{posx(nextstart)}*2"  y="{posy(nexttitle)}+{height(nexttitle)}" width="{areawidth} - {width(nextstartstop)} -{posx(nexttitle)}-{posx(nextstart)}*2" font="{light}" fontsize="{areaheight}/100*{nextsubtitle_fontSize}" color="{clrLightGray}" text="{nextsubtitle}"/>
+              
+		<drawtext name="nextstartstop" x="{areawidth}-{width(nextstartstop)}-{posx(nextstart)}" y="0" font="{light}" fontsize="{areaheight}/100*{nextstartstop_fontSize}" color="{clrLightGray}" text="{nextstart} - {nextstop}" />
+        <drawtext name="nextduration" x="{areawidth}-{width(nextduration)}-{posx(nextstart)}" y="{posy(nextstartstop)}+{height(nextstartstop)}" font="{light}" fontsize="{areaheight}/100*{nextduration_fontSize}" color="{clrLightGray}" text="{nextduration} min" />
 	</area>
 </epginfo>
 
@@ -152,7 +152,7 @@
 <progressbar>
 	<area x="1%" y="75%" width="78%" height="1%" layer="3">
 		<drawrectangle  x="0" y="0" align="center" valign="center" width="100%" height="{areaheight}/8" color="{clrWhite}" />
-        <drawrectangle x="0" y="0" width="{elapsed}/{duration}*{areawidth}" height="100%" color="{clrOwnCyan}" />
+        <drawrectangle x="0" y="0" width="{elapsed}/{duration}*{areawidth}" height="100%" color="{clrTheme}" />
     </area>
 	
 </progressbar>
@@ -224,7 +224,7 @@
 
             <drawtext valign="center" align="left" width="29%"  font="{light}" fontsize="18%" color="{clrWhite}" text="{prevgroup}" />
 			<drawimage valign="center" imagetype="icon" path="playback" x="{width(prev)}" width="5%" height="{areaheight}/5" />
-			<drawtext valign="center" align="center" width="30%"  font="{semibold}" fontsize="18%" color="{clrOwnCyan}" text="{group}" />
+			<drawtext valign="center" align="center" width="30%"  font="{semibold}" fontsize="18%" color="{clrTheme}" text="{group}" />
             <drawimage valign="center" imagetype="icon" path="play" x="{width(group)}+{posx(group)}"  width="5%" height="{areaheight}/5" />
             <drawtext valign="center" align="right" width="29%"  font="{light}" fontsize="18%" color="{clrWhite}" text="{nextgroup}" />
         </area>             

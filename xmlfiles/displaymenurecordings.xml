@@ -84,9 +84,9 @@
 		<area x="34%" y="36%" width="48%" height="43%" layer="3">
 		<drawtext name="datetime" x="0" y="0" font="{light}" fontsize="22%" color="{clrWhite}" text="{date} {time}" />        
 	<!-- text -->
-		<drawtext condition="{folder}" name="title" x="0" y="{height(datetime)}" width="{areawidth}" font="{semibold}" fontsize="20%" color="{clrOwnCyan}" text="{name}" />
+		<drawtext condition="{folder}" name="title" x="0" y="{height(datetime)}" width="{areawidth}" font="{semibold}" fontsize="20%" color="{clrTheme}" text="{name}" />
 		<drawtext condition="{folder}" name="numrecordings" x="0" y="{height(datetime)}+{height(title)}" width="{areawidth}" font="{semibold}" fontsize="18%" color="{clrWhite}" text="(gesamt: {numrecordingsfolder}, {newrecordingsfolder} neu)" />
-		<drawtext condition="not{folder}" name="title" x="0" y="{height(datetime)}" width="{areawidth}" font="{semibold}" fontsize="20%" color="{clrOwnCyan}" text="{name}, {duration} min" />
+		<drawtext condition="not{folder}" name="title" x="0" y="{height(datetime)}" width="{areawidth}" font="{semibold}" fontsize="20%" color="{clrTheme}" text="{name}, {duration} min" />
 		<drawtext condition="not{folder}" name="shorttext" x="0" y="{height(datetime)}+{height(title)}" width="{areawidth}" font="{semibold}" fontsize="18%" color="{clrWhite}" text="{shorttext}" /> 
 	<!-- icons -->
 		<drawimage condition="{folder}" name="recfolder_vert" imagetype="icon" path="recfolder_vert" x="0" valign="bottom" width="{areawidth}/10" height="{areaheight}/3"  />
@@ -109,14 +109,15 @@
 
 </currentelement>
 </menuitems>
-	
 
- <scrollbar>
-	<area x="0" y="45%" width="1%" height="55%" layer="5">
-		<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
-		<drawrectangle x="0" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}/1.35" height="{areaheight} * {height} / 1000" color="{clrOwnCyan}" />			
-	</area>
-</scrollbar>
+<scrollbar>
+       <area x="0" y="45%" width="1%" height="55%" layer="5">
+            <drawimage imagetype="skinpart" path="scroll_back" x="0" y="0" width="{areawidth}/1.5" height="100%"/>
+        </area>
+         <area x="0" y="45%" width="1%" height="55%" layer="6">
+            <drawimage imagetype="skinpart" path="scroll_active" x="0" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.5" height="{areaheight} * {height} / 1000"/>
+        </area>
+    </scrollbar>
 	
 	
 	

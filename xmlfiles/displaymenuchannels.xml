@@ -11,7 +11,7 @@
 	</area>
 <!-- channel -->
 	<area condition="{separator}" x="2%" width="32%" layer="3">
-		<drawtext x="0" font="{light}" fontsize="95%" color="{clrOwnCyan}" text="{name}" />
+		<drawtext x="0" font="{light}" fontsize="95%" color="{clrTheme}" text="{name}" />
     </area>
 			
 	<areascroll condition="not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="3%" width="30%" layer="3">
@@ -34,11 +34,11 @@
 
 <!-- text infobar -->
 	<area x="34%" y="36%" width="48%" height="43%" layer="3">
-		<drawtext name="channame" x="0" y="0" font="{semibold}" fontsize="25%" color="{clrOwnCyan}" text="{name}" />
+		<drawtext name="channame" x="0" y="0" font="{semibold}" fontsize="25%" color="{clrTheme}" text="{name}" />
 		<drawtext name="now" x="0" y="{height(channame)}" width="96%" font="{semibold}" fontsize="20%" color="{clrWhite}" text="{presenteventtitle}" />
 		<drawtext name="start" x="0" y="{height(now)}+{height(channame)}" font="{light}" fontsize="12%" color="{clrWhite}" text="{presenteventstart} " />
-		<drawrectangle name="sb1" x="{width(start)}" y="{height(now)}+{height(channame)}" valign="center" width="{areawidth}/2 - 20" height="1" color="{clrOwnCyan}" />
-		<drawrectangle name="sb1" x="{width(start)}" y="{height(now)}+{height(channame)}-2" valign="center" width="{areawidth}/2 * {presenteventelapsed} / {presenteventduration} - 20 * {presenteventelapsed} / {presenteventduration}" height="5" color="{clrOwnCyan}" />
+		<drawrectangle name="sb1" x="{width(start)}" y="{height(now)}+{height(channame)}" valign="center" width="{areawidth}/2 - 20" height="1" color="{clrTheme}" />
+		<drawrectangle name="sb1" x="{width(start)}" y="{height(now)}+{height(channame)}-2" valign="center" width="{areawidth}/2 * {presenteventelapsed} / {presenteventduration} - 20 * {presenteventelapsed} / {presenteventduration}" height="5" color="{clrTheme}" />
 		<drawtext name="stop" x="{width(sb1)}+{width(start)}" y="{height(now)}+{height(channame)}" font="{light}" fontsize="12%" color="{clrWhite}" text=" {presenteventstop}" />
 		<drawtext name="next" x="0" y="{posy(start)}+{height(start)}*1.50" width="96%" font="{semibold}" fontsize="15%" color="{clrLightGray}" text="Next: {nexteventtitle}" />
 	</area> 
@@ -61,12 +61,14 @@
 </currentelement>
 </menuitems>
 
- <scrollbar>
-	<area x="0" y="45%" width="1%" height="55%" layer="5">
-		<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
-		<drawrectangle x="0" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}/1.35" height="{areaheight} * {height} / 1000" color="{clrOwnCyan}" />			
-	</area>
-</scrollbar>
+  <scrollbar>
+       <area x="0" y="45%" width="1%" height="55%" layer="2">
+            <drawimage imagetype="skinpart" path="scroll_back" x="0" y="0" width="{areawidth}/1.5" height="100%"/>
+        </area>
+         <area x="0" y="45%" width="1%" height="55%" layer="3">
+            <drawimage imagetype="skinpart" path="scroll_active" x="0" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.5" height="{areaheight} * {height} / 1000"/>
+        </area>
+    </scrollbar>
 	
 	
 </menuchannels>

@@ -60,20 +60,20 @@
 </scrapercontent>
 
 <rectitle>
-	<area x="1%" y="56%" width="78%" height="33%" layer="1">
-		<drawtext name= "title" x="0" y="0" width="{areawidth}-{width(rectime)}" font="{light}" fontsize="22%" color="{clrOwnCyan}" text="{rectitle}" />
+	<area x="1%" y="56%" width="78%" height="33%" layer="3">
+		<drawtext debug="true" name= "title" x="0" y="0" width="{areawidth}-{width(rectime)}" font="{light}" fontsize="22%" color="{clrTheme}" text="{rectitle}" />
 		<drawtext name="rectime" x="{areawidth}-{width(rectime)}" y="0" font="{light}" fontsize="22%" color="{clrWhite}" text="{recdate} - {rectime}" />
 		<drawtext name="recsubtitle" x="0" y="{height(title)}"  font="{light}" fontsize="15%" color="{clrWhite}" text="{recsubtitle}" />
 	</area>
 </rectitle>
 
 <currenttime>
-	<area x="1%" y="70%" width="78%" height="33%" layer="1">
+	<area x="1%" y="70%" width="78%" height="33%" layer="3">
 		<drawtext valign="center" align="left" font="{light}" fontsize="20%" color="{clrWhite}" text="{reccurrent}" />
 	</area>
 </currenttime>
 <totaltime>
-	<area x="1%" y="70%" width="78%" height="33%" layer="2">
+	<area x="1%" y="70%" width="78%" height="33%" layer="3">
 		<drawtext valign="center" align="right" font="{light}" fontsize="20%" color="{clrWhite}" text="{rectotal}" />
 	</area>
 </totaltime>
@@ -96,14 +96,14 @@
 <progressbar>
 	<area x="1%" y="72%" width="78%" height="3%" layer="2">
 		<drawrectangle  x="0" y="0" align="center" valign="center" width="100%" height="{areaheight}/8" color="{clrWhite}" />
-		<drawrectangle x="0" y="0" valign="center" width="{current}/{total}*{areawidth}" height="{areaheight}/4" color="{clrOwnCyan}" />
+		<drawrectangle x="0" y="0" valign="center" width="{current}/{total}*{areawidth}" height="{areaheight}/4" color="{clrTheme}" />
 	</area>
 </progressbar>
 -->
 <progressbar>
  	<area x="1%" y="72%" width="78%" height="3%" layer="2">
  		<drawrectangle  x="0" y="0" align="center" valign="center" width="100%" height="{areaheight}/8" color="{clrWhite}" />
-		<drawrectangle x="0" y="0" valign="center" width="{current}/{total}*{areawidth}" height="{areaheight}/2" color="{clrOwnCyan}" />
+		<drawrectangle x="0" y="0" valign="center" width="{current}/{total}*{areawidth}" height="{areaheight}/2" color="{clrTheme}" />
  	</area>
  </progressbar>
 <cutmarks>

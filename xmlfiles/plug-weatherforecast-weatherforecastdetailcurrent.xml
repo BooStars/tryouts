@@ -55,14 +55,13 @@
 
 
  <scrollbar>
-
-	<area x="0" y="12%" width="1%" height="51%" layer="5">
-		<drawrectangle x="{areawidth}/2.7" y="0" width="{areawidth}/8" height="{areaheight}" color="{clrWhite}" />
-		<drawrectangle x="0" y="0 + {areaheight} * {offset} / 1000" width="{areawidth}/1.35" height="{areaheight} * {height} / 1000" color="{clrOwnCyan}" />			
-		
-	</area>
-
-</scrollbar>
+       <area x="0" y="12%" width="1%" height="51%" layer="2">
+            <drawimage imagetype="skinpart" path="scroll_back" x="0" y="0" width="{areawidth}/1.5" height="100%"/>
+        </area>
+         <area x="0" y="12%" width="1%" height="51%" layer="3">
+            <drawimage imagetype="skinpart" path="scroll_active" x="0" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.5" height="{areaheight} * {height} / 1000"/>
+        </area>
+    </scrollbar>
     <!-- Available Variables in detailheader and tab:
     {menuheader}                        "Current Weather"
     {city}                              configured city to display weather for
@@ -92,15 +91,15 @@
             <drawimage imagetype="icon" path="{icon}" align="center" y="10" width="{areaheight}" height="{areaheight}"/>
         </area>
        <area x="22%" y="66%" width="78%" height="24%" layer="4">
-            <drawtext name="summary" x="0" y="0" align="center" valign="center" font="{light}" fontsize="20%" color="{clrOwnCyan}" text="{summary}" />
-	        <drawtext  name="temp" x="0"  y="{posy(summary)}+{height(summary)}" align="center" font="{light}" fontsize="20%" color="{clrOwnCyan}" text="{temperature}°C" />
+            <drawtext name="summary" x="0" y="0" align="center" valign="center" font="{light}" fontsize="20%" color="{clrTheme}" text="{summary}" />
+	        <drawtext  name="temp" x="0"  y="{posy(summary)}+{height(summary)}" align="center" font="{light}" fontsize="20%" color="{clrTheme}" text="{temperature}°C" />
 	
         </area>
 
     </detailheader>
 
     <tab name="current" x="1%" y="13%" width="76%" height="50%" layer="3"  scrollheight="{areaheight}/4">
-        <drawtext x="0" y="0" font="{light}" fontsize="10%" color="{clrOwnCyan}" text="{tr(conditions)} {tr(for)} {city}" />
+        <drawtext x="0" y="0" font="{light}" fontsize="10%" color="{clrTheme}" text="{tr(conditions)} {tr(for)} {city}" />
         <drawtext x="0" y="8%" font="{light}" fontsize="8%" color="{clrWhite}" text="({latitude}, {longitude})" />
         <drawtext x="0" y="16%" font="{light}" fontsize="8%" color="{clrWhite}" text="{summary}" />
 
