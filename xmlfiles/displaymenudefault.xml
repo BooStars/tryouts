@@ -12,7 +12,7 @@
 			<drawellipse x="0" y="{areaheight} - {areaheight}*0.15" width="{areaheight}*0.15" height="{areaheight}*0.15" color="{clrTransparent}" quadrant="-3"/>
 		</area>
 <!--list-->
-	<area x="0" y="12%" width="90%" height="77%" layer="1">
+	<area x="0" y="12%" width="90%" height="78%" layer="1">
 		<drawrectangle x="0" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
 		<drawellipse x="{areawidth} - {areaheight}*0.10" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-1"/>
 		<drawellipse x="{areawidth} - {areaheight}*0.10" y="{areaheight} - {areaheight}*0.10" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-4"/>
