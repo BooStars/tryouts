@@ -37,8 +37,15 @@
 		<drawtext name="channame" x="0" y="0" font="{semibold}" fontsize="25%" color="{clrTheme}" text="{name}" />
 		<drawtext name="now" x="0" y="{height(channame)}" width="96%" font="{semibold}" fontsize="20%" color="{clrWhite}" text="{presenteventtitle}" />
 		<drawtext name="start" x="0" y="{height(now)}+{height(channame)}" font="{light}" fontsize="12%" color="{clrWhite}" text="{presenteventstart} " />
+		
+		<!-- 
 		<drawrectangle name="sb1" x="{width(start)}" y="{height(now)}+{height(channame)}" valign="center" width="{areawidth}/2 - 20" height="1" color="{clrTheme}" />
 		<drawrectangle name="sb1" x="{width(start)}" y="{height(now)}+{height(channame)}-2" valign="center" width="{areawidth}/2 * {presenteventelapsed} / {presenteventduration} - 20 * {presenteventelapsed} / {presenteventduration}" height="5" color="{clrTheme}" />
+		-->
+		<drawimage name="sb1" imagetype="skinpart" path="scroll_back_vert" x="{width(start)}" y="{height(now)}+{height(channame)}" valign="center" width="{areawidth}/2" height="10" /> 
+		<drawimage name="sb1" imagetype="skinpart" path="scroll_active_vert" x="{width(start)}" y="{height(now)}+{height(channame)}" valign="center" width="{areawidth}/2 * {presenteventelapsed} / {presenteventduration} - 20 * {presenteventelapsed} / {presenteventduration}" height="10" /> 
+		
+		
 		<drawtext name="stop" x="{width(sb1)}+{width(start)}" y="{height(now)}+{height(channame)}" font="{light}" fontsize="12%" color="{clrWhite}" text=" {presenteventstop}" />
 		<drawtext name="next" x="0" y="{posy(start)}+{height(start)}*1.50" width="96%" font="{semibold}" fontsize="15%" color="{clrLightGray}" text="Next: {nexteventtitle}" />
 	</area> 

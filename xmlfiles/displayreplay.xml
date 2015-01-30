@@ -92,22 +92,24 @@
 	</area>
 </recinfo>
 
-<!--
 <progressbar>
+	<!--
 	<area x="1%" y="72%" width="78%" height="3%" layer="2">
 		<drawrectangle  x="0" y="0" align="center" valign="center" width="100%" height="{areaheight}/8" color="{clrWhite}" />
-		<drawrectangle x="0" y="0" valign="center" width="{current}/{total}*{areawidth}" height="{areaheight}/4" color="{clrTheme}" />
+		<drawrectangle x="0" y="0" valign="center" width="{current}/{total}*{areawidth}" height="{areaheight}/2" color="{clrTheme}" />
+	</area>
+	-->
+
+ 	<area x="1%" y="71%" width="78%" height="3%" layer="2">
+ 		<drawimage name="scroll_back_vert" imagetype="skinpart" path="scroll_back_vert" x="0" y="0" width="{areawidth}" height="{areaheight}" /> 
+	</area>	
+	<area x="1%" y="71%" width="78%" height="3%" layer="3">	
+		<drawimage name="scroll_active_vert" imagetype="skinpart" path="scroll_active_vert" x="0" y="0" width="{current}/{total}*{areawidth}" height="{areaheight}" /> 
 	</area>
 </progressbar>
--->
-<progressbar>
- 	<area x="1%" y="72%" width="78%" height="3%" layer="2">
- 		<drawrectangle  x="0" y="0" align="center" valign="center" width="100%" height="{areaheight}/8" color="{clrWhite}" />
-		<drawrectangle x="0" y="0" valign="center" width="{current}/{total}*{areawidth}" height="{areaheight}/2" color="{clrTheme}" />
- 	</area>
- </progressbar>
+
 <cutmarks>
-	<area x="1%" y="72%" width="78%" height="3%" layer="3">
+	<area x="1%" y="71%" width="78%" height="3%" layer="3">
 		<loop name="marks" x="0" y="0" orientation="absolute">
 			<!-- draw mark -->
             <drawrectangle condition="not{marks[active]}" x="{marks[position]}/{marks[total]}*{areawidth}" y="0" width="1" height="100%" color="{clrWhite}" />

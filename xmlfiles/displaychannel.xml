@@ -150,11 +150,21 @@
 
 
 <progressbar>
-	<area x="1%" y="75%" width="78%" height="1%" layer="3">
+	<!--
+	<area debug="true" x="1%" y="75%" width="78%" height="1%" layer="3">
 		<drawrectangle  x="0" y="0" align="center" valign="center" width="100%" height="{areaheight}/8" color="{clrWhite}" />
-        <drawrectangle x="0" y="0" width="{elapsed}/{duration}*{areawidth}" height="100%" color="{clrTheme}" />
+		<drawrectangle x="0" y="0" width="{elapsed}/{duration}*{areawidth}" height="100%" color="{clrTheme}" /> 
     </area>
-	
+	-->
+
+	<area x="1%" y="74%" width="78%" height="2%" layer="3">
+		<drawimage debug="true" name="scroll_back_vert" imagetype="skinpart" path="scroll_back_vert" x="0" y="0" width="{areawidth}" height="{areaheight}" /> 
+		
+	</area>		
+	<area x="1%" y="74%" width="78%" height="2%" layer="4">	
+		
+		<drawimage debug="true" name="scroll_active_vert" imagetype="skinpart" path="scroll_active_vert" x="0" y="0" width="{elapsed}/{duration}*{areawidth}" height="{areaheight}" /> 
+	</area>	
 </progressbar>
 
 <screenresolution>

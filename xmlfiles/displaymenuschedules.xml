@@ -58,9 +58,17 @@
 		<drawtext condition="{hasicon}++{whatson}" x="{width(menuicon)}"  valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{channelnumber} - {channelname}" />
 		<drawtext condition="{hasicon}++{whatsonnow}" x="{width(menuicon)}" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
 		<drawtext condition="{hasicon}++{whatsonnext}" x="{width(menuicon)}" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
-
+		<drawtext condition="{hasicon}++{whatsonfavorites}" x="{width(menuicon)}" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		
+		<!-- <drawtext condition="isset{title}++not{whatson}" x="{width(menuicon)}" valign="center" font="{light}" fontsize="80%" color="{clrRed}" text="TEST" /> -->
+		
+		
 		<drawtext condition="not{hasicon}++{whatson}" x="0"  valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{channelnumber} - {channelname}" />
-		<drawtext condition="not{hasicon}++{whatsonnow}||{whatsonnext}" x="0" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		<drawtext condition="not{hasicon}++{whatsonnext}" x="0" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		<drawtext condition="not{hasicon}++{whatsonnow}" x="0" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		<drawtext condition="not{hasicon}++{whatsonfavorites}" x="{width(menuicon)}" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		
+		
 	</area>
 </header>
 
@@ -124,6 +132,20 @@
 		<drawtext name="menutext" x="0" font="{light}" fontsize="90%" color="{clrWhite}" text="{title}" />	
     </areascroll>
 	
+	<!-- WHATSONFAVORITES  -->
+	<area condition="{whatsonfavorites} ++ not{separator}" x="1%" width="23%" layer="3">	
+	
+		<drawimage name="timerfull" condition="{timerfull}" imagetype="icon" path="timer" align="left" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
+      
+		<drawimage name="logo" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" x="{width(timerfull)}/0.75" y="0" width="{areawidth}/4" height="100%" />
+        <drawtext name="notlogo" condition="not{channellogoexists}" x="{posx(logo)}+{width(logo)}/2-{width(notlogo)}/2" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{channelnumber}" />
+		<drawtext name="date" x="{width(logo)}+{posx(logo)}/0.75" font="{light}" fontsize="90%" color="{clrWhite}" text="{day} {daynumeric} - {start}" />	
+	</area>
+
+	<areascroll condition="{whatsonfavorites} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="25%" width="52%" layer="3">
+		<drawtext name="menutext" x="0" font="{light}" fontsize="90%" color="{clrWhite}" text="{title}" />	
+    </areascroll>
+	
 <!-- separator -->
 <area condition="{separator}++{whatson}" x="0%" width="76%" layer="4">
       <drawtext x="0" y="0" font="{light}" fontsize="95%" color="{clrTheme}" text=" {title}" />
@@ -142,9 +164,16 @@
 		<drawtext name="shorttext" x="0" y="{height(title)}" font="{semibold}" width="{areawidth}" fontsize="15%" color="{clrWhite}" text="{shorttext}" />
 		
         <drawtext condition="{running}" name="start" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="12%" color="{clrWhite}" text="{start}" />
-        <drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2" width="{areawidth}/2" height="1" color="{clrTheme}" />
-        <drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2-2" width="{areawidth}/2 * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrTheme}" />
-        <drawtext condition="{running}" name="stop" x="{width(sb2)}+{width(start)}+{width(start)}/4"  y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="12%" color="{clrWhite}" text="{stop}" />
+        
+	<!--	<drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2" width="{areawidth}/2" height="1" color="{clrTheme}" />
+			<drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2-2" width="{areawidth}/2 * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrTheme}" />
+        -->
+		
+		<drawimage condition="{running}" name="sb2" imagetype="skinpart" path="scroll_back_vert" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/4" width="{areawidth}/2" height="10" /> 
+		<drawimage condition="{running}" name="sb2" imagetype="skinpart" path="scroll_active_vert" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/4" width="{areawidth}/2 * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="10" /> 
+		
+		
+		<drawtext condition="{running}" name="stop" x="{width(sb2)}+{width(start)}+{width(start)}/4"  y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="12%" color="{clrWhite}" text="{stop}" />
         <drawtext condition="not{running}" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{light}" fontsize="12%" color="{clrWhite}" text="{start} - {stop} ({duration} min)" />
 		
 	</area>
