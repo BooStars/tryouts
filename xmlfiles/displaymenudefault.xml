@@ -79,7 +79,7 @@
 		<drawtext  name="column1" x="{column1x}" width="{column1width}" valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{column1}" />
     </areascroll>
             
-	<area x="0" width="97%" layer="3">
+	<area x="2%" width="97%" layer="3">
 		<drawtext condition="{column2set}" x="{column2x}" valign="center" width="{column2width}" font="{light}" fontsize="90%" color="{clrWhite}" text="{column2}" />
 		<drawtext condition="{column3set}" x="{column3x}" valign="center" width="{column3width}" font="{light}" fontsize="90%" color="{clrWhite}" text="{column3}" />
 		<drawtext condition="{column4set}" x="{column4x}" valign="center" width="{column4width}" font="{light}" fontsize="90%" color="{clrWhite}" text="{column4}" />
