@@ -57,8 +57,8 @@
 <translations>
 
 	<token name="tr(fadetext)">
-		<trans lang="en_EN">global Fade time in ms (needs VDR restart)</trans>
-		<trans lang="de_DE">Globale Einblendzeit in ms (erfordert VDR Neustart)</trans>
+		<trans lang="en_EN">global Fade time in ms</trans>
+		<trans lang="de_DE">Globale Einblendzeit in ms</trans>
 	</token>
 
 
@@ -69,8 +69,8 @@
 	</token>
 
 		<token name="tr(channelfadeTime)">
-			<trans lang="en_EN">Fade time in ms (needs VDR restart)</trans>
-			<trans lang="de_DE">Einblendzeit in ms (erfordert VDR Neustart)</trans>
+			<trans lang="en_EN">Fade time in ms</trans>
+			<trans lang="de_DE">Einblendzeit in ms</trans>
 		</token>	
 		<token name="tr(showWeather)">
 			<trans lang="en_EN">Show weather info when switching channel</trans>
