@@ -19,8 +19,11 @@
     </area>
      
 	<area x="26%" y="55%" width="48%" height="5%" layer="2">
-	<drawrectangle name="sb1" x="0" y="0" valign="center" width="{areawidth}-{posx(sb1)}" height="{areaheight}/8" color="{clrWhite}" />
-    <drawrectangle name="sb1" x="0" y="0" valign="center" width="{volume}/{maxvolume}*{areawidth}" height="{areaheight}" color="{clrTheme}" />
+    
+	<drawimage name="sb1" imagetype="skinpart" path="scroll_back_vert" x="0" y="0" valign="center" width="{areawidth}-{posx(sb1)}" height="{areaheight}" /> 
+	<drawimage name="sb1" imagetype="skinpart" path="scroll_active_vert" x="0" y="0" valign="center" width="{volume}/{maxvolume}*{areawidth}" height="{areaheight}" /> 
+	
+	
     </area>        
 </volume>
 

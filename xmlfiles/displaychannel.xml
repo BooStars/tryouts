@@ -139,12 +139,12 @@
 	
 	<area x="0" y="77%" width="80%" height="12%" layer="2">
 		
-        <drawtext name="nexttitle" x="{width(nextstart)}+{posx(nextstart)}*2"  y="{posy(nextstart)}" font="{light}" width="{areawidth} - {width(nextstartstop)} - {posx(nexttitle)} - {posx(nextstart)}*2" fontsize="{areaheight}/100*{nexttitle_fontSize}" color="{clrLightGray}" text="{nexttitle}"/>
-		<drawtext name="nextstart" x="1%" y="0" font="{light}" fontsize="{areaheight}/100*{nextstart_fontSize}" color="{clrLightGray}" text="{nextstart}" />
-        <drawtext name="nextsubtitle" x="{width(nextstart)}+{posx(nextstart)}*2"  y="{posy(nexttitle)}+{height(nexttitle)}" width="{areawidth} - {width(nextstartstop)} -{posx(nexttitle)}-{posx(nextstart)}*2" font="{light}" fontsize="{areaheight}/100*{nextsubtitle_fontSize}" color="{clrLightGray}" text="{nextsubtitle}"/>
+        <drawtext name="nexttitle" x="{width(nextstart)}+{posx(nextstart)}*2"  y="{posy(nextstart)}" font="{light}" width="{areawidth} - {width(nextstartstop)} - {posx(nexttitle)} - {posx(nextstart)}*2" fontsize="{areaheight}/100*{title_fontSize}" color="{clrLightGray}" text="{nexttitle}"/>
+		<drawtext name="nextstart" x="1%" y="0" font="{light}" fontsize="{areaheight}/100*{start_fontSize}" color="{clrLightGray}" text="{nextstart}" />
+        <drawtext name="nextsubtitle" x="{width(nextstart)}+{posx(nextstart)}*2"  y="{posy(nexttitle)}+{height(nexttitle)}" width="{areawidth} - {width(nextstartstop)} -{posx(nexttitle)}-{posx(nextstart)}*2" font="{light}" fontsize="{areaheight}/100*{subtitle_fontSize}" color="{clrLightGray}" text="{nextsubtitle}"/>
               
-		<drawtext name="nextstartstop" x="{areawidth}-{width(nextstartstop)}-{posx(nextstart)}" y="0" font="{light}" fontsize="{areaheight}/100*{nextstartstop_fontSize}" color="{clrLightGray}" text="{nextstart} - {nextstop}" />
-        <drawtext name="nextduration" x="{areawidth}-{width(nextduration)}-{posx(nextstart)}" y="{posy(nextstartstop)}+{height(nextstartstop)}" font="{light}" fontsize="{areaheight}/100*{nextduration_fontSize}" color="{clrLightGray}" text="{nextduration} min" />
+		<drawtext name="nextstartstop" x="{areawidth}-{width(nextstartstop)}-{posx(nextstart)}" y="0" font="{light}" fontsize="{areaheight}/100*{startstop_fontSize}" color="{clrLightGray}" text="{nextstart} - {nextstop}" />
+        <drawtext name="nextduration" x="{areawidth}-{width(nextduration)}-{posx(nextstart)}" y="{posy(nextstartstop)}+{height(nextstartstop)}" font="{light}" fontsize="{areaheight}/100*{timeremaining_fontSize}" color="{clrLightGray}" text="{nextduration} min" />
 	</area>
 </epginfo>
 

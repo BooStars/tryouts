@@ -32,14 +32,7 @@
 				
 				<parameter type="int" name="startstop_fontSize" min="10" max="100" displaytext="{tr(startstop_fontSize)}">45</parameter>
 				<parameter type="int" name="timeremaining_fontSize" min="10" max="100" displaytext="{tr(timeremaining_fontSize)}">40</parameter>
-				
-				<parameter type="int" name="nextstart_fontSize" min="10" max="100" displaytext="{tr(nextstart_fontSize)}">50</parameter>
-				<parameter type="int" name="nexttitle_fontSize" min="10" max="100" displaytext="{tr(nexttitle_fontSize)}">50</parameter>
-				<parameter type="int" name="nextsubtitle_fontSize" min="10" max="100" displaytext="{tr(nextsubtitle_fontSize)}">40</parameter>
-				
-				<parameter type="int" name="nextstartstop_fontSize" min="10" max="100" displaytext="{tr(nextstartstop_fontSize)}">45</parameter>
-				<parameter type="int" name="nextduration_fontSize" min="10" max="100" displaytext="{tr(nextduration_fontSize)}">40</parameter>
-			
+
 			</submenu>
         </submenu>
 
@@ -61,8 +54,6 @@
 		<trans lang="de_DE">Globale Einblendzeit in ms</trans>
 	</token>
 
-
-
 	<token name="tr(displaychannelText)">
 		<trans lang="en_EN">Display Channel</trans>
 		<trans lang="de_DE">Kanalwechsel</trans>
@@ -83,54 +74,42 @@
 
 	<token name="tr(displaychannelTextFonts)">
         <trans lang="en_EN">Display Channel Fonts</trans>
-        <trans lang="de_DE">Schriften</trans>
+        <trans lang="de_DE">Schriftgrößen</trans>
     </token>
 
-		<token name="tr(channelname_fontSize)">
-			<trans lang="en_EN">channelname: </trans>
-			<trans lang="de_DE">Kanalname</trans>
-		</token>
-		<token name="tr(start_fontSize)">
-			<trans lang="en_EN">start time</trans>
-			<trans lang="de_DE">Startzeit</trans>
-		</token>
-		<token name="tr(title_fontSize)">
-			<trans lang="en_EN">title</trans>
-			<trans lang="de_DE">Titel</trans>
-		</token>
-		<token name="tr(subtitle_fontSize)">
-			<trans lang="en_EN">subtitle</trans>
-			<trans lang="de_DE">Untertitel</trans>
-		</token>
+				<token name="tr(channelname_fontSize)">
+					<trans lang="en_EN">channelname: </trans>
+					<trans lang="de_DE">Kanalname</trans>
+				</token>
 				
-		<token name="tr(startstop_fontSize)">
-			<trans lang="en_EN">start stop</trans>
-			<trans lang="de_DE">StartStop</trans>
-		</token>
-		<token name="tr(timeremaining_fontSize)">
-			<trans lang="en_EN">timeremaining</trans>
-			<trans lang="de_DE">Verbleibene Zeit</trans>
-		</token>
-		<token name="tr(nextstart_fontSize)">
-			<trans lang="en_EN">next start</trans>
-			<trans lang="de_DE">Nächster Start</trans>
-		</token>
-		<token name="tr(nexttitle_fontSize)">
-			<trans lang="en_EN">next title</trans>
-			<trans lang="de_DE">Nächster Titel</trans>
-		</token>
-		<token name="tr(nextsubtitle_fontSize)">
-			<trans lang="en_EN">next subtitle</trans>
-			<trans lang="de_DE">Nächster Untertitel</trans>
-		</token>
-		<token name="tr(nextstartstop_fontSize)">
-			<trans lang="en_EN">next start stop</trans>
-			<trans lang="de_DE">Nächster StartStop</trans>
-		</token>
-		<token name="tr(nextduration_fontSize)">
-			<trans lang="en_EN">next duration</trans>
-			<trans lang="de_DE">Nächster Verbleibene Zeit</trans>
-		</token>
+				
+				<token name="tr(start_fontSize)">
+					<trans lang="en_EN">start time</trans>
+					<trans lang="de_DE">Startzeit</trans>
+				</token>
+				
+				<token name="tr(title_fontSize)">
+					<trans lang="en_EN">title</trans>
+					<trans lang="de_DE">Titel</trans>
+				</token>
+				
+				
+				<token name="tr(subtitle_fontSize)">
+					<trans lang="en_EN">subtitle</trans>
+					<trans lang="de_DE">Untertitel</trans>
+				</token>
+						
+				<token name="tr(startstop_fontSize)">
+					<trans lang="en_EN">start stop</trans>
+					<trans lang="de_DE">Start Stop</trans>
+				</token>
+				<token name="tr(timeremaining_fontSize)">
+					<trans lang="en_EN">timeremaining</trans>
+					<trans lang="de_DE">Verbleibene Zeit</trans>
+				</token>
+				
+				
+				
 	
 	<token name="tr(displaymainmenuText)">
 		<trans lang="en_EN">MainMenu</trans>
