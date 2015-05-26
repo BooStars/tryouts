@@ -61,7 +61,7 @@
 
 <rectitle>
 	<area x="1%" y="56%" width="78%" height="33%" layer="3">
-		<drawtext debug="true" name= "title" x="0" y="0" width="{areawidth}-{width(rectime)}" font="{light}" fontsize="22%" color="{clrTheme}" text="{rectitle}" />
+		<drawtext name= "title" x="0" y="0" width="{areawidth}-{width(rectime)}" font="{light}" fontsize="22%" color="{clrTheme}" text="{rectitle}" />
 		<drawtext name="rectime" x="{areawidth}-{width(rectime)}" y="0" font="{light}" fontsize="22%" color="{clrWhite}" text="{recdate} - {rectime}" />
 		<drawtext name="recsubtitle" x="0" y="{height(title)}"  font="{light}" fontsize="15%" color="{clrWhite}" text="{recsubtitle}" />
 	</area>
