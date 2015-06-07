@@ -174,10 +174,10 @@
 	</area>
 
 	<area x="40%" y="94%" width="15%" height="7%" layer="2">
-		<drawtext condition="{yellow1}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red1}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{green1}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{green}" />
-		<drawtext condition="{blue1}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{yellow1}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red1}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{green1}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{blue1}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{blue}" />
 	</area>
 	
 	<area x="55%" y="94%" width="15%" height="7%" layer="2">
@@ -187,10 +187,10 @@
 		<drawimage condition="{green2}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="55%" y="94%" width="15%" height="7%" layer="2">
-		<drawtext condition="{yellow2}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red2}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue2}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green2}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow2}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red2}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue2}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green2}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{green}" />
 	</area>
 
 	<area x="70%" y="94%" width="15%" height="7%" layer="2">
@@ -200,10 +200,10 @@
 		<drawimage condition="{green3}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="70%" y="94%" width="15%" height="7%" layer="2">
-		<drawtext condition="{yellow3}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red3}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue3}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green3}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow3}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red3}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue3}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green3}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{green}" />
 	</area>
 	
 	<area x="85%" y="94%" width="15%" height="7%" layer="2">
@@ -213,10 +213,10 @@
 		<drawimage condition="{green4}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="85%" y="94%" width="15%" height="7%" layer="2">
-		<drawtext condition="{yellow4}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red4}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue4}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green4}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow4}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red4}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue4}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green4}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{green}" />
 	</area>
 </colorbuttons>
 	
