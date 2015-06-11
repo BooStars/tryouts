@@ -1,0 +1,65 @@
+features:
+blue botton ansicht: cover, list , detail
+
+--startverhalten default ansicht
+
+bug:
+
+resouce dir anpassen
+ info taste lernen
+ 
+ kanäle im dashboard
+ 
+ gesehen nicht gesehen
+ is show?
+ 
+ {seriestitle} in seasons
+ 
+ stringvergleich... bei audiocodec?
+ 
+ 
+ Moin Chris....
+wie gesagt fehlen  hier und da ein paar tokens und Funktionen.
+Ich habe einfach alle fehelenden Tokens im Skin rot makiert, vllt hilft das meine Beschreibung ein wenig besser zu verstehen ;-)
+
+ismovie:
+genre
+audiocodec als integer
+aspectRatio als integer
+videoCodec als integer
+container als integer
+videoFrameRate als integer
+contentrairing als integer
+
+
+isSeason:
+seriesnamename
+episoden / season
+gesehen / season
+studio
+genre
+
+isShow:
+episoden / show
+gesehen / show
+studio
+genre
+
+isEpisode:
+genre
+studio ?
+Bewertung
+date (first aired)
+audiocodec als integer
+aspectRatio als integer
+videoCodec als integer
+container als integer
+videoFrameRate als integer
+
+library festnageln
+all ansicht weg
+ansicht
+problem in printf
+text="{seriestitle} - {printf('S%02d E%02d', season, episode)} - {title}" /> wird
+seriestitle - - S01 E01 - title
+Außerdem fände ich es gut wenn der blaue Button nicht mit "Ansicht wechseln", sondern besser mit "Ansicht: {viewmode}" beschriftet wäre. Wenn das nicht eh besser eine Einstellung fürs setup wäre...
