@@ -1,15 +1,15 @@
 <menusetup x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
 <header>
 	<area x="1%" y="0" width="65%" height="7%" layer="2">
-		<drawtext x="0" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		<drawtext x="0" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{title}" />
 	</area>
 </header>
 
 <datetime>
 	<area x="70%" y="0%" width="30%" height="10%" layer="2">
-		<drawtext name="dayname" x="2%" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
-		<drawtext x="2%" y="{height(dayname)}" font="{light}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
-		<drawtext align="right" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{time}" />
+		<drawtext name="dayname" x="2%" y="0" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
+		<drawtext x="2%" y="{height(dayname)}" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
+		<drawtext align="right" valign="center" font="{vdrOsd}" fontsize="85%" color="{clrWhite}" text="{time}" />
     </area>
 </datetime>
 
@@ -27,7 +27,7 @@
 	</area>				 
 	
 	<areascroll scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="2%" width="30%"  layer="3">
-		<drawtext name="menutext" x="0" valign="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{number} {label}" />
+		<drawtext name="menutext" x="0" valign="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{number} {label}" />
     </areascroll>
 </listelement>
      

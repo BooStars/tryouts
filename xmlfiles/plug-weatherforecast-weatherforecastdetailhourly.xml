@@ -96,7 +96,7 @@
             <drawimage imagetype="icon" path="{icon}" align="center" y="10" width="{areaheight}" height="{areaheight}"/>
         </area>
        <area x="22%" y="66%" width="78%" height="24%" layer="4">
-            <drawtext name="summary" x="0" y="0" align="center" valign="center" font="{light}" fontsize="20%" color="{clrTheme}" text="{summary}" />
+            <drawtext name="summary" x="0" y="0" align="center" valign="center" font="{vdrOsd}" fontsize="20%" color="{clrTheme}" text="{summary}" />
         </area>
     </detailheader>
 
@@ -104,14 +104,14 @@
         <loop name="hourly" x="0" y="0" orientation="vertical" columnwidth="{areawidth}" rowheight="{areaheight}/5">
 		
             <drawimage name="icon" imagetype="icon" path="{hourly[icon]}" align="left" y="0" width="{rowheight}" height="{rowheight}"/>
-			<drawtext name="w_time" x="{width(icon)}" y="0" valign="center" font="{light}" fontsize="{rowheight}/1.5" color="{clrWhite}" text="{hourly[timestamp]}" />
+			<drawtext name="w_time" x="{width(icon)}" y="0" valign="center" font="{vdrOsd}" fontsize="{rowheight}/1.5" color="{clrWhite}" text="{hourly[timestamp]}" />
             
-			<drawtext name="sum" x="{width(icon)}+{width(w_time)}" valign="top" width="{columnwidth}" font="{light}" fontsize="{rowheight}*0.35" color="{clrWhite}" text=" {hourly[summary]}" />
-            <drawtext name="rain" x="{width(icon)}+{width(w_time)}" valign="center" width="{columnwidth}" font="{light}" fontsize="{rowheight}*0.35" color="{clrWhite}" text=" {tr(precipitationprobability)} {hourly[precipitationprobability]}%, {hourly[precipitationintensity]} l/qm" />
-            <drawtext x="{width(icon)}+{width(w_time)}" valign="bottom"  width="{columnwidth}" font="{light}" fontsize="{rowheight}*0.35" color="{clrWhite}" text=" {tr(windspeed)} {hourly[windspeed]} km/h {tr(from)} {hourly[windbearingstring]}" />
+			<drawtext name="sum" x="{width(icon)}+{width(w_time)}" valign="top" width="{columnwidth}" font="{vdrOsd}" fontsize="{rowheight}*0.35" color="{clrWhite}" text=" {hourly[summary]}" />
+            <drawtext name="rain" x="{width(icon)}+{width(w_time)}" valign="center" width="{columnwidth}" font="{vdrOsd}" fontsize="{rowheight}*0.35" color="{clrWhite}" text=" {tr(precipitationprobability)} {hourly[precipitationprobability]}%, {hourly[precipitationintensity]} l/qm" />
+            <drawtext x="{width(icon)}+{width(w_time)}" valign="bottom"  width="{columnwidth}" font="{vdrOsd}" fontsize="{rowheight}*0.35" color="{clrWhite}" text=" {tr(windspeed)} {hourly[windspeed]} km/h {tr(from)} {hourly[windbearingstring]}" />
             
-		    <drawtext name="temp" x="{columnwidth}-{width(temp)}*1.5"  valign="center" font="{light}" y="0" fontsize="{rowheight}*0.45" color="{clrWhite}" text="{hourly[temperature]}°C" />
-            <drawtext name="felt" x="{columnwidth}-{width(felt)}*1.5" valign="bottom" font="{light}" y="{rowheight}*0.35" fontsize="{rowheight}*0.25" color="{clrWhite}" text="{tr(felt)} {hourly[apparenttemperature]}°C" />
+		    <drawtext name="temp" x="{columnwidth}-{width(temp)}*1.5"  valign="center" font="{vdrOsd}" y="0" fontsize="{rowheight}*0.45" color="{clrWhite}" text="{hourly[temperature]}°C" />
+            <drawtext name="felt" x="{columnwidth}-{width(felt)}*1.5" valign="bottom" font="{vdrOsd}" y="{rowheight}*0.35" fontsize="{rowheight}*0.25" color="{clrWhite}" text="{tr(felt)} {hourly[apparenttemperature]}°C" />
        
 			<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="0" valign="bottom" width="{areawidth}" height="2"/>
 			

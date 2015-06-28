@@ -13,9 +13,9 @@
 
     <header>
         <area x="{areawidth}/4" y="{areaheight} - {numtracks} * {areaheight} / 10 - {areaheight} / 10" width="50%" height="{areaheight} / 10" layer="2">
-            <drawtext x="1%" valign="center" font="{light}" fontsize="80%" color="{clrTheme}" text="{title}" />
-            <drawimage name="stereo" condition="{isstereo}" imagetype="icon" path="stereo_on" x="{areawidth} - {width(stereo)}" valign="center" width="{areawidth}/8" height="{areawidth}/9"/>
-            <drawimage name="dd" condition="{isac3}" imagetype="icon" path="dd_on" x="{areawidth} - {width(dd)}" valign="center" width="{areawidth}/8" height="{areawidth}/9"/>
+            <drawtext x="1%" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrTheme}" text="{title}" />
+            <drawimage name="stereo" condition="{isstereo}" imagetype="icon" path="stereo" x="{areawidth} - {width(stereo)}" valign="center" width="{areawidth}/8" height="{areawidth}/9"/>
+            <drawimage name="dd" condition="{isac3}" imagetype="icon" path="dd" x="{areawidth} - {width(dd)}" valign="center" width="{areawidth}/8" height="{areawidth}/9"/>
         </area>
     </header>
 
@@ -31,7 +31,7 @@
 			</area>
          
             <area x="25%" width="50%" layer="3">
-                <drawtext x="1%" valign="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{title}" />
+                <drawtext x="1%" valign="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{title}" />
             </area>
         </listelement>
     </menuitems>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64"
+   height="64"
+   viewBox="0 0 64.000001 64.000001"
+   id="svg7672"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="cut19.svg">
+  <defs
+     id="defs7674">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3813">
+      <path
+         id="path3815"
+         style="fill:none;stroke:#000000;stroke-width:0.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 62.063001,1052.3622 1.937,0 0,-45.0004 0,-18.99964 -32.000001,0 0,32.00004 z"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccccc" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6568543"
+     inkscape:cx="59.401272"
+     inkscape:cy="14.820421"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:showpageshadow="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1005"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7677">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-988.36216)">
+    <rect
+       style="fill:#999999;stroke:none"
+       id="rect7680"
+       width="64"
+       height="64"
+       x="0"
+       y="988.36218"
+       clip-path="url(#clipPath3813)"
+       ry="13.611806" />
+    <rect
+       style="fill:none;stroke:#7d7d7d;stroke-width:6.79203033;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3030-1"
+       width="57.20797"
+       height="57.20797"
+       x="3.3960156"
+       y="991.75818"
+       ry="5.3479991"
+       rx="5.3479991" />
+  </g>
+</svg>

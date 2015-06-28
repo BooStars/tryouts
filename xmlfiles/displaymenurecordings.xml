@@ -36,11 +36,11 @@
 </background> 
 <header>
 	<area x="1%" y="0" width="64%" height="15%" layer="2">
-		<drawtext  condition="not{hasicon}" name="title" x="0" width="{areawidth}" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{title}" />
+		<drawtext  condition="not{hasicon}" name="title" x="0" width="{areawidth}" y="0" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{title}" />
 		<drawimage condition="{hasicon}" name="menuicon" imagetype="menuicon" path="{icon}" x="0" y="0" valign="center" width="{areaheight}/2" height="{areaheight}/2"/>	
-		<drawtext  condition="{hasicon}" name="title1" x="{posx(menuicon)}+{width(menuicon)}" y="0" width="{areawidth}" font="{light}" fontsize="50%" color="{clrWhite}" text="{title}" />
-		<drawtext condition="not{discalert}" name="used" x="{posx(title1)}" y="{height(title1)}" width="{areawidth}" font="{light}" fontsize="35%" color="{clrWhite}" text="({vdrusagestring})" /> <!-- (Disk: {usedpercent}% - {freetime} frei) -->
-		<drawtext condition="{discalert}" name="used" x="{posx(title1)}" y="{height(title1)}" width="{areawidth}" font="{light}" fontsize="35%" color="{clrRed}" text="({vdrusagestring})" /> <!-- (Disk: {usedpercent}% - {freetime} frei) -->
+		<drawtext  condition="{hasicon}" name="title1" x="{posx(menuicon)}+{width(menuicon)}" y="0" width="{areawidth}" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{title}" />
+		<drawtext condition="not{discalert}" name="used" x="{posx(title1)}" y="{height(title1)}" width="{areawidth}" font="{vdrOsd}" fontsize="35%" color="{clrWhite}" text="({vdrusagestring})" /> <!-- (Disk: {usedpercent}% - {freetime} frei) -->
+		<drawtext condition="{discalert}" name="used" x="{posx(title1)}" y="{height(title1)}" width="{areawidth}" font="{vdrOsd}" fontsize="35%" color="{clrRed}" text="({vdrusagestring})" /> <!-- (Disk: {usedpercent}% - {freetime} frei) -->
 	</area>
 </header>
 
@@ -59,12 +59,12 @@
 	<areascroll   scrollelement="title" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="2%" width="30%" layer="2">
 		<drawimage condition="{folder}++not{new}" name="recfolder" imagetype="icon" path="recfolder" x="0" width="0.9*{areaheight} * 92 / 136" height="0.9*{areaheight}" valign="center" />
 		<drawimage condition="{folder}++{new}" name="recfoldernew" imagetype="icon" path="recfoldernew" x="0" width="0.9*{areaheight} * 92 / 136" height="0.9*{areaheight}" valign="center" />
-		<drawtext condition="{folder}" name="title" x="{width(recfolder)} + 10" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{name}" />	
+		<drawtext condition="{folder}" name="title" x="{width(recfolder)} + 10" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{name}" />	
 			
 		<drawimage condition="not{folder}++{new}" name="recnew" imagetype="icon" path="recnew" x="0" width="0.9*{areaheight} * 92 / 136" height="0.9*{areaheight}" valign="center" />
 		<drawimage condition="not{folder}++not{new}++{cutted}" name="cut" imagetype="icon" path="cut" x="0" width="0.9*{areaheight} * 92 / 136" height="0.9*{areaheight}" valign="center" />
 		<drawimage condition="not{folder}++not{new}++not{cutted}" name="recitem" imagetype="icon" path="recitem" x="0" width="0.9*{areaheight} * 92 / 136" height="0.9*{areaheight}" valign="center" />
-		<drawtext condition="not{folder}" name="title" x="{width(recfolder)}+10" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{name}" />	
+		<drawtext condition="not{folder}" name="title" x="{width(recfolder)}+10" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{name}" />	
 	</areascroll>
 </listelement>
 
@@ -82,12 +82,12 @@
 
 <!-- text infobar -->
 		<area x="34%" y="36%" width="48%" height="43%" layer="3">
-		<drawtext name="datetime" x="0" y="0" font="{light}" fontsize="22%" color="{clrWhite}" text="{date} {time}" />        
+		<drawtext name="datetime" x="0" y="0" font="{vdrOsd}" fontsize="22%" color="{clrWhite}" text="{date} {time}" />        
 	<!-- text -->
-		<drawtext condition="{folder}" name="title" x="0" y="{height(datetime)}" width="{areawidth}" font="{semibold}" fontsize="20%" color="{clrTheme}" text="{name}" />
-		<drawtext condition="{folder}" name="numrecordings" x="0" y="{height(datetime)}+{height(title)}" width="{areawidth}" font="{semibold}" fontsize="18%" color="{clrWhite}" text="(gesamt: {numrecordingsfolder}, {newrecordingsfolder} neu)" />
-		<drawtext condition="not{folder}" name="title" x="0" y="{height(datetime)}" width="{areawidth}" font="{semibold}" fontsize="20%" color="{clrTheme}" text="{name}, {duration} min" />
-		<drawtext condition="not{folder}" name="shorttext" x="0" y="{height(datetime)}+{height(title)}" width="{areawidth}" font="{semibold}" fontsize="18%" color="{clrWhite}" text="{shorttext}" /> 
+		<drawtext condition="{folder}" name="title" x="0" y="{height(datetime)}" width="{areawidth}" font="{vdrOsd}" fontsize="20%" color="{clrTheme}" text="{name}" />
+		<drawtext condition="{folder}" name="numrecordings" x="0" y="{height(datetime)}+{height(title)}" width="{areawidth}" font="{vdrOsd}" fontsize="18%" color="{clrWhite}" text="(gesamt: {numrecordingsfolder}, {newrecordingsfolder} neu)" />
+		<drawtext condition="not{folder}" name="title" x="0" y="{height(datetime)}" width="{areawidth}" font="{vdrOsd}" fontsize="20%" color="{clrTheme}" text="{name}, {duration} min" />
+		<drawtext condition="not{folder}" name="shorttext" x="0" y="{height(datetime)}+{height(title)}" width="{areawidth}" font="{vdrOsd}" fontsize="18%" color="{clrWhite}" text="{shorttext}" /> 
 	<!-- icons -->
 		<drawimage condition="{folder}" name="recfolder_vert" imagetype="icon" path="recfolder_vert" x="0" valign="bottom" width="{areawidth}/10" height="{areaheight}/3"  />
 		<drawimage condition="{folder}++{new}" name="new" imagetype="icon" path="new" x="{width(recfolder_vert)}" y="{areaheight}-{height(new)}" width="{areawidth}/10" height="{areaheight}/3"  />
@@ -99,11 +99,12 @@
 			
 <!-- scraper poster -->
 
-	<area x="56%" y="13%" width="70%" height="70%" layer="3">
-		<drawimage condition="{hasposter}" name="recback" imagetype="image" path="{ressourcedir}/images/recback.png" x="0" y="0" width="{areawidth}" height="{areaheight}" />
-	</area>
+	
 	<area x="61%" y="20%" width="60%" height="60%" layer="4">
 		<drawimage  condition="{hasposter}" name="poster" imagetype="image" path="{posterpath}" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+	</area>
+	<area x="84%" y="13%" width="14%" height="70%" layer="5">
+		<drawimage condition="{hasposter}" name="recback" imagetype="skinpart" path="poster_top" x="3%" y="1%" width="{areawidth}*0.95" height="{areaheight}*0.98" />
 	</area>
 	
 

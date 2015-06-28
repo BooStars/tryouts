@@ -43,9 +43,9 @@
 
 <datetime>
 	<area x="70%" y="0%" width="30%" height="10%" layer="2">
-		<drawtext name="dayname" x="2%" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
-		<drawtext x="2%" y="{height(dayname)}" font="{light}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
-		<drawtext align="right" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{time}" />
+		<drawtext name="dayname" x="2%" y="0" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
+		<drawtext x="2%" y="{height(dayname)}" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
+		<drawtext align="right" valign="center" font="{vdrOsd}" fontsize="85%" color="{clrWhite}" text="{time}" />
     </area>
 </datetime>
 
@@ -53,28 +53,31 @@
  
 	<area x="64%" y="39%" width="52%" height="52%" layer="3">
 	  
-			<drawimage condition="{hasposter}" name="recback" imagetype="image" path="{ressourcedir}/images/recback.png" x="0" y="0" valign="top" align="center" width="{areaheight} * 0.88  * {posterwidth} / {posterheight}" height="{areaheight} * 0.95" />
 			<drawimage  condition="{hasposter}" name="poster" imagetype="image" path="{posterpath}" x="0" y="0" align="center" valign="center" width="{areaheight} * 0.8  * {posterwidth} / {posterheight}" height="{areaheight} * 0.8"/>	
+	</area>
+	<area x="64%" y="39%" width="52%" height="52%" layer="4">
+	  
+			<drawimage condition="{hasposter}" name="recback" imagetype="skinpart" path="poster_top" x="0" y="2%" align="center" width="{areaheight} * 0.85  * {posterwidth} / {posterheight}" height="{areaheight} * 0.91" />
 	</area>
 	
 </scrapercontent>
 
 <rectitle>
 	<area x="1%" y="56%" width="78%" height="33%" layer="3">
-		<drawtext name= "title" x="0" y="0" width="{areawidth}-{width(rectime)}" font="{light}" fontsize="22%" color="{clrTheme}" text="{rectitle}" />
-		<drawtext name="rectime" x="{areawidth}-{width(rectime)}" y="0" font="{light}" fontsize="22%" color="{clrWhite}" text="{recdate} - {rectime}" />
-		<drawtext name="recsubtitle" x="0" y="{height(title)}"  font="{light}" fontsize="15%" color="{clrWhite}" text="{recsubtitle}" />
+		<drawtext name= "title" x="0" y="0" width="{areawidth}-{width(rectime)}" font="{vdrOsd}" fontsize="22%" color="{clrTheme}" text="{rectitle}" />
+		<drawtext name="rectime" x="{areawidth}-{width(rectime)}" y="0" font="{vdrOsd}" fontsize="22%" color="{clrWhite}" text="{recdate} - {rectime}" />
+		<drawtext name="recsubtitle" x="0" y="{height(title)}"  font="{vdrOsd}" fontsize="15%" color="{clrWhite}" text="{recsubtitle}" />
 	</area>
 </rectitle>
 
 <currenttime>
 	<area x="1%" y="70%" width="78%" height="33%" layer="3">
-		<drawtext valign="center" align="left" font="{light}" fontsize="20%" color="{clrWhite}" text="{reccurrent}" />
+		<drawtext valign="center" align="left" font="{vdrOsd}" fontsize="20%" color="{clrWhite}" text="{reccurrent}" />
 	</area>
 </currenttime>
 <totaltime>
 	<area x="1%" y="70%" width="78%" height="33%" layer="3">
-		<drawtext valign="center" align="right" font="{light}" fontsize="20%" color="{clrWhite}" text="{rectotal}" />
+		<drawtext valign="center" align="right" font="{vdrOsd}" fontsize="20%" color="{clrWhite}" text="{rectotal}" />
 	</area>
 </totaltime>
 
@@ -200,7 +203,7 @@
 
 <jump>
 	 <area x="24%" y="82%" width="26%" height="7%" layer="5">
-		<drawtext align="center" valign="bottom" font="{light}" fontsize="85%" color="{clrWhite}" text="{jump}" />
+		<drawtext align="center" valign="bottom" font="{vdrOsd}" fontsize="85%" color="{clrWhite}" text="{jump}" />
 	</area>
 </jump>
  <onpause delay="60" fadetime="{fadeTime}">
@@ -222,7 +225,7 @@
             <drawimage name="movieposter" condition="{ismovie}" imagetype="image" path="{posterpath}" x="0" y="10%" align="center" width="{areaheight} * 0.4  * {posterwidth} / {posterheight}" height="{areaheight} * 0.4"/>
 		
 			
-            <drawtext align="center" y="55%" font="{semibold}" fontsize="25%" color="{clrWhite}" text="{tr(pause)}" />
+            <drawtext align="center" y="55%" font="{vdrOsd}" fontsize="25%" color="{clrWhite}" text="{tr(pause)}" />
         
 		
 		</area>
@@ -240,7 +243,7 @@
 	
 	</area>
 	<area x="0" y="13%" width="90%" height="15%" layer="7">    
-		<drawtext align="center" valign="center" font="{light}" fontsize="45%" color="{clrWhite}" text="{text}" />
+		<drawtext align="center" valign="center" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="{text}" />
 	</area>
 </message>
 

@@ -91,29 +91,29 @@
             <drawimage imagetype="icon" path="{icon}" align="center" y="10" width="{areaheight}" height="{areaheight}"/>
         </area>
        <area x="22%" y="66%" width="78%" height="24%" layer="4">
-            <drawtext name="summary" x="0" y="0" align="center" valign="center" font="{light}" fontsize="20%" color="{clrTheme}" text="{summary}" />
-	        <drawtext  name="temp" x="0"  y="{posy(summary)}+{height(summary)}" align="center" font="{light}" fontsize="20%" color="{clrTheme}" text="{temperature}°C" />
+            <drawtext name="summary" x="0" y="0" align="center" valign="center" font="{vdrOsd}" fontsize="20%" color="{clrTheme}" text="{summary}" />
+	        <drawtext  name="temp" x="0"  y="{posy(summary)}+{height(summary)}" align="center" font="{vdrOsd}" fontsize="20%" color="{clrTheme}" text="{temperature}°C" />
 	
         </area>
 
     </detailheader>
 
     <tab name="current" x="1%" y="13%" width="76%" height="50%" layer="3"  scrollheight="{areaheight}/4">
-        <drawtext x="0" y="0" font="{light}" fontsize="10%" color="{clrTheme}" text="{tr(conditions)} {tr(for)} {city}" />
-        <drawtext x="0" y="8%" font="{light}" fontsize="8%" color="{clrWhite}" text="({latitude}, {longitude})" />
-        <drawtext x="0" y="16%" font="{light}" fontsize="8%" color="{clrWhite}" text="{summary}" />
+        <drawtext x="0" y="0" font="{vdrOsd}" fontsize="10%" color="{clrTheme}" text="{tr(conditions)} {tr(for)} {city}" />
+        <drawtext x="0" y="8%" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="({latitude}, {longitude})" />
+        <drawtext x="0" y="16%" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{summary}" />
 
-        <drawtext x="0" y="28%" font="{light}" fontsize="6%" color="{clrWhite}" text="{tr(temp)}: {temperature}°C" />
-        <drawtext x="0" y="34%" font="{light}" fontsize="6%" color="{clrWhite}" text="{tr(apparenttemp)}: {apparenttemperature}°C" />
-        <drawtext x="0" y="40%" font="{light}" fontsize="6%" color="{clrWhite}" text="{tr(todaymin)}: {mintemperature}°C" />
-        <drawtext x="0" y="46%" font="{light}" fontsize="6%" color="{clrWhite}" text="{tr(todaymax)}: {maxtemperature}°C" />
-        <drawtext x="0" y="52%" font="{light}" fontsize="6%" color="{clrWhite}" text="{tr(precipitationprobability)}: {precipitationprobability} %" />
-        <drawtext x="0" y="58%" font="{light}" fontsize="6%" color="{clrWhite}" text="{tr(precipitationintensity)}: {precipitationintensity} l/qm" />
-        <drawtext x="0" y="64%" font="{light}" fontsize="6%" color="{clrWhite}" text="{tr(humidity)}: {humidity} %" />
-        <drawtext x="0" y="70%" font="{light}" fontsize="6%" color="{clrWhite}" text="{tr(windspeed)}: {windspeed} km/h aus {windbearingstring}" />
-        <drawtext x="0" y="76%" font="{light}" fontsize="6%" color="{clrWhite}" text="{tr(visibility)}: {visibility} km" />
-        <drawtext x="0" y="82%" font="{light}" fontsize="6%" color="{clrWhite}" text="{tr(cloudcover)}: {cloudcover} %" />
-        <drawtext x="0" y="88%" font="{light}" fontsize="6%" color="{clrWhite}" text="{tr(pressure)}: {pressure} HPa" />
-        <drawtext x="0" y="94%" font="{light}" fontsize="6%" color="{clrWhite}" text="{tr(ozone)}: {ozone} DU" />
+        <drawtext x="0" y="28%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(temp)}: {temperature}°C" />
+        <drawtext x="0" y="34%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(apparenttemp)}: {apparenttemperature}°C" />
+        <drawtext x="0" y="40%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(todaymin)}: {mintemperature}°C" />
+        <drawtext x="0" y="46%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(todaymax)}: {maxtemperature}°C" />
+        <drawtext x="0" y="52%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(precipitationprobability)}: {precipitationprobability} %" />
+        <drawtext x="0" y="58%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(precipitationintensity)}: {precipitationintensity} l/qm" />
+        <drawtext x="0" y="64%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(humidity)}: {humidity} %" />
+        <drawtext x="0" y="70%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(windspeed)}: {windspeed} km/h aus {windbearingstring}" />
+        <drawtext x="0" y="76%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(visibility)}: {visibility} km" />
+        <drawtext x="0" y="82%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(cloudcover)}: {cloudcover} %" />
+        <drawtext x="0" y="88%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(pressure)}: {pressure} HPa" />
+        <drawtext x="0" y="94%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(ozone)}: {ozone} DU" />
     </tab>
 </menuplugin>

@@ -37,11 +37,78 @@
     set such a variable to 1 for true and 0 for false
     -->
     <variables>
+	 <!--	<var type="int" name="test">0</var>-->
     </variables>
     <!--
     translations used in the skin
     -->
     <translations>
+<!-- plex -->
+		<token name="tr(year)">
+            <trans lang="en_EN">Year</trans>
+            <trans lang="de_DE">Jahr</trans>
+        </token>
+		<token name="tr(duration)">
+            <trans lang="en_EN">Duration</trans>
+            <trans lang="de_DE">Laufzeit</trans>
+        </token>
+		<token name="tr(rating)">
+            <trans lang="en_EN">Rating</trans>
+            <trans lang="de_DE">Bewertung</trans>
+        </token>
+		<token name="tr(seasons)">
+            <trans lang="en_EN">Seasons</trans>
+            <trans lang="de_DE">Staffeln</trans>
+        </token>
+		<token name="tr(season)">
+            <trans lang="en_EN">Season</trans>
+            <trans lang="de_DE">Staffel</trans>
+        </token>
+		<token name="tr(episodes)">
+            <trans lang="en_EN">Episodes</trans>
+            <trans lang="de_DE">Episoden</trans>
+        </token>
+		<token name="tr(episode)">
+            <trans lang="en_EN">Episode</trans>
+            <trans lang="de_DE">Episoden</trans>
+        </token>
+		<token name="tr(seen)">
+            <trans lang="en_EN">Viewed</trans>
+            <trans lang="de_DE">Gesehen</trans>
+        </token>
+		<token name="tr(studio)">
+            <trans lang="en_EN">Studio</trans>
+            <trans lang="de_DE">Studio</trans>
+        </token>
+		<token name="tr(studio)">
+            <trans lang="en_EN">Studio</trans>
+            <trans lang="de_DE">Studio</trans>
+        </token>
+		<token name="tr(date)">
+            <trans lang="en_EN">Date</trans>
+            <trans lang="de_DE">Datum</trans>
+        </token>
+		
+		<token name="tr(host)">
+            <trans lang="en_EN">Host</trans>
+            <trans lang="de_DE">Host</trans>
+        </token>
+		<token name="tr(ip)">
+            <trans lang="en_EN">IP</trans>
+            <trans lang="de_DE">IP</trans>
+        </token>
+		<token name="tr(port)">
+            <trans lang="en_EN">Port</trans>
+            <trans lang="de_DE">Port</trans>
+        </token>
+		<token name="tr(version)">
+            <trans lang="en_EN">Version</trans>
+            <trans lang="de_DE">Version</trans>
+        </token>
+		
+
+
+<!-- vdr -->
 		<token name="tr(noactivetimers)">
             <trans lang="en_EN">no active timers</trans>
             <trans lang="de_DE">keine aktiven Timer</trans>
@@ -301,7 +368,6 @@
     if an invalid font is used in a template, vdrOsd is used as default.
     -->
     <fonts>
-        <font name="light">VDRSymbols Sans:Book</font>
-        <font name="semibold">VDRSymbols Sans:Book</font>
+
     </fonts>
 </globals>

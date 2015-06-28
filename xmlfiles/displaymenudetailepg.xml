@@ -53,31 +53,35 @@
 <detailheader>
 	<area x="0" y="0" width="10%" height="16%" layer="2">
 		 <drawimage name="logo" cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" x="0" valign="center" width="{areaheight}" height="{areaheight}" />
-         <drawtext condition="not{channellogoexists}" x="0" align="center" valign="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{channelnumber}" />
+         <drawtext condition="not{channellogoexists}" x="0" align="center" valign="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{channelnumber}" />
 	</area>
 	<area x="10%" y="0" width="90%" height="16%" layer="2">
 		<drawimage name="banner" condition="{isseries}++{banneravailable}" imagetype="image" path="{bannerpath}" x="{areawidth} - {areawidth}/3" valign="center" width="{areawidth}/3" height="{areawidth}/3 * {bannerheight} / {bannerwidth}"/>
 		<drawimage name="recimg" condition="{recimgavailable}++not{banneravailable}++not{posteravailable}" imagetype="image" path="{recimgpath}" x="{areawidth} - {areaheight}*8/10 * 174 / 130" valign="center" width="{areaheight}*8/10 * 174 / 130" height="{areaheight}*8 / 10"/>
-		<drawtext name="title" condition="{banneravailable}" x="0" width="{areawidth} - {width(banner)}" valign="center" font="{semibold}" fontsize="35%" color="{clrTheme}" text="{title}" />
-		<drawtext name="title" condition="not{banneravailable}" x="0" width="{areawidth}" valign="center" font="{semibold}" fontsize="35%" color="{clrTheme}" text="{title}" />
-		<drawtext name="datetime" x="0" y="{posy(title)} - {height(datetime)}" font="{light}" fontsize="25%" color="{clrWhite}" text="{day} {date} {start} - {stop} ({duration} mins)" />
-		<drawtext name="shorttext" x="0" y="{posy(title)} + {height(title)}" font="{light}" fontsize="25%" color="{clrWhite}" text="{shorttext}" />
+		<drawtext name="title" condition="{banneravailable}" x="0" width="{areawidth} - {width(banner)}" valign="center" font="{vdrOsd}" fontsize="35%" color="{clrTheme}" text="{title}" />
+		<drawtext name="title" condition="not{banneravailable}" x="0" width="{areawidth}" valign="center" font="{vdrOsd}" fontsize="35%" color="{clrTheme}" text="{title}" />
+		<drawtext name="datetime" x="0" y="{posy(title)} - {height(datetime)}" font="{vdrOsd}" fontsize="25%" color="{clrWhite}" text="{day} {date} {start} - {stop} ({duration} mins)" />
+		<drawtext name="shorttext" x="0" y="{posy(title)} + {height(title)}" font="{vdrOsd}" fontsize="25%" color="{clrWhite}" text="{shorttext}" />
 	</area>
         
 
 	<area x="80%" y="20%" width="18%" height="50%" layer="3">
 		
-		<drawimage condition="{isseries} || {ismovie}" name="recback" imagetype="image" path="{ressourcedir}/images/recback_movie.png" x="0" y="0" valign="top" align="center" width="{areaheight} * 0.95  * {posterwidth} / {posterheight}" height="{areaheight} * 0.93" />
+	<!--<drawimage condition="{isseries}++{posteravailable}++isset{posterpath}" name="recback" imagetype="image" path="{ressourcedir}/images/recback_movie.png" x="0" y="0" valign="top" align="center" width="{areaheight} * 0.95  * {posterwidth} / {posterheight}" height="{areaheight} * 0.93" />
+		<drawimage condition="{ismovie}++{posteravailable}++isset{posterpath}" name="recback" imagetype="image" path="{ressourcedir}/images/recback_movie.png" x="0" y="0" valign="top" align="center" width="{areaheight} * 0.95  * {posterwidth} / {posterheight}" height="{areaheight} * 0.93" />
+-->
 		<drawimage condition="{isseries}" name="seriesposter" imagetype="image" path="{posterpath}" x="0" y="0" align="center" valign="center" width="{areawidth}*0.85" height="{areawidth} * 0.85 * {posterheight} / {posterwidth}"/>	
-		<drawimage condition="{ismovie}" name="movieposter" imagetype="image" path="{posterpath}" x="0" y="0" align="center" valign="center" width="{areawidth}*0.85" height="{areawidth} * 0.85 * {posterheight} / {posterwidth}"/>	
+		<drawimage condition="{ismovie}++{posteravailable}" name="movieposter" imagetype="image" path="{posterpath}" x="0" y="0" align="center" valign="center" width="{areawidth}*0.85" height="{areawidth} * 0.85 * {posterheight} / {posterwidth}"/>	
 		
 		
 		
 	
 		</area>
-	<area x="65%" y="25%" width="50%" height="42%" layer="4">
-		
-		
+	<area x="81%" y="20%" width="16%" height="47%" layer="5">
+
+		<drawimage condition="{isseries}" name="recback" imagetype="skinpart" path="poster_top" x="0" y="2%" width="{areawidth}" height="{areaheight}*0.97" />
+		<drawimage condition="{ismovie}" name="recback" imagetype="skinpart" path="poster_top" x="0" y="1%" width="{areawidth}" height="{areaheight}*0.99" />
+
 	</area>
 </detailheader>
 
@@ -95,7 +99,7 @@
 
 <!-- TAB EPGINFO -->
 <tab name="EPG Info" x="1%" y="20%" width="76%" height="57%" layer="2" scrollheight="{areaheight}/4">
-			<drawtextbox name="text" x="0" y="0" width="{areawidth}" font="{light}" fontsize="8%" color="{clrWhite}" text="{description}" />
+			<drawtextbox name="text" x="0" y="0" width="{areawidth}" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{description}" />
 </tab>
 	
 <!-- TAB RERUNS -->
@@ -103,8 +107,8 @@
 	<!-- item -->	
 		<loop name="reruns" x="0" y="0" width="{areawidth}" orientation="vertical">
           <drawimage name="logo" condition="{reruns[channellogoexists]}" imagetype="channellogo" path="{reruns[channelid]}" x="0" y="0" width="10%" height="10%" />
-		  <drawtext name="text"  condition="not{reruns[channellogoexists]}" x="1%" y="0" width="{areawidth}" font="{light}" fontsize="8%" color="{clrWhite}" text="{reruns[channelnumber]}" />		
-		  <drawtext name="text"  x="{width(logo)}/0.85" y="0" width="{areawidth}" font="{light}" fontsize="8%" color="{clrWhite}" text="{reruns[day]} {reruns[date]} {reruns[start]} - {reruns[stop]}: {reruns[title]}  {reruns[shorttext]}" />		
+		  <drawtext name="text"  condition="not{reruns[channellogoexists]}" x="1%" y="0" width="{areawidth}" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{reruns[channelnumber]}" />		
+		  <drawtext name="text"  x="{width(logo)}/0.85" y="0" width="{areawidth}" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{reruns[day]} {reruns[date]} {reruns[start]} - {reruns[stop]}: {reruns[title]}  {reruns[shorttext]}" />		
 		</loop>
     </tab>
 	
@@ -115,14 +119,14 @@
 	<!-- items -->
     <loop name="actors" x="0" y="0" width="{areawidth}" orientation="horizontal" columnwidth="{areawidth}/5" rowheight="{areawidth}/5*2.3" overflow="linewrap">
 		<drawimage name="thumb" imagetype="image" path="{actors[thumb]}" x="20" y="0" width="{columnwidth}-40" height="{columnwidth} * {actors[thumbheight]} / {actors[thumbwidth]} - 40 * {actors[thumbheight]} / {actors[thumbwidth]}"/>
-		<drawtext align="center" y="{height(thumb)} + 10" width="{columnwidth}" name="actorname" font="{light}" fontsize="7%" color="{clrWhite}" text="{actors[name]}" />
-		<drawtext align="center" y="{height(thumb)} + 10 + {height(actorname)}" width="{columnwidth}" font="{light}" fontsize="7%" color="{clrWhite}" text="{actors[role]}" />
+		<drawtext align="center" y="{height(thumb)} + 10" width="{columnwidth}" name="actorname" font="{vdrOsd}" fontsize="7%" color="{clrWhite}" text="{actors[name]}" />
+		<drawtext align="center" y="{height(thumb)} + 10 + {height(actorname)}" width="{columnwidth}" font="{vdrOsd}" fontsize="7%" color="{clrWhite}" text="{actors[role]}" />
 		</loop>
 </tab>
 	
 <!-- TAB MOVIEDBINFO -->
 <tab condition="{ismovie}" name="MovieDBInfo" x="1%" y="20%" width="76%" height="57%" layer="2" scrollheight="{areaheight}/4">
-	<drawtextbox name="text" x="0" y="0" width="{areawidth}" font="{light}" fontsize="8%" color="{clrWhite}" text="{tr(originaltitle)}: {movieoriginalTitle}&#10;&#10;|{tr(genre)}: {moviegenres}&#10;&#10;||{movietagline}&#10;&#10;|{movieoverview}&#10;&#10;|{tr(budget)}: {moviebudget}&#10;||{tr(revenue)}: {movierevenue}&#10;&#10;||{tr(adult)}: {movieadult}&#10;||{tr(releasedate)}: {moviereleasedate}&#10;||{tr(runtime)}: {movieruntime} min&#10;||&#10;{tr(popularity)}: {moviepopularity}&#10;||&#10;{tr(voteaverage)}: {movievoteaverage}&#10;||&#10;{tr(homepage)}: {moviehomepage}|&#10;" />
+	<drawtextbox name="text" x="0" y="0" width="{areawidth}" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{tr(originaltitle)}: {movieoriginalTitle}&#10;&#10;|{tr(genre)}: {moviegenres}&#10;&#10;||{movietagline}&#10;&#10;|{movieoverview}&#10;&#10;|{tr(budget)}: {moviebudget}&#10;||{tr(revenue)}: {movierevenue}&#10;&#10;||{tr(adult)}: {movieadult}&#10;||{tr(releasedate)}: {moviereleasedate}&#10;||{tr(runtime)}: {movieruntime} min&#10;||&#10;{tr(popularity)}: {moviepopularity}&#10;||&#10;{tr(voteaverage)}: {movievoteaverage}&#10;||&#10;{tr(homepage)}: {moviehomepage}|&#10;" />
 </tab>
 	
 <!-- TAB MOVIEGALERY -->
@@ -136,7 +140,7 @@
 	
 <!-- TAB TVDBINFO -->
 <tab condition="{isseries}" name="TvDBInfo" x="1%" y="20%" width="76%" height="57%" layer="2" scrollheight="{areaheight}/4">
-   <drawtextbox name="text" x="0" y="0" width="[areawidth}" font="{light}" fontsize="8%" color="{clrWhite}" text="{tr(episode)}: {episodetitle} ({tr(season)} {episodeseason}, {tr(episode)} {episodenumber}) &#10;&#10;{episodeoverview}|&#10;&#10;{tr(gueststars)}: {episodegueststars}||&#10;&#10;{tr(seriesfirstaired)}: {seriesfirstaired}||&#10;{tr(episodefirstaired)}: {episodefirstaired}||&#10;{tr(network)}: {seriesnetwork}||&#10;{tr(genre)}: {seriesgenre}||&#10;{tr(status)}: {seriesstatus}||&#10;{tr(rating)}: {seriesrating}||&#10;{tr(episoderating)}: {episoderating}&#10;|{seriesoverview}&#10;" />
+   <drawtextbox name="text" x="0" y="0" width="[areawidth}" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{tr(episode)}: {episodetitle} ({tr(season)} {episodeseason}, {tr(episode)} {episodenumber}) &#10;&#10;{episodeoverview}|&#10;&#10;{tr(gueststars)}: {episodegueststars}||&#10;&#10;{tr(seriesfirstaired)}: {seriesfirstaired}||&#10;{tr(episodefirstaired)}: {episodefirstaired}||&#10;{tr(network)}: {seriesnetwork}||&#10;{tr(genre)}: {seriesgenre}||&#10;{tr(status)}: {seriesstatus}||&#10;{tr(rating)}: {seriesrating}||&#10;{tr(episoderating)}: {episoderating}&#10;|{seriesoverview}&#10;" />
 </tab>
 	
 	
@@ -167,7 +171,7 @@
 			<drawimage condition="{tabs[current]}" name="line_left" imagetype="skinpart" path="line_left" x="{width(label)}" y="2" width="2" height="{areaheight}-4"/>
 			<drawimage condition="{tabs[current]}" name="line_left" imagetype="skinpart" path="line_left" x="0" y="2" width="2" height="{areaheight}-4"/>
 			<drawimage condition="not{tabs[current]}" name="line_left" imagetype="skinpart" path="line_left" x="{width(label)}" y="2" width="2" height="{areaheight}-4"/>
-			<drawtext name="label" x="0" valign="center" font="{light}" fontsize="65%" color="{clrWhite}" text="  {tabs[title]}  " />
+			<drawtext name="label" x="0" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="  {tabs[title]}  " />
 		</loop>
 	</area>
 </tablabels>

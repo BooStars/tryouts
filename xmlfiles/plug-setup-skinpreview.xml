@@ -39,9 +39,9 @@
 
 <datetime>
 	<area x="70%" y="0%" width="30%" height="10%" layer="2">
-		<drawtext name="dayname" x="2%" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
-		<drawtext x="2%" y="{height(dayname)}" font="{light}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
-		<drawtext align="right" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{time}" />
+		<drawtext name="dayname" x="2%" y="0" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
+		<drawtext x="2%" y="{height(dayname)}" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
+		<drawtext align="right" valign="center" font="{vdrOsd}" fontsize="85%" color="{clrWhite}" text="{time}" />
     </area>
 </datetime>
 <colorbuttons>
@@ -55,10 +55,10 @@
 	</area>
 
 	<area x="40%" y="94%" width="15%" height="7%" layer="2">
-		<drawtext condition="{yellow1}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red1}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{green1}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{green}" />
-		<drawtext condition="{blue1}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{yellow1}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red1}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{green1}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{blue1}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{blue}" />
 	</area>
 	
 	<area x="55%" y="94%" width="15%" height="7%" layer="2">
@@ -68,10 +68,10 @@
 		<drawimage condition="{green2}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="55%" y="94%" width="15%" height="7%" layer="2">
-		<drawtext condition="{yellow2}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red2}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue2}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green2}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow2}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red2}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue2}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green2}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{green}" />
 	</area>
 
 	<area x="70%" y="94%" width="15%" height="7%" layer="2">
@@ -81,10 +81,10 @@
 		<drawimage condition="{green3}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="70%" y="94%" width="15%" height="7%" layer="2">
-		<drawtext condition="{yellow3}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red3}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue3}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green3}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow3}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red3}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue3}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green3}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{green}" />
 	</area>
 	
 	<area x="85%" y="94%" width="15%" height="7%" layer="2">
@@ -94,10 +94,10 @@
 		<drawimage condition="{green4}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="85%" y="94%" width="15%" height="7%" layer="2">
-		<drawtext condition="{yellow4}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red4}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue4}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green4}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow4}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red4}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue4}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green4}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{green}" />
 	</area>
 </colorbuttons>
      <scrollbar>
@@ -126,25 +126,25 @@
     -->
     <detailheader>
         <area x="1%" y="0" width="65%" height="7%" layer="2">
-            <drawtext x="20" valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{menuheader}" />
+            <drawtext x="20" valign="center" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{menuheader}" />
         </area>
     </detailheader>
 
     <tab name="preview" x="2%" y="13%" width="87%" height="73%" layer="2" scrollheight="{areaheight}/4">
-        <drawtext name="author" x="0" y="0" font="{light}" fontsize="8%" color="{clrWhite}" text="Author: {author} " />
-    	<drawtext name="headerplugs" x="0" y="{posy(author)}+{height(author)}+10" font="{semibold}" fontsize="8%" color="{clrWhite}" text="Supported Plugins:" />
+        <drawtext name="author" x="0" y="0" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="Author: {author} " />
+    	<drawtext name="headerplugs" x="0" y="{posy(author)}+{height(author)}+10" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="Supported Plugins:" />
         <loop name="plugins" x="0" y="18%" orientation="vertical" columnwidth="{areawidth}/2" rowheight="{areaheight}*0.08">
-            <drawtext x="0" valign="center" font="{light}" fontsize="6%" color="{clrWhite}" text="{plugins[name]}" />
+            <drawtext x="0" valign="center" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{plugins[name]}" />
         </loop>
 
-        <drawtext name="headerfonts" x="0" y="{posy(plugins)} + {height(plugins)} + 10" font="{semibold}" fontsize="8%" color="{clrWhite}" text="Used Fonts:" />
+        <drawtext name="headerfonts" x="0" y="{posy(plugins)} + {height(plugins)} + 10" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="Used Fonts:" />
         <loop name="fonts" x="0" y="{posy(headerfonts)} + {height(headerfonts)}" orientation="vertical" columnwidth="{areawidth}/2" rowheight="{areaheight}*0.08">
-            <drawtext condition="{fonts[installed]}" x="0" valign="center" font="{light}" fontsize="6%" color="{clrWhite}" text="{fonts[name]} (installed)" />
-            <drawtext condition="not{fonts[installed]}" x="0" valign="center" font="{light}" fontsize="6%" color="{clrWhite}" text="{fonts[name]} (NOT installed)" />
+            <drawtext condition="{fonts[installed]}" x="0" valign="center" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{fonts[name]} (installed)" />
+            <drawtext condition="not{fonts[installed]}" x="0" valign="center" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{fonts[name]} (NOT installed)" />
         </loop>
 
         <loop name="screenshots" x="0" y="{posy(fonts)} + {height(fonts)}" orientation="vertical" columnwidth="{areawidth}" rowheight="{areawidth}*10/16">
-            <drawtext name="desc" align="left" y="0" font="{light}" fontsize="8%" color="{clrWhite}" text="{screenshots[desc]}" />
+            <drawtext name="desc" align="left" y="0" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{screenshots[desc]}" />
             <drawimage imagetype="image" path="{screenshots[path]}" align="center" y="{height(desc)}+10" width="{areawidth}*0.95" height="{areawidth} * 0.95 * 9 / 16"/>
         </loop>
     </tab>

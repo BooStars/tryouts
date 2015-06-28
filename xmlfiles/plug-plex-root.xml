@@ -2,583 +2,852 @@
 <!DOCTYPE displayplugin SYSTEM "../../../dtd/displayplugin.dtd">
 
 <displayplugin x="0" y="0" width="100%" height="100%" fadetime="0">
-    <!-- Available Variables time:
-    {time}                   timestring in hh:mm
-    {sec}                    current seconds
-    {min}                    current minutes
-    {hour}                   current hours
-    {hmins}                  current "hourminutes" to display an hour hand
-    {day}                    day in digits
-    {dayleadingzero}         day in digits with leading 0
-    {dayname}                Full name of the day
-    {daynameshort}           Short 3 char name of the day
-    {month}                  month in digits with leading 0
-    {monthname}              Full name of the month
-    {monthnameshort}         3 letter abbrivation of month name
-    {year}                   year in yyyy
-    -->
-	<viewelement name="time">
-		<area x="70%" y="0%" width="30%" height="10%" layer="2">
-		<drawtext name="dayname" x="2%" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
-		<drawtext x="2%" y="{height(dayname)}" font="{light}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
-		<drawtext align="right" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{time}" />
-    </area>
-    </viewelement>
-	
-	<!-- Available Variables message:
-	{displaymessage}			bool: message displayed?
-    {message}                   string: message to display
-    -->
-	<viewelement name="message">
-		<area condition="{displaymessage}" x="5%" y="80%" width="90%" height="15%" layer="98">
-            <drawimage imagetype="skinpart" path="messageblue" x="0" y="0" width="100%" height="100%" />
+
+<viewelement name="message">
+		<area condition="{displaymessage}" x="0" y="13%" width="90%" height="15%" layer="98">
+            <drawimage imagetype="skinpart" path="message_blue" x="0" y="0" valign="bottom" width="100%" height="100%" />
+			<drawellipse x="{areawidth} - {areaheight}*0.30" y="0" width="{areaheight}*0.30" height="{areaheight}*0.30" color="{clrTransparent}" quadrant="-1"/>
+			<drawellipse x="{areawidth} - {areaheight}*0.30" y="{areaheight} - {areaheight}*0.30" width="{areaheight}*0.30" height="{areaheight}*0.30" color="{clrTransparent}" quadrant="-4"/>
+	    </area>
+        <area condition="{displaymessage}" x="0" y="13%" width="90%" height="15%" layer="99">
+            <drawtext align="center" valign="center" font="{regular}" fontsize="35%" color="{clrWhite}" text="{message}" />
         </area>
-        <area condition="{displaymessage}" x="5%" y="80%" width="90%" height="15%" layer="99">
-            <drawtext align="center" valign="center" font="{regular}" fontsize="40%" color="{clrWhite}" text="{message}" />
-        </area>
-    </viewelement>
-	
-	<!-- Tokens available in background
-	{viewmode}					int: enum Cover = 0, List = 1, Detail = 2
-    {selecteditembackground}		image
-	
-	{isdirectory}
-	{currentdirectorybackground}	image
-    -->
+</viewelement>
+
 <viewelement name="background">
 <!-- button background -->
-	<area x="5%" y="93%" width="90%" height="8%" layer="1">
-		<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/1.5" height="2"/>
-		<drawrectangle x="0" y="2" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
-		<drawellipse x="0" y="0" width="{areaheight}*0.50" height="{areaheight}*0.50" color="{clrTransparent}" quadrant="-2"/>
-		<drawellipse x="{areawidth} - {areaheight}*0.50" y="0" width="{areaheight}*0.50" height="{areaheight}*0.50" color="{clrTransparent}" quadrant="-1"/>
-	</area>
+		<area x="5%" y="93%" width="90%" height="8%" layer="1">
+			<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/1.5" height="2"/>
+			<drawrectangle x="0" y="2" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawellipse x="0" y="0" width="{areaheight}*0.50" height="{areaheight}*0.50" color="{clrTransparent}" quadrant="-2"/>
+			<drawellipse x="{areawidth} - {areaheight}*0.50" y="0" width="{areaheight}*0.50" height="{areaheight}*0.50" color="{clrTransparent}" quadrant="-1"/>
+		</area>
+	
 <!-- header background -->
 		<area x="0" y="0" width="70%" height="8%" layer="1">
 			 <drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
 			 <drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
 		</area>
-
+		
 <!-- date background -->
-	<area x="70%" y="0%" width="30%" height="10%" layer="1">
-		<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
-		<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
-		<drawellipse x="0" y="{areaheight} - {areaheight}*0.15" width="{areaheight}*0.15" height="{areaheight}*0.15" color="{clrTransparent}" quadrant="-3"/>
-	</area>	
+		<area x="70%" y="0%" width="30%" height="10%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
+			<drawellipse x="0" y="{areaheight} - {areaheight}*0.15" width="{areaheight}*0.15" height="{areaheight}*0.15" color="{clrTransparent}" quadrant="-3"/>
+		</area>	
 	
-<!-- tab background eq({viewgroup}, 4)-->
-	<area x="0" y="12%" width="72%" height="79%" layer="1">
-		<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/1.5" height="2"/>
-		<drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" valign="center" width="2" height="{areaheight}"/>
-		<drawrectangle x="0" y="2" width="{areawidth}-2" height="{areaheight}-2" color="{clrTransBlack}" />
-		<drawellipse x="{areawidth} - {areaheight}*0.05" y="0" width="{areaheight}*0.05" height="{areaheight}*0.05" color="{clrTransparent}" quadrant="-1"/>
-		<drawellipse x="{areawidth} - {areaheight}*0.05" y="{areaheight} - {areaheight}*0.05" width="{areaheight}*0.05" height="{areaheight}*0.05" color="{clrTransparent}" quadrant="-4"/>
-	</area>
+<!-- tab background -->
+		<area x="0" y="12%" width="72%" height="79%" layer="1">
+			<drawimage name="line_top" imagetype="skinpart" path="line_top" x="10%" y="0" width="{areawidth}/1.5" height="2"/>
+			<drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" valign="center" width="2" height="{areaheight}"/>
+			<drawrectangle x="0" y="2" width="{areawidth}-2" height="{areaheight}-2" color="{clrTransBlack}" />
+			<drawellipse x="{areawidth} - {areaheight}*0.05" y="0" width="{areaheight}*0.05" height="{areaheight}*0.05" color="{clrTransparent}" quadrant="-1"/>
+			<drawellipse x="{areawidth} - {areaheight}*0.05" y="{areaheight} - {areaheight}*0.05" width="{areaheight}*0.05" height="{areaheight}*0.05" color="{clrTransparent}" quadrant="-4"/>
+		</area>
+</viewelement>
 	
-<!-- info background -->	
-	<area x="73%" y="12%" width="27%" height="79%" layer="1" >
-		<drawrectangle x="2" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
-		<drawimage name="line_left" imagetype="skinpart" path="line_left" x="0" y="0" width="2" height="{areaheight}"/>
-		<drawellipse x="0" y="{areaheight} - {areaheight}*0.05" width="{areaheight}*0.05" height="{areaheight}*0.05" color="{clrTransparent}" quadrant="-3"/>
-		<drawellipse x="0" y="0" width="{areaheight}*0.05" height="{areaheight}*0.05" color="{clrTransparent}" quadrant="-2"/>
-		
-	</area>		
+
 	
-    </viewelement>
-	
-	<!-- Tokens available in header and infopane
-		Same as in browser
-    -->
-	<viewelement name="header">
+<viewelement name="header">
 		<area x="1%" y="0" width="65%" height="7%" layer="2">
-			<drawtext x="1%" y="5%" width="98%" font="{light}" fontsize="90%" color="{clrWhite}" text="Plex for VDR: {tabname}" />
-			<drawimage condition="{hasbanner}" imagetype="image" path="{banner}" x="50%" y="5%" width="50%" height="90%" />
-			
+			<drawtext x="1%" y="5%" width="98%" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="Plex for VDR: {tabname}" />
 		</area>
-	</viewelement>
+	<!--safty for coverview 
+		<area condition="eq({viewmode},0)" x="0" y="12%" width="72%" height="79%" layer="8">
+			<drawrectangle condition="lt({rows}, 2)||gt({rows}, 2)||lt({columns}, 5)||gt({columns}, 5)" x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrBlack}" />
+			<drawellipse condition="lt({rows}, 2)||gt({rows}, 2)||lt({columns}, 5)||gt({columns}, 5)" x="{areawidth} - {areaheight}*0.05" y="0" width="{areaheight}*0.05" height="{areaheight}*0.05" color="{clrTransparent}" quadrant="-1"/>
+			<drawellipse condition="lt({rows}, 2)||gt({rows}, 2)||lt({columns}, 5)||gt({columns}, 5)" x="{areawidth} - {areaheight}*0.05" y="{areaheight} - {areaheight}*0.05" width="{areaheight}*0.05" height="{areaheight}*0.05" color="{clrTransparent}" quadrant="-4"/>
+			<drawtext condition="lt({rows}, 2)||gt({rows}, 2)||lt({columns}, 5)||gt({columns}, 5)" x="0" y="0" font="{light}" fontsize="10%" color="{clrRed}" text="For coverview please set:" />
+			<drawtext condition="lt({rows}, 2)||gt({rows}, 2)||lt({columns}, 5)||gt({columns}, 5)" x="0" y="20%" font="{light}" fontsize="10%" color="{clrLightGray}" text="CoverGridColumns = 5"/>
+			<drawtext condition="lt({rows}, 2)||gt({rows}, 2)||lt({columns}, 5)||gt({columns}, 5)" x="0" y="30%" font="{light}" fontsize="10%" color="{clrLightGray}" text="CoverGridRows = 2"/>
+		</area>-->
+</viewelement>
+<viewelement name="time">
+		<area x="70%" y="0%" width="30%" height="10%" layer="2">
+			<drawtext name="dayname" x="2%" y="0" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
+			<drawtext x="2%" y="{height(dayname)}" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
+			<drawtext align="right" valign="center" font="{vdrOsd}" fontsize="85%" color="{clrWhite}" text="{time}" />
+		</area>
+</viewelement>
 	
-	<viewelement name="infopane">
-		<area layer="2" x="74%" y="15%" width="25%" height="70%">
-			<drawtextbox condition="not{isdummy}++not{isserver}" maxlines="2" name="title" x="1%" y="2%" width="98%" font="{light}" fontsize="5%" color="{clrWhite}" text="{title}" />
-			<drawimage name="art" condition="{hasart}++not{isepisode}" imagetype="image" path="{art}" x="0" y="{height(title)}+{posy(title)}" width="100%" height="35%" />
-			<drawimage name="art" condition="{hasthumb}++{isepisode}" imagetype="image" path="{thumb}" x="0" y="8%" width="100%" height="35%" />
+<viewelement name="infopane">
+	
+	<!-- debug 
+			<drawtext name="title" x="50%" y="0" width="100%" font="{vdrOsd}" align="right" fontsize="10%" color="{clrRed}" text="viewmode:{viewmode}" />
+			<drawtext name="title" x="50%" y="10%" width="100%" font="{vdrOsd}" align="right" fontsize="10%" color="{clrRed}" text="viewgroup:{viewgroup}" />
+	-->	
+
+<!-- info background -->
+		<area condition="not{isdummy}++not{isdirectory}" background="true" layer="1" x="73%" y="12%" width="27%" height="79%">
+			<drawrectangle x="2" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
+			<drawimage name="line_left" imagetype="skinpart" path="line_left" x="0" y="0" width="2" height="{areaheight}"/>
+			<drawellipse x="0" y="{areaheight} - {areaheight}*0.05" width="{areaheight}*0.05" height="{areaheight}*0.05" color="{clrTransparent}" quadrant="-3"/>
+			<drawellipse x="0" y="0" width="{areaheight}*0.05" height="{areaheight}*0.05" color="{clrTransparent}" quadrant="-2"/>
+		</area>		
+		<area condition="{isdirectory} ++ eq({viewgroup}, 0)" background="true" layer="1" x="73%" y="12%" width="27%" height="79%">
+			<drawrectangle x="2" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
+			<drawimage name="line_left" imagetype="skinpart" path="line_left" x="0" y="0" width="2" height="{areaheight}"/>
+			<drawellipse x="0" y="{areaheight} - {areaheight}*0.05" width="{areaheight}*0.05" height="{areaheight}*0.05" color="{clrTransparent}" quadrant="-3"/>
+			<drawellipse x="0" y="0" width="{areaheight}*0.05" height="{areaheight}*0.05" color="{clrTransparent}" quadrant="-2"/>
+		</area>	
 		
-	<!-- isMovie -->
-		<!-- text -->
+<!-- isMovie -->
 			
-			<drawtext condition="{ismovie}" name="genre" x="0" y="{height(art)}+{posy(art)}+10" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Genre: {genre}" />
-			<drawtext condition="{ismovie}" name="duration" x="0" y="{height(genre)}+{posy(genre)}" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Laufzeit: {duration} min" />
-			<drawtext condition="{ismovie}" name="year" x="0" y="{height(duration)}+{posy(duration)}" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Jahr: {year}" />
-			<drawtext condition="{ismovie}" name="rating" x="40%" y="{height(duration)}+{posy(duration)}" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Bewertung: {rating}" />
 		
-		<!-- icons -->	
-			<drawimage condition="{ismovie} ++ eq({audioCodec},XXX)" name="res"  imagetype="icon" path="1080" x="0" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
-			<drawimage condition="{ismovie} ++ eq({audioCodec},XXX)" name="res1"  imagetype="icon" path="1080" x="{width(res)}+{posx(res)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
-			<drawimage condition="{ismovie} ++ eq({audioCodec},XXX)" name="res2"  imagetype="icon" path="1080" x="{width(res1)}+{posx(res1)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
-			<drawimage condition="{ismovie} ++ eq({audioCodec},XXX)" name="res3"  imagetype="icon" path="1080" x="{width(res2)}+{posx(res2)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
-			<drawimage condition="{ismovie} ++ eq({audioCodec},XXX)" name="res4"  imagetype="icon" path="1080" x="{width(res3)}+{posx(res3)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
-			<drawimage condition="{ismovie} ++ eq({audioCodec},XXX)" name="res5"  imagetype="icon" path="1080" x="{width(res4)}+{posx(res4)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
-			
-	<!-- isSeason -->
-		<!-- text -->
-			<drawtext condition="{isseason}" name="genre" x="0" y="{height(art)}+{posy(art)}+10" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Genre: {genre}" />
-			<drawtext condition="{isseason}" name="episods" x="0" y="{height(genre)}+{posy(genre)}" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Episoden: {episods}" />
-			<drawtext condition="{isseason}" name="seen" x="40%" y="{height(genre)}+{posy(genre)}" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Gesehen: {seen}" />
-			<drawtext condition="{isseason}" name="studio" x="0" y="{height(duration)}+{posy(duration)}" width="0" font="{light}" fontsize="4%" color="{clrWhite}" text="Studio: {studio}" />
-
-	<!-- isEpisode -->	
-		<!-- text -->
-			<drawtext condition="{isepisode}" name="seriesname" x="0" y="{height(art)}+{posy(art)}+10" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Serie: {seriesname}" />
-			<drawtext condition="{isepisode}" name="episods" x="0" y="{height(genre)}+{posy(genre)}" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Episode:" />
-			<drawtext condition="{isepisode}" name="seen" x="25%" y="{height(genre)}+{posy(genre)}" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="{printf('S%02d E%02d', season, episode)}" />
-			<drawtext condition="{isepisode}" name="date" x="0" y="{height(seen)}+{posy(seen)}" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Date: {date}" />
-			<drawtext condition="{isepisode}" name="duration" x="40%" y="{height(seen)}+{posy(seen)}" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Laufzeit: {duration} min" />
-			<drawtext condition="{isepisode}" name="studio" x="0" y="{height(date)}+{posy(date)}" width="0" font="{light}" fontsize="4%" color="{clrWhite}" text="Studio: {studio}" />
-
-		<!-- icons -->	
-			<drawimage condition="{isepisode} ++ eq({audioCodec},XXX)" name="res"  imagetype="icon" path="1080" x="0" y="{height(studio)}+{posy(studio)}" width="{areawidth}/6" height="{areawidth}/6" />
-			<drawimage condition="{isepisode} ++ eq({audioCodec},XXX)" name="res1"  imagetype="icon" path="1080" x="{width(res)}+{posx(res)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
-			<drawimage condition="{isepisode} ++ eq({audioCodec},XXX)" name="res2"  imagetype="icon" path="1080" x="{width(res1)}+{posx(res1)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
-			<drawimage condition="{isepisode} ++ eq({audioCodec},XXX)" name="res3"  imagetype="icon" path="1080" x="{width(res2)}+{posx(res2)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
-			<drawimage condition="{isepisode} ++ eq({audioCodec},XXX)" name="res4"  imagetype="icon" path="1080" x="{width(res3)}+{posx(res3)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
-			<drawimage condition="{isepisode} ++ eq({audioCodec},XXX)" name="res5"  imagetype="icon" path="1080" x="{width(res4)}+{posx(res4)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+		<area condition="{ismovie}" layer="2" x="74%" y="15%" width="25%" height="70%">	
+	<!-- text -->
+			<drawtextbox maxlines="2" name="title" x="1%" y="0" width="98%" font="{vdrOsd}" fontsize="5%" color="{clrWhite}" text="{title}" />
+			<drawimage name="art" condition="{hasart}" imagetype="image" path="{art}" x="0" y="{height(title)}+{posy(title)}" width="100%" height="35%" />
 	
-	<!-- isShow -->
-		<!-- text -->
-			<drawtext condition="{isshow}" name="seasons" x="0" y="{height(art)}+{posy(art)}+10" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Staffeln: {seasons}" />
-			<drawtext condition="{isshow}" name="episods" x="{width(seasons)}*2" y="{height(art)}+{posy(art)}+10" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Episoden: {episods}" />
-			<drawtext condition="{isshow}" name="seen" x="0" y="{height(seasons)}+{posy(seasons)}" width="50%" font="{light}" fontsize="4%" color="{clrWhite}" text="Gesehen: {seen}" />
-			<drawtext condition="{isshow}" name="studio" x="0" y="{height(seen)}+{posy(seen)}" width="0" font="{light}" fontsize="4%" color="{clrWhite}" text="Studio: {studio}" />
-			<drawtext condition="{isshow}" name="genre" x="0" y="{height(studio)}+{posy(studio)}" width="0" font="{light}" fontsize="4%" color="{clrWhite}" text="Genre: {genre}" />
+	<!-- genre -->
+			<drawtext name="genre" x="0" y="{height(art)}+{posy(art)}+10" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(genre)}:" />
+			<loop name="genres" x="{width(genre)}" y="{posy(genre)}" orientation="horizontal" width="{areawidth}" height="4%" rowheight="4%" >
+				
+				<drawtext name="genre_loop" x="0" y="0" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text=", {genres[genre]}" />		
+			</loop>
+			<drawrectangle x="{width(genre)}" y="{posy(genre)}" width="2%" height="4%" color="{clrTransparent}" />
 	
-	<!-- isServer -->
-		<!-- text -->
-			<drawimage condition="{isserver}++not{hasthumb}" name="thumb" imagetype="skinpart" path="plexplaceholder_new" align="center" x="0" y="5%" width="{areawidth}/2" height="{areawidth}/2" />
-	
-			<drawtext condition="{isserver}" name="serverstartpointname" x="0" y="{height(thumb)}+{posy(thumb)}+10" width="100%" font="{light}" fontsize="6%" color="{clrWhite}" text="{serverstartpointname}" />
-			<drawtext condition="{isserver}" name="title" x="0%" y="{posy(serverstartpointname)} + {height(serverstartpointname)}" width="100%" font="{bold}" fontsize="4%" color="{clrWhite}" text="Host: {title}" />
-			<drawtext condition="{isserver}" name="serverip" x="0" y="{posy(serverstartpointname)} + {height(title)}" width="100%" font="{light}" fontsize="4%" color="{clrWhite}" text="IP: {serverip}" />
-			<drawtext condition="{isserver}" name="serverport" x="0%" y="{posy(serverip)} + {height(serverip)}" width="100%" font="{light}" fontsize="4%" color="{clrWhite}" text="Port: {serverport}" />
-			<drawtext condition="{isserver}" name="serverversion" x="0%" y="{posy(serverport)} + {height(serverport)}" width="100%" font="{light}" fontsize="4%" color="{clrWhite}" text="Version:{serverversion}" />
-
+	<!-- text -->
+			<drawtext name="year" x="0" y="{height(genre)}+{posy(genre)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(year)}: {year}" />
+			<drawtext name="duration" x="{posx(year)}+{width(year)}" y="{height(genre)}+{posy(genre)}" width="100%" align="right" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(duration)}: {duration} min" />
 		
-			<!--
-			<drawtext condition="{ismovie}" name="audio" x="{width(res)}" y="{height(rating)}+{posy(rating)}+20" width="20%" font="{light}" fontsize="5%" color="{clrRed}" text="[{audioCodec}]" />
-			<drawtext condition="{ismovie}" x="35%" y="{height(rating)}+{posy(rating)}+20" width="20%" font="{light}" fontsize="5%" color="{clrRed}" text="[{audioChannels}]" />
-			<drawtext condition="{ismovie}" x="45%" y="{height(rating)}+{posy(rating)}+20" width="20%" font="{light}" fontsize="5%" color="{clrRed}" text="[{aspectRatio}]" />
-			<drawtext condition="{ismovie}" x="65%" y="{height(rating)}+{posy(rating)}+20" width="25%" font="{light}" fontsize="5%" color="{clrRed}" text="[{videoCodec}]" />
-
-			
-				<drawtext condition="{ismovie}" x="35%" y="{height(art)}+{posy(art)}+20" width="20%" font="{light}" fontsize="5%" color="{clrRed}" text="[{videoCodec}]" />
-				<drawtext condition="{ismovie}" x="45%" y="{height(art)}+{posy(art)}+20" width="20%" font="{light}" fontsize="5%" color="{clrRed}" text="[{container}]" />
-				<drawtext condition="{ismovie}" x="65%" y="{height(art)}+{posy(art)}+20" width="25%" font="{light}" fontsize="5%" color="{clrRed}" text="[{videoFrameRate}]" />
+	<!-- rating -->
+			<drawtext name="rating" x="0" y="{posy(year)}+{height(year)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(rating)}:" />
+			<drawimage name="stars" imagetype="icon" path="stars/stars" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 0)" name="stars" imagetype="icon" path="stars/stars_10" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 10)" name="stars" imagetype="icon" path="stars/stars_20" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 20)" name="stars" imagetype="icon" path="stars/stars_30" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 30)" name="stars" imagetype="icon" path="stars/stars_40" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 40)" name="stars" imagetype="icon" path="stars/stars_50" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 50)" name="stars" imagetype="icon" path="stars/stars_60" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 60)" name="stars" imagetype="icon" path="stars/stars_70" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 70)" name="stars" imagetype="icon" path="stars/stars_80" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 80)" name="stars" imagetype="icon" path="stars/stars_90" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 90)" name="stars" imagetype="icon" path="stars/stars_100" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawtext condition="strnotequal({ratingstring}, '-1.0')" name="ratingstr" x="{posx(stars)}+{width(stars)}" y="{posy(rating)}+4" width="80%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text=" ({ratingstring})" />
+			<drawtext condition="strequal({ratingstring}, '-1.0')" name="ratingstr" x="{posx(stars)}+{width(stars)}" y="{posy(rating)}+4" width="80%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text=" (0.0)" />
+		
+		<!-- icons -->
 	
-				<drawtext condition="{ismovie}" name="contentrating	" x="0" y="80%" width="50%" font="{light}" fontsize="5%" color="{clrRed}" text="[{contentrating}]" />
-				<drawtext condition="{ismovie}" name="viewoffset" x="0" y="{height(contentrating)}+{posy(contentrating)}+5" width="50%" font="{light}" fontsize="5%" color="{clrRed}" text="[{viewoffset}]" />
-				<drawtext condition="{ismovie}" name="orginaltitle" x="0" y="{height(viewoffset)}+{posy(viewoffset)}+5" width="50%" font="{light}" fontsize="5%" color="{clrRed}" text="[{orginaltitle}]" />
-				<drawtext condition="{ismovie}" name="studio" x="0" y="{height(orginaltitle)}+{posy(orginaltitle)}+5" width="50%" font="{light}" fontsize="5%" color="{clrRed}" text="[{studio}]" />
-				<drawtext condition="{ismovie}" name="viewCount" x="0" y="{height(studio)}+{posy(studio)}+5" width="50%" font="{light}" fontsize="5%" color="{clrRed}" text="[{viewCount}]" />
+			<drawimage condition="eq({videoResolution},1080)" name="res"  imagetype="icon" path="1080" x="0" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="eq({videoResolution},720)" name="res"  imagetype="icon" path="720" x="0" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({videoResolution},'480')" name="res"  imagetype="icon" path="sdtv" x="0" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({videoResolution},'576')" name="res"  imagetype="icon" path="sdtv" x="0" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({videoResolution},'sd')" name="res"  imagetype="icon" path="sdtv" x="0" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+		
+			<drawimage condition="strequal({audioCodec}, 'mp2')" name="res1"  imagetype="icon" path="mp3" x="{width(res)}+{posx(res)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({audioCodec}, 'mp3')" name="res1"  imagetype="icon" path="mp3" x="{width(res)}+{posx(res)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({audioCodec}, 'ac3')" name="res1"  imagetype="icon" path="dd" x="{width(res)}+{posx(res)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({audioCodec}, 'dca')" name="res1"  imagetype="icon" path="dts" x="{width(res)}+{posx(res)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			
+			<drawimage condition="strequal({videoCodec}, 'mpeg4')" name="res2"  imagetype="icon" path="mpeg" x="{width(res1)}+{posx(res1)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({videoCodec}, 'msmpeg4')" name="res2"  imagetype="icon" path="mpeg" x="{width(res1)}+{posx(res1)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({videoCodec}, 'h264')" name="res2"  imagetype="icon" path="h264" x="{width(res1)}+{posx(res1)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			
+			<drawimage condition="strequal({container}, 'avi')" name="res3"  imagetype="icon" path="avi" x="{width(res2)}+{posx(res2)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({container}, 'mp4')" name="res3"  imagetype="icon" path="mp4" x="{width(res2)}+{posx(res2)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({container}, 'mkv')" name="res3"  imagetype="icon" path="mkv" x="{width(res2)}+{posx(res2)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			
+			<drawimage condition="strequal({aspectRatio}, '1.33')" name="res4"  imagetype="icon" path="1.33" x="{width(res3)}+{posx(res3)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({aspectRatio}, '1.78')" name="res4"  imagetype="icon" path="1.78" x="{width(res3)}+{posx(res3)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({aspectRatio}, '1.85')" name="res4"  imagetype="icon" path="1.85" x="{width(res3)}+{posx(res3)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({aspectRatio}, '2.35')" name="res4"  imagetype="icon" path="2.35" x="{width(res3)}+{posx(res3)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			
+			<drawimage condition="strequal({videoFrameRate}, 'PAL')" name="res5"  imagetype="icon" path="pal" x="{width(res4)}+{posx(res4)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({videoFrameRate}, 'NTSC')" name="res5"  imagetype="icon" path="ntsc" x="{width(res4)}+{posx(res4)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="strequal({videoFrameRate}, '24p')" name="res5"  imagetype="icon" path="24p" x="{width(res4)}+{posx(res4)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			
+			<!-- alternative icons
+			<drawimage condition="{ismovie} ++ empty{contentrating}" name="res5"  imagetype="icon" path="mediaflag" x="{width(res4)}+{posx(res4)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="{ismovie} ++ strequal({contentrating}, 'R')" name="res5"  imagetype="icon" path="rating-r" x="{width(res4)}+{posx(res4)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="{ismovie} ++ strequal({contentrating}, 'PG-13')" name="res5"  imagetype="icon" path="rating-pg13" x="{width(res4)}+{posx(res4)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<drawimage condition="{ismovie} ++ strequal({contentrating}, 'PG')" name="res5"  imagetype="icon" path="rating-pg" x="{width(res4)}+{posx(res4)}" y="{height(rating)}+{posy(rating)}" width="{areawidth}/6" height="{areawidth}/6" />
 			-->
+			
+			<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="0" y="{height(res5)}+{posy(res5)}-2" width="{areawidth}" height="2"/>
+		</area>		
 
-		</area>
-		<areascroll orientation="vertical" mode="forthandback" delay="1000" scrollspeed="medium" x="74%" y="65%" width="25%" height="24%" layer="3">
-			<drawtextbox condition="isset{summary}" x="0%" y="0%" width="100%" font="{light}" fontsize="10%" color="{clrWhite}" text="{summary}" />
+
+<!-- isShow -->
+		<area condition="{isshow}++eq({viewgroup}, 0)" layer="2" x="74%" y="15%" width="25%" height="70%">				
+				<drawtextbox maxlines="2" name="title" x="1%" y="0" width="98%" font="{vdrOsd}" fontsize="5%" color="{clrWhite}" text="{title}" />
+				<drawimage name="art" condition="{hasart}" imagetype="image" path="{art}" x="0" y="{height(title)}+{posy(title)}" width="100%" height="35%" />
+		</area>	
+	
+		<area condition="{isshow}++eq({viewgroup}, 2)" layer="2" x="74%" y="15%" width="25%" height="70%">				
+			<drawtextbox maxlines="2" name="title" x="1%" y="0" width="98%" font="{vdrOsd}" fontsize="5%" color="{clrWhite}" text="{title}" />
+			<drawimage name="art" condition="{hasart}" imagetype="image" path="{art}" x="0" y="{height(title)}+{posy(title)}" width="100%" height="35%" />
+		
+		
+		<!-- genre -->
+			<drawtext name="genre" x="0" y="{height(art)}+{posy(art)}+10" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(genre)}:" />
+			<loop name="genres" x="{width(genre)}" y="{posy(genre)}" orientation="horizontal" width="{areawidth}" height="4%" rowheight="4%" >
+				
+				<drawtext name="genre_loop" x="0" y="0" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text=", {genres[genre]}" />		
+			</loop>
+			<drawrectangle x="{width(genre)}" y="{posy(genre)}" width="2%" height="4%" color="{clrTransparent}" />
+	
+		<!-- text -->	
+			<drawrectangle x="{width(genre)}" y="{posy(genre)}" width="2%" height="4%" color="{clrTransparent}" /><drawtext name="seasons" x="0" y="{height(genre)}+{posy(genre)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(seasons)}: {childCount}" />
+			<drawtext name="episods" x="0" y="{height(seasons)}+{posy(seasons)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(episodes)}: {leafCount}" />
+			<drawtext name="seen" x="{posx(seasons)}+{width(seasons)}*1.5" y="{height(seasons)}+{posy(seasons)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(seen)}: {viewedLeafCount}" />
+		<!-- rating -->
+			<drawtext name="rating" x="0" y="{posy(seen)}+{height(seen)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="Bewertung:" />
+			<drawimage name="stars" imagetype="icon" path="stars/stars" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 0)" name="stars" imagetype="icon" path="stars/stars_10" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 10)" name="stars" imagetype="icon" path="stars/stars_20" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 20)" name="stars" imagetype="icon" path="stars/stars_30" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 30)" name="stars" imagetype="icon" path="stars/stars_40" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 40)" name="stars" imagetype="icon" path="stars/stars_50" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 50)" name="stars" imagetype="icon" path="stars/stars_60" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 60)" name="stars" imagetype="icon" path="stars/stars_70" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 70)" name="stars" imagetype="icon" path="stars/stars_80" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 80)" name="stars" imagetype="icon" path="stars/stars_90" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawimage condition="gt({rating}, 90)" name="stars" imagetype="icon" path="stars/stars_100" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawtext condition="strnotequal({ratingstring}, '-1.0')" name="ratingstr" x="{posx(stars)}+{width(stars)}" y="{posy(rating)}+4" width="80%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text=" ({ratingstring})" />
+			<drawtext condition="strequal({ratingstring}, '-1.0')" name="ratingstr" x="{posx(stars)}+{width(stars)}" y="{posy(rating)}+4" width="80%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text=" (0.0)" />
+		<!-- text -->
+			<drawtext condition="isset{studio}" name="studio" x="0" y="{height(ratingstr)}+{posy(ratingstr)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(studio)}: {studio}" />
+			<drawimage condition="isset{studio}" name="line_bottom" imagetype="skinpart" path="line_bottom" x="0" y="{height(studio)}+{posy(studio)}+5" width="{areawidth}" height="2"/>
+			<drawimage condition="empty{studio}" name="line_bottom" imagetype="skinpart" path="line_bottom" x="0" y="{height(rating)}*2+{posy(rating)}" width="{areawidth}" height="2"/>
+		</area>		
+
+		
+<!-- isSeason -->	
+		<area condition="{isseason}" layer="2" x="74%" y="15%" width="25%" height="70%">
+			<drawtextbox maxlines="2" name="seriestitle" x="1%" y="0" width="98%" font="{vdrOsd}" fontsize="5%" color="{clrWhite}" text="{seriestitle}" />
+			<drawimage name="art" condition="{hasart}" imagetype="image" path="{art}" x="0" y="{height(seriestitle)}+{posy(seriestitle)}" width="100%" height="35%" />
+		
+			<drawtext name="title" x="0" y="{height(art)}+{posy(art)}+10" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(season)}: {season}" />
+			<drawtext name="episods" x="0" y="{height(title)}+{posy(title)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(episodes)}: {leafCount}" />
+			<drawtext name="seen" x="0" y="{height(episods)}+{posy(episods)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(seen)}: {viewedLeafCount}" />
+			
+			<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="0" y="{height(seen)}*1.5+{posy(seen)}" width="{areawidth}" height="2"/>
+		</area>		
+
+		<areascroll condition="{isseason}" orientation="vertical" mode="forthandback" delay="1000" scrollspeed="medium" x="74%" y="60%" width="25%" height="30%" layer="3">
+			<drawtextbox  x="0%" y="0%" width="100%" font="{vdrOsd}" fontsize="9%" color="{clrWhite}" text="{summary}" />
 		</areascroll>
 	
-	</viewelement>
 	
-	<!-- Tokens available in browser
-	{viewmode}					int: enum Cover = 0, List = 1, Detail = 2
-	{current}					bool, currently active element
-    {title}                 	string, Name of the element
-    {viewgroup}					int: {UNDEF = 0, MOVIE = 1, SHOW = 2, SEASON = 3, EPISODE = 4, MUSIC, PHOTO};
-	
-	A dummy actually only marks a "level up"
-	{isdummy}					bool
-	
-	If the item is a server: {isserver}
-	{isserver}					bool
-		{serverstartpointname}	string
-		{serverip}				string
-		{serverport}			int
-		{serverversion}			string
-		
-	
-	Following tokens are avaliable if the item is a directory or video
-	{hasthumb}					bool
-		{thumb}					string, Image/Cover
-	{hasart}					bool
-		{art}					string, Fanart
-		
-	If the Item is Directory following tokens are avaliable
-	The item is a directory if one of the following tokens are set: {isdirectory}, {isshow}, {isseason}
-	
-	{isdirectory}			Condition
-	
-	{isshow}				Condition, Show/Series
-			{summary}			Description, plot, summary
-	
-	{isseason}				Condition
-			{summary}			Description, plot, summary
-	
-	If the item is a video following tokens are avaliable
-	The item is a video if one of the following tokens are set: {ismovie}, {isepisode} 
-	{contentrating}		string, star-rating
-	{viewoffset}		int, minutes, last viewed position
-	{duration}			int, minutes, total duration
-	{orginaltitle}		original title
-	{summary}			Description, plot, summary
-	{studio}			Studio
-	{year}				Year of production
-	{viewCount}			Unseen if less than 1
-	
-	{videoResolution}	string (sd, 720, 1080)
-	{bitrate}			int
-	{width}				int
-	{height}			int
-	{audioChannels}		int
-	{aspectRatio}		string (1.33, 1.78, 1.85, 2.35)
-	{audioCodec}		string (mp3, mp2, ac3, dca) hint: dca==DTS
-	{videoCodec}		string (mpeg4, msmpeg4, h264)
-	{container}			string (avi, mp4, mkv)
-	{videoFrameRate}	string (PAL, NTSC, 24p)
-	
-	{ismovie}
-	{isepisode}
-		{seriestitle}		Title of the series/show
-		{season}			int, Season
-		{episode}			int, Episode, season based
-		{hasbanner}			bool, Bannerstyle?
-			{banner}		Image path
-		{hasseriesthumb}	bool, seriesthumb (seasoncover, seriescover)
-			{seriesthumb}	Image path
-    
-	-->
-	
+<!-- isEpisode -->	
+		<area condition="{isepisode}" layer="2" x="74%" y="15%" width="25%" height="70%">			
+				<drawtext name="title" x="0" y="0" width="100%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{title}" />
+				<drawtext name="seriesname" x="0" y="{height(title)}+{posy(title)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{seriestitle}" />
+				
+				<drawimage condition="eq({viewgroup}, 0)++{hasart}" name="art" imagetype="image" path="{art}" x="0" y="{height(seriesname)}+{posy(seriesname)}+10" width="100%" height="35%" />
+				<drawimage condition="eq({viewgroup}, 4)++{hasthumb}" name="art" imagetype="image" path="{thumb}" x="0" y="{height(seriesname)}+{posy(seriesname)}+10" width="100%" height="35%" />
+		 
+			
+			<!-- text -->
+				<drawtext name="season" x="0" y="{height(art)}+{posy(art)}+10" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(season)}: {season}" />
+				<drawtext name="episods" x="0" y="{height(season)}+{posy(season)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(episode)}: {episode}" />
+				<drawtext name="date" x="0" y="{height(episods)}+{posy(episods)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(date)}: {printf('%02d', originallyAvailableDay)}.{printf('%02d', originallyAvailableMonth)}.{originallyAvailableYear}" />
+				<drawtext name="duration" x="50%" y="{height(episods)}+{posy(episods)}" align="right" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(duration)}: {duration} min" />
+				
+			<!-- icons -->
+				<drawimage condition="eq({videoResolution},1080)" name="res"  imagetype="icon" path="1080" x="0" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="eq({videoResolution},720)" name="res"  imagetype="icon" path="720" x="0" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({videoResolution},'480')" name="res"  imagetype="icon" path="sdtv" x="0" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({videoResolution},'576')" name="res"  imagetype="icon" path="sdtv" x="0" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({videoResolution},'sd')" name="res"  imagetype="icon" path="sdtv" x="0" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				
+				<drawimage condition="strequal({audioCodec}, 'mp2')" name="res1"  imagetype="icon" path="mp3" x="{width(res)}+{posx(res)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({audioCodec}, 'mp3')" name="res1"  imagetype="icon" path="mp3" x="{width(res)}+{posx(res)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({audioCodec}, 'ac3')" name="res1"  imagetype="icon" path="dd" x="{width(res)}+{posx(res)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({audioCodec}, 'dca')" name="res1"  imagetype="icon" path="dts" x="{width(res)}+{posx(res)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				
+				<drawimage condition="strequal({videoCodec}, 'mpeg4')" name="res2"  imagetype="icon" path="mpeg" x="{width(res1)}+{posx(res1)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({videoCodec}, 'msmpeg4')" name="res2"  imagetype="icon" path="mpeg" x="{width(res1)}+{posx(res1)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({videoCodec}, 'h264')" name="res2"  imagetype="icon" path="h264" x="{width(res1)}+{posx(res1)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				
+				<drawimage condition="strequal({container}, 'avi')" name="res3"  imagetype="icon" path="avi" x="{width(res2)}+{posx(res2)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({container}, 'mp4')" name="res3"  imagetype="icon" path="mp4" x="{width(res2)}+{posx(res2)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({container}, 'mkv')" name="res3"  imagetype="icon" path="mkv" x="{width(res2)}+{posx(res2)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				
+				<drawimage condition="strequal({aspectRatio}, '1.33')" name="res4"  imagetype="icon" path="1.33" x="{width(res3)}+{posx(res3)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({aspectRatio}, '1.78')" name="res4"  imagetype="icon" path="1.78" x="{width(res3)}+{posx(res3)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({aspectRatio}, '1.85')" name="res4"  imagetype="icon" path="1.85" x="{width(res3)}+{posx(res3)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({aspectRatio}, '2.35')" name="res4"  imagetype="icon" path="2.35" x="{width(res3)}+{posx(res3)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+			
+				<drawimage condition="strequal({videoFrameRate}, 'PAL')" name="res5"  imagetype="icon" path="pal" x="{width(res4)}+{posx(res4)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({videoFrameRate}, 'NTSC')" name="res5"  imagetype="icon" path="ntsc" x="{width(res4)}+{posx(res4)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({videoFrameRate}, '24p')" name="res5"  imagetype="icon" path="24p" x="{width(res4)}+{posx(res4)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+			<!-- alternative icons
+				<drawimage condition="empty{contentduration}" name="res5"  imagetype="icon" path="mediaflag" x="{width(res4)}+{posx(res4)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({contentduration}, 'R')" name="res5"  imagetype="icon" path="duration-r" x="{width(res4)}+{posx(res4)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({contentduration}, 'PG-13')" name="res5"  imagetype="icon" path="duration-pg13" x="{width(res4)}+{posx(res4)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+				<drawimage condition="strequal({contentduration}, 'PG')" name="res5"  imagetype="icon" path="duration-pg" x="{width(res4)}+{posx(res4)}" y="{height(duration)}+{posy(duration)}" width="{areawidth}/6" height="{areawidth}/6" />
+			-->	
+			
+				<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="0" y="{height(res5)}+{posy(res5)}-2" width="{areawidth}" height="2"/>
 
-<!-- COVERVIEW COVERVIEW COVERVIEW COVERVIEW COVERVIEW COVERVIEW COVERVIEW COVERVIEW DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS -->
-<!-- COVERVIEW COVERVIEW COVERVIEW COVERVIEW COVERVIEW COVERVIEW COVERVIEW COVERVIEW DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS -->
-<!-- COVERVIEW COVERVIEW COVERVIEW COVERVIEW COVERVIEW COVERVIEW COVERVIEW COVERVIEW DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS -->
+		</area>	
+
+<!-- isServer -->
+		<area condition="{isserver}" layer="2" x="74%" y="15%" width="25%" height="70%">			
+				<drawimage condition="{isserver}++not{hasthumb}" name="thumb" imagetype="skinpart" path="plexplaceholder_new" align="center" x="0" y="5%" width="{areawidth}/2" height="{areawidth}/2" />
+				<drawtext name="serverstartpointname" x="0" y="{height(thumb)}+{posy(thumb)}+10" width="100%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{serverstartpointname}" />
+				<drawtext name="title" x="0%" y="{posy(serverstartpointname)} + {height(serverstartpointname)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(host)}: {title}" />
+				<drawtext name="serverip" x="0" y="{posy(title)} + {height(title)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(ip)}: {serverip}" />
+				<drawtext name="serverport" x="0%" y="{posy(serverip)} + {height(serverip)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(port)}: {serverport}" />
+				<drawtext name="serverversion" x="0%" y="{posy(serverport)} + {height(serverport)}" width="100%" font="{vdrOsd}" fontsize="4%" color="{clrWhite}" text="{tr(version)}: {serverversion}" />
+		</area>
+
+<!-- isDirectory -->		
+		<area condition="{isdirectory}++eq({viewgroup}, 0)" layer="2" x="74%" y="15%" width="25%" height="70%">				
+			<!-- image -->
+				<drawtextbox maxlines="2" name="title" x="1%" y="0" width="98%" font="{vdrOsd}" fontsize="5%" color="{clrWhite}" text="{title}" />
+				<drawimage name="art" condition="{hasart}" imagetype="image" path="{art}" x="0" y="{height(title)}+{posy(title)}" width="100%" height="35%" />
+		</area>	
 	
-    <grid name="coverbrowser" x="0" y="15%" width="70%" height="75%">
+<!-- summary -->
+		<areascroll condition="isset{summary}++not{isseason}" orientation="vertical" mode="forthandback" delay="1000" scrollspeed="medium" x="74%" y="65%" width="25%" height="24%" layer="3">
+			<drawtextbox  x="0%" y="0%" width="100%" font="{vdrOsd}" fontsize="12%" color="{clrWhite}" text="{summary}" />
+		</areascroll>
+	
+</viewelement>
+	
+	
+<!-- COVERVIEW COVERVIEW COVERVIEW  -->
+<grid name="coverbrowser" x="0" y="15%" width="70%" height="75%">
+
+
 <!-- isMovie -->		
 		<area layer="3" condition="{ismovie}">
-			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder" x="0" y="35" width="100%" height="78%" />
-			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="15%" y="4%" width="{areawidth}/1.4" height="{areaheight}/1.3" />
-			
-			<drawtextbox name="title" x="15%" y="{height(thumb)}+{posy(thumb)}/2" width="{areawidth}/1.4" font="{bold}" align="center" maxlines="2" fontsize="8%" color="{clrWhite}" text="{title}" />
-			<drawtextbox condition="{current}" name="title" x="15%" y="{height(thumb)}+{posy(thumb)}/2" width="{areawidth}/1.4" font="{bold}" align="center" maxlines="2" fontsize="8%" color="{clrTheme}" text="{title}" />
+			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder_new" x="15%" y="4%" width="{areawidth}*0.71" height="{areaheight}*0.76" />
+			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="15%" y="4%" width="{areawidth}*0.71" height="{areaheight}*0.76" />
 		</area>
 		
 <!-- isMovie case background -->
 		<area layer="4" condition="{ismovie}" >
-				<drawimage name="recback" imagetype="image" path="{ressourcedir}/images/poster_top.png" x="0"  y="0" width="{areawidth}" height="{areaheight}/1.25" />
-				<drawimage condition="{current}" imagetype="image" path="{ressourcedir}/images/poster_top_blue.png" x="0"  y="0" width="{areawidth}" height="{areaheight}/1.25" />
+				<drawimage debug="true" name="recback" imagetype="skinpart" path="poster_top" x="12%"  y="0" width="{areawidth}*0.77" height="{areaheight}*0.795" />
+				
+				<drawimage condition="{current}" imagetype="skinpart" path="poster_top_active" x="12%"  y="0" width="{areawidth}*0.77" height="{areaheight}*0.795" />				
+				<drawtextbox name="title" x="15%" y="{height(recback)}+{posy(recback)}+10" width="{areawidth}/1.4" font="{vdrOsd}" align="center" maxlines="2" fontsize="8%" color="{clrWhite}" text="{title}" />
+				<drawtextbox condition="{current}" name="title" x="15%" y="{height(recback)}+{posy(recback)}+10" width="{areawidth}/1.4" font="{vdrOsd}" align="center" maxlines="2" fontsize="8%" color="{clrTheme}" text="{title}" />		
 		</area>
 
+<!-- isShow -->
+		<area layer="3" condition="{isshow}" >
+			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder_new" x="12%" y="2%" width="{areawidth}*0.77" height="{areaheight}*0.770" />
+			<drawimage condition="eq({viewgroup}, 0)++{hasthumb}" name="thumb" imagetype="image" path="{thumb}" x="17%" y="4%" width="{areawidth}/1.5" height="{areaheight}/1.4" />
+			<drawimage name="thumb" condition="eq({viewgroup}, 2)++{hasthumb}" imagetype="image" path="{thumb}" x="15%" y="0" width="{areawidth}*0.71" height="{areaheight}*0.85" />
+		</area>
+
+<!-- isShow case background -->
+		<area layer="4" condition="{isshow}" >
+			<drawimage name="recback" imagetype="skinpart" path="poster_top" x="12%" y="1%" width="{areawidth}*0.77" height="{areaheight}*0.785" />
+			<drawimage condition="{current}" imagetype="skinpart" path="poster_top_active" x="12%" y="1%" width="{areawidth}*0.77" height="{areaheight}*0.785" />
+			
+			<drawtext condition="eq({viewgroup}, 0)" name="title" x="0" y="{height(recback)}+{posy(recback)}+10" align="center" width="100%" font="{vdrOsd}" fontsize="12%" color="{clrWhite}" text="{title}" />
+			<drawtext condition="eq({viewgroup}, 0)++{current}" name="title" x="0" y="{height(recback)}+{posy(recback)}+10" align="center" width="100%" font="{vdrOsd}" fontsize="12%" color="{clrTheme}" text="{title}" />
+			<drawtextbox maxlines="2" condition="eq({viewgroup}, 2)" name="title" x="0" y="{height(recback)}+{posy(recback)}+10" align="center" width="100%" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{title}" />
+			<drawtextbox maxlines="2" condition="eq({viewgroup}, 2)++{current}" name="title" x="0" y="{height(recback)}+{posy(recback)}+10" align="center" width="100%" font="{vdrOsd}" fontsize="8%" color="{clrTheme}" text="{title}" />
+		</area>		
+		
 <!-- isSeason -->
 		<area layer="3" condition="{isseason}" >
-			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder" x="0" y="35" width="100%" height="78%" />
-			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="15%" y="4%" width="{areawidth}/1.4" height="{areaheight}/1.3" />
-			
-			<drawtextbox name="title" x="15%" y="{height(thumb)}+{posy(thumb)}/2" width="{areawidth}/1.4" font="{bold}" align="center" maxlines="2" fontsize="8%" color="{clrWhite}" text="{title}" />
-			<drawtextbox condition="{current}" name="title" x="15%" y="{height(thumb)}+{posy(thumb)}/2" width="{areawidth}/1.4" font="{bold}" align="center" maxlines="2" fontsize="8%" color="{clrTheme}" text="{title}" />
+			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder_new" x="12%" y="2%" width="{areawidth}*0.77" height="{areaheight}*0.760" />
+			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="15%" y="4%" width="{areawidth}*0.71" height="{areaheight}*0.76" />
+																							
 		</area>
 <!-- isSeason case background -->
 		<area layer="4" condition="{isseason}" >
-				<drawimage name="recback" imagetype="image" path="{ressourcedir}/images/poster_top.png" x="0"  y="0" width="{areawidth}" height="{areaheight}/1.25" />
-				<drawimage condition="{current}" imagetype="image" path="{ressourcedir}/images/poster_top_blue.png" x="0"  y="0" width="{areawidth}" height="{areaheight}/1.25" />
+			<drawimage name="recback" imagetype="skinpart" path="poster_top" x="12%" y="1%" width="{areawidth}*0.77" height="{areaheight}*0.775" />
+			<drawimage condition="{current}" imagetype="skinpart" path="poster_top_active" x="12%" y="1%" width="{areawidth}*0.77" height="{areaheight}*0.775" />
+			<drawtextbox name="title" x="15%" y="{height(recback)}+{posy(recback)}+10" width="{areawidth}/1.4" font="{vdrOsd}" align="center" maxlines="2" fontsize="8%" color="{clrWhite}" text="{title}" />
+			<drawtextbox condition="{current}" name="title" x="15%" y="{height(recback)}+{posy(recback)}+10" width="{areawidth}/1.4" font="{vdrOsd}" align="center" maxlines="2" fontsize="8%" color="{clrTheme}" text="{title}" />
+
 		</area>
 		
 <!-- isEpisode -->		
 		<area layer="3" condition="{isepisode}" >
-			<drawimage name="thumb" condition="not{hasseriesthumb}" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="100%" height="76%" />
+			<drawimage name="thumb" condition="not{hasseriesthumb}" imagetype="skinpart" path="plexplaceholder_new" x="25%" y="21%" width="{areawidth}/2" height="{areaheight}/3" />
 			<drawimage name="thumb" condition="{hasseriesthumb}" imagetype="image" path="{thumb}" x="0" y="0" width="{areawidth}" height="{areaheight}/1.35" />
 			
-			<drawtext name="seriestitle" x="0" y="{height(thumb)}*0.9" align="center" width="100%" font="{bold}" fontsize="8%" color="{clrWhite}" text="{seriestitle}" />
-			<drawtext name="title" x="0" y="{posy(seriestitle)} + {height(seriestitle)}" align="center" width="100%" font="{bold}" fontsize="8%" color="{clrWhite}" text="{title}" />
-			<drawtext name="season" x="0" y="{posy(title)} + {height(title)}" align="center" width="50%" font="{light}" fontsize="8%" color="{clrWhite}" text="{printf('S%02d E%02d', season, episode)}" />
-		
-			<drawtext condition="{current}" name="seriestitle" x="0" y="{height(thumb)}*0.9" align="center" width="100%" font="{bold}" fontsize="8%" color="{clrTheme}" text="{seriestitle}" />
-			<drawtext condition="{current}" name="title" x="0" y="{posy(seriestitle)} + {height(seriestitle)}" align="center" width="100%" font="{bold}" fontsize="8%" color="{clrTheme}" text="{title}" />
-			<drawtext condition="{current}" name="season" x="0" y="{posy(title)} + {height(title)}" align="center" width="50%" font="{light}" fontsize="8%" color="{clrTheme}" text="{printf('S%02d E%02d', season, episode)}" />
-		
-		</area>
+			</area>
 	
 <!-- isEpisode case background -->	
 		<area layer="4" condition="{isepisode}" >
 			<drawimage name="recback" imagetype="skinpart" path="filmstrip" x="0"  y="11%" width="{areawidth}" height="{areaheight}/1.9" />
-			<drawimage condition="{current}"  name="recbackblue" imagetype="skinpart" path="filmstrip_blue" x="0"  y="11%" width="{areawidth}" height="{areaheight}/1.9" />
-		</area>		
-
-<!-- isDummy -->		
-		<area layer="3" condition="{isdummy}" >
-			<drawimage condition="not{current}" name="thumb" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="100%" height="76%" />
-			<drawimage condition="{current}" name="thumb" imagetype="skinpart" path="plexplaceholder_current" x="0" y="0" width="100%" height="76%" />
-			<drawtext condition="{current}" name="title" x="0" y="{posy(thumb)} + {height(thumb)}" align="center" width="50%" font="{light}" fontsize="10%" color="{clrTheme}" text="{title}" />
-			<drawtext condition="not{current}" name="title" x="0" y="{posy(thumb)} + {height(thumb)}" align="center" width="50%" font="{light}" fontsize="10%" color="{clrWhite}" text="{title}" />
+			<drawimage condition="{current}"  name="recbackblue" imagetype="skinpart" path="filmstrip_active" x="0"  y="11%" width="{areawidth}" height="{areaheight}/1.9" />
+			
+			<drawtext name="seriestitle" x="0" y="{height(recback)}*1.25" align="center" width="100%" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{seriestitle}" />
+			<drawtext name="title" x="0" y="{posy(seriestitle)} + {height(seriestitle)}" align="center" width="100%" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{title}" />
+			<drawtext name="season" x="0" y="{posy(title)} + {height(title)}" align="center" width="50%" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{printf('S%02dxE%02d', season, episode)}" />
 		
-		</area>
+			<drawtext condition="{current}" name="seriestitle" x="0" y="{height(recback)}*1.25" align="center" width="100%" font="{vdrOsd}" fontsize="8%" color="{clrTheme}" text="{seriestitle}" />
+			<drawtext condition="{current}" name="title" x="0" y="{posy(seriestitle)} + {height(seriestitle)}" align="center" width="100%" font="{vdrOsd}" fontsize="8%" color="{clrTheme}" text="{title}" />
+			<drawtext condition="{current}" name="season" x="0" y="{posy(title)} + {height(title)}" align="center" width="50%" font="{vdrOsd}" fontsize="8%" color="{clrTheme}" text="{printf('S%02dxE%02d', season, episode)}" />
+	
+		</area>		
 
 		
 <!-- isDirectory  -->		
 		<area layer="3" condition="{isdirectory}" >
-			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="100%" height="75%" />
-			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="17%" y="4%" width="{areawidth}/1.5" height="{areaheight}/1.4" />
-			<drawtext name="title" x="0" y="{height(thumb)}+{posy(thumb)}+20" align="center" width="100%" font="{bold}" fontsize="12%" color="{clrWhite}" text="{title}" />
-			<drawtext condition="{current}" name="title" x="0" y="{height(thumb)}+{posy(thumb)}+20" align="center" width="100%" font="{bold}" fontsize="12%" color="{clrTheme}" text="{title}" />
-		
+			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder_new" x="12%" y="2%" width="{areawidth}*0.77" height="{areaheight}*0.770" />
+			<drawimage condition="eq({viewgroup}, 0) ++ {hasthumb}" name="thumb" imagetype="image" path="{thumb}" x="17%" y="4%" width="{areawidth}/1.5" height="{areaheight}/1.4" />
+			<drawimage condition="eq({viewgroup}, 3) ++ {hasthumb}" name="thumb" imagetype="image" path="{thumb}" x="15%" y="0" width="{areawidth}*0.71" height="{areaheight}*0.85" />
 		</area>
 		
 <!-- isDirectory case background -->
 		<area layer="4" condition="{isdirectory}" >
-				<drawimage name="recback" imagetype="image" path="{ressourcedir}/images/poster_top.png" x="0"  y="0" width="{areawidth}" height="{areaheight}/1.25" />
-				<drawimage condition="{current}" imagetype="image" path="{ressourcedir}/images/poster_top_blue.png" x="0"  y="0" width="{areawidth}" height="{areaheight}/1.25" />
-		
-		</area>		
-		
-<!-- isShow -->
-		<area layer="3" condition="{isshow}" >
-			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="100%" height="76%" />
-			
-			<drawimage condition="eq({viewgroup}, 0)++{hasthumb}" name="thumb" imagetype="image" path="{thumb}" x="17%" y="4%" width="{areawidth}/1.5" height="{areaheight}/1.4" />
-			<drawtext condition="eq({viewgroup}, 0)" name="title" x="0" y="{height(thumb)}+{posy(thumb)}+20" align="center" width="100%" font="{bold}" fontsize="12%" color="{clrWhite}" text="{title}" />
-			<drawtext condition="eq({viewgroup}, 0)++{current}" name="title" x="0" y="{height(thumb)}+{posy(thumb)}+20" align="center" width="100%" font="{bold}" fontsize="12%" color="{clrTheme}" text="{title}" />
-		
-			<drawimage name="thumb" condition="eq({viewgroup}, 2)++{hasthumb}" imagetype="image" path="{thumb}" x="15%" y="4%" width="{areawidth}/1.4" height="{areaheight}/1.3" />
-			<drawtextbox maxlines="2" condition="eq({viewgroup}, 2)" name="title" x="0" y="{height(thumb)}+{posy(thumb)}+20" align="center" width="100%" font="{bold}" fontsize="8%" color="{clrWhite}" text="{title}" />
-			<drawtextbox maxlines="2" condition="eq({viewgroup}, 2)++{current}" name="title" x="0" y="{height(thumb)}+{posy(thumb)}+20" align="center" width="100%" font="{bold}" fontsize="8%" color="{clrTheme}" text="{title}" />
-			
-		</area>
-		
-	<!-- debug 
-			<drawtext name="title" x="50%" y="0" width="100%" font="{bold}" align="right" fontsize="10%" color="{clrRed}" text="viewmode:{viewmode}" />
-			<drawtext name="title" x="50%" y="10%" width="100%" font="{bold}" align="right" fontsize="10%" color="{clrRed}" text="viewgroup:{viewgroup}" />
-		-->
-
-<!-- isShow case background -->
-		<area layer="4" condition="{isshow}" >
-			<drawimage condition="eq({viewgroup}, 0)" name="recback" imagetype="image" path="{ressourcedir}/images/poster_top.png" x="0"  y="0" width="{areawidth}" height="{areaheight}/1.25" />
-			<drawimage condition="eq({viewgroup}, 0)++{current}" imagetype="image" path="{ressourcedir}/images/poster_top_blue.png" x="0"  y="0" width="{areawidth}" height="{areaheight}/1.25" />
-
-			<drawimage condition="eq({viewgroup}, 2)" name="recback" imagetype="image" path="{ressourcedir}/images/poster_top.png" x="0"  y="0" width="{areawidth}" height="{areaheight}/1.25" />
-			<drawimage condition="eq({viewgroup}, 2)++{current}" imagetype="image" path="{ressourcedir}/images/poster_top_blue.png" x="0"  y="0" width="{areawidth}" height="{areaheight}/1.25" />
+				<drawimage name="recback" imagetype="skinpart" path="poster_top" x="12%" y="1%" width="{areawidth}*0.77" height="{areaheight}*0.785" />
+				<drawimage condition="{current}" imagetype="skinpart" path="poster_top_active" x="12%" y="1%" width="{areawidth}*0.77" height="{areaheight}*0.785" />
 				
-		</area>					
+			<drawtext condition="eq({viewgroup}, 0)" name="title" x="0" y="{height(recback)}+{posy(recback)}+10" align="center" width="100%" font="{vdrOsd}" fontsize="12%" color="{clrWhite}" text="{title}" />
+			<drawtext condition="eq({viewgroup}, 0) ++ {current}" name="title" x="0" y="{height(recback)}+{posy(recback)}+10" align="center" width="100%" font="{vdrOsd}" fontsize="12%" color="{clrTheme}" text="{title}" />	
+			<drawtext condition="eq({viewgroup}, 3)" name="title" x="0" y="{height(recback)}+{posy(recback)}+15" align="center" width="100%" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{title}" />
+			<drawtext condition="eq({viewgroup}, 3) ++ {current}" name="title" x="0" y="{height(recback)}+{posy(recback)}+15" align="center" width="100%" font="{vdrOsd}" fontsize="8%" color="{clrTheme}" text="{title}" />	
 	
-
-
-	<area layer="3" condition="{isserver}" >
-			<drawimage name="thumb" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="100%" height="78%" />
-			<drawtext name="title" x="0" y="{posy(thumb)}+{height(thumb)}*1.07" align="center" width="100%" font="{bold}" fontsize="8%" color="{clrWhite}" text="{title}" />
-			<drawtext x="0" y="{posy(title)} + {height(title)}" align="center" width="100%" font="{light}" fontsize="8%" color="{clrWhite}" text="{serverstartpointname}" />
-			<drawtext condition="{current}" name="title" x="0" y="{posy(thumb)}+{height(thumb)}*1.07" align="center" width="100%" font="{bold}" fontsize="8%" color="{clrTheme}" text="{title}" />
-			<drawtext condition="{current}" x="0" y="{posy(title)} + {height(title)}" align="center" width="100%" font="{light}" fontsize="8%" color="{clrTheme}" text="{serverstartpointname}" />
-		</area>
+		</area>	
+		
+<!-- isServer  -->
+		<area layer="3" condition="{isserver}" >
+			<drawimage name="thumb" imagetype="skinpart" path="plexplaceholder_new" x="12%" y="2%" width="{areawidth}*0.77" height="{areaheight}*0.770" />
+			</area>
 		<area layer="4" condition="{isserver}" >
-				<drawimage name="recback" imagetype="image" path="{ressourcedir}/images/poster_top.png" x="0"  y="0" width="100%" height="80%" />
-				<drawimage condition="{current}" name="recbackblue" imagetype="image" path="{ressourcedir}/images/poster_top_blue.png" x="0"  y="0" width="100%" height="80%" />
+				<drawimage name="recback" imagetype="skinpart" path="poster_top" x="12%"  y="0" width="{areawidth}*0.77" height="{areaheight}*0.795" />
+				<drawimage condition="{current}" name="recbackblue" imagetype="skinpart" path="poster_top_active" x="12%"  y="0" width="{areawidth}*0.77" height="{areaheight}*0.795" />
+			
+			<drawtext name="title" x="0" y="{posy(recback)}+{height(recback)}+10" align="center" width="100%" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{title}" />
+			<drawtext x="0" y="{posy(title)} + {height(title)}" align="center" width="100%" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{serverstartpointname}" />
+			<drawtext condition="{current}" name="title" x="0" y="{posy(recback)}+{height(recback)}+10" align="center" width="100%" font="{vdrOsd}" fontsize="8%" color="{clrTheme}" text="{title}" />
+			<drawtext condition="{current}" x="0" y="{posy(title)} + {height(title)}" align="center" width="100%" font="{vdrOsd}" fontsize="8%" color="{clrTheme}" text="{serverstartpointname}" />
+
 		</area>
-	</grid>
+		
+<!-- isDummy -->
+		<area layer="3" condition="{isdummy}++ eq({useBack},1)" >
+			<drawimage condition="not{current}" name="thumb" imagetype="skinpart" path="plexplaceholder_new_back" x="25%" y="21%" width="{areawidth}/2" height="{areaheight}/3" />
+			<drawimage condition="{current}" name="thumb" imagetype="skinpart" path="plexplaceholder_new_back_current" x="25%" y="21%" width="{areawidth}/2" height="{areaheight}/3" />
+		</area>
+		<area layer="3" condition="{isdummy}++ eq({useBack},0)" >
+			<drawimage condition="not{current}" name="thumb" imagetype="skinpart" path="plexplaceholder_new" x="25%" y="21%" width="{areawidth}/2" height="{areaheight}/3" />
+			<drawimage condition="{current}" name="thumb" imagetype="skinpart" path="plexplaceholder_new_current" x="25%" y="21%" width="{areawidth}/2" height="{areaheight}/3" />
+			<drawtext condition="{current}" name="title" x="0" y="{posy(thumb)} + {height(thumb)}" align="center" width="50%" font="{vdrOsd}" fontsize="10%" color="{clrTheme}" text="{title}" />
+			<drawtext condition="not{current}" name="title" x="0" y="{posy(thumb)} + {height(thumb)}" align="center" width="50%" font="{vdrOsd}" fontsize="10%" color="{clrWhite}" text="{title}" />
+		</area>
+</grid>
 	
 
-<!-- DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS -->
-<!-- DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS -->
-<!-- DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS DETAILS -->
+<!-- DETAILS DETAILS DETAILS -->
 
-	<grid name="detailbrowser" x="0" y="15%" width="70%" height="75%">
+<grid name="detailbrowser" x="0" y="15%" width="70%" height="75%">
 
 		<area layer="2">
 			<drawimage name="line_top" imagetype="skinpart" path="line_top" x="0" y="99%" width="{areawidth}" height="2"/>
 		</area> 
+		
 
 <!-- isMovie -->
 		<area layer="3" condition="{ismovie}">
-			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="{areaheight}*0.75" height="{areaheight}" />
-			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="1%" y="0" width="{areaheight}*0.6" height="{areaheight}" />
-	<!-- notCurrent -->	
-			<drawtext name="title" x="{width(thumb)}+10" y="0" width="100%" font="{bold}" fontsize="20%" color="{clrWhite}" text="{title}" />
-			<drawtext name="genre" x="{width(thumb)}+10" y="{posy(title)}+{height(title)}" width="100%" font="{bold}" fontsize="16%" color="{clrWhite}" text="Genre: {genre}" />
-			<drawtext name="duration" x="{width(thumb)}+10" y="{posy(genre)}+{height(genre)}" width="100%" font="{bold}" fontsize="16%" color="{clrWhite}" text="Laufzeit: {duration} Minuten" />
-			<drawtext name="year" x="{width(thumb)}+10" y="{posy(duration)}+{height(duration)}" width="100%" font="{bold}" fontsize="16%" color="{clrWhite}" text="Jahr: {year}  Bewertung:({rating})" />
-			<drawimage name="res" condition="eq({videoResolution},1080)" imagetype="icon" path="1080_off" x="11%" y="{areaheight}-{height(res)}" width="{areaheight}/3" height="{areaheight}/3" />
-	<!-- isCurrent -->
-			<drawtext condition="{current}" name="title" x="{width(thumb)}+10" y="0" width="100%" font="{bold}" fontsize="20%" color="{clrTheme}" text="{title}" />
-			<drawtext condition="{current}" name="genre" x="{width(thumb)}+10" y="{posy(title)}+{height(title)}" width="100%" font="{bold}" fontsize="16%" color="{clrTheme}" text="Genre: {genre}" />
-			<drawtext condition="{current}" name="duration" x="{width(thumb)}+10" y="{posy(genre)}+{height(genre)}" width="100%" font="{bold}" fontsize="16%" color="{clrTheme}" text="Laufzeit: {duration} Minuten" />
-			<drawtext condition="{current}" name="year" x="{width(thumb)}+10" y="{posy(duration)}+{height(duration)}" width="100%" font="{bold}" fontsize="16%" color="{clrTheme}" text="Jahr: {year}  Bewertung:({rating})" />
-			<drawimage condition="{current}++eq({videoResolution},1080)" name="res" imagetype="icon" path="1080" x="11%" y="{areaheight}-{height(res)}" width="{areaheight}/3" height="{areaheight}/3" />
-		</area>
-		
-<!-- isMovie case background -->
-		<area layer="4" condition="{ismovie}" >
-			<drawimage name="recback" imagetype="image" path="{ressourcedir}/images/poster_top.png" x="0%" y="0" width="{areaheight}*0.73" height="{areaheight}*0.95" />
-			<drawimage condition="{current}" name="recbackblue" imagetype="image" path="{ressourcedir}/images/poster_top_blue.png" x="0"  y="0" width="{areaheight}*0.73" height="{areaheight}*0.95" />
-		</area>
-		
-<!-- isSeason} -->		
-		<area condition="{isseason}" layer="3">
-			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="{areaheight}*0.75" height="{areaheight}" />
-			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="1%" y="0" width="{areaheight}*0.6" height="{areaheight}-{areaheight}*0.05" />
+			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder_new" x="0" y="7%" width="{areaheight}*0.65" height="{areaheight}*0.89" />
+			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="0" y="7%" width="{areaheight}*0.65" height="{areaheight}*0.89" />
 			
-	<!-- notCurrent -->		
-			<drawtext name="seriestitle" x="{width(thumb)}+10" y="0" width="80%" font="{semibold}" fontsize="20%" color="{clrWhite}" text="{seriesname} - {title}" />
-			<drawtext name="genre" x="{width(thumb)}+10" y="{posy(seriestitle)}+{height(seriestitle)}" width="80%" font="{semibold}" fontsize="16%" color="{clrWhite}" text="Genre: {genre}" />
-			<drawtext name="episodes" x="{width(thumb)}+10" y="{posy(genre)}+{height(genre)}" width="80%" font="{semibold}" fontsize="16%" color="{clrWhite}" text="Episoden:{episodes}" />
-			<drawtext name="seen" x="{posx(episodes)}+{width(episodes)}+10" y="{posy(genre)}+{height(genre)}" width="80%" font="{semibold}" fontsize="16%" color="{clrWhite}" text="Gesehen: {seen}" />
-			<drawtext name="studio" x="{width(thumb)}+10" y="{posy(seen)}+{height(seen)}" width="80%" font="{semibold}" fontsize="16%" color="{clrWhite}" text="Studio: {studio}" />
-	<!-- isCurrent -->		
-
-
-			<drawtext condition="{current}" name="seriestitle" x="{width(thumb)}+10" y="0" width="80%" font="{semibold}" fontsize="20%" color="{clrTheme}" text="{seriesname} - {title}" />
-			<drawtext condition="{current}" name="genre" x="{width(thumb)}+10" y="{posy(seriestitle)}+{height(seriestitle)}" width="80%" font="{semibold}" fontsize="16%" color="{clrTheme}" text="Genre: {genre}" />
-			<drawtext condition="{current}" name="episodes" x="{width(thumb)}+10" y="{posy(genre)}+{height(genre)}" width="80%" font="{semibold}" fontsize="16%" color="{clrTheme}" text="Episoden:{episodes}" />
-			<drawtext condition="{current}" name="seen" x="{posx(episodes)}+{width(episodes)}+10" y="{posy(genre)}+{height(genre)}" width="80%" font="{semibold}" fontsize="16%" color="{clrTheme}" text="Gesehen: {seen}" />
-			<drawtext condition="{current}" name="studio" x="{width(thumb)}+10" y="{posy(seen)}+{height(seen)}" width="80%" font="{semibold}" fontsize="16%" color="{clrTheme}" text="Studio: {studio}" />
+		</area>
+		<area layer="4" condition="{ismovie}++not{current}">
+		<!-- notCurrent -->
+			<drawimage name="recback" imagetype="skinpart" path="poster_top" x="0%" y="0" width="{areaheight}*0.65" height="{areaheight}*0.99" />
+		
+			<drawtext name="title" x="{width(recback)}+10" y="0" width="100%" font="{vdrOsd}" fontsize="20%" color="{clrWhite}" text="{title}" />
+			
+		<!--<drawtext name="genre" x="{width(recback)}+10" y="{posy(title)}+{height(title)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(genre)}:" />
+			<loop debug="true" name="genres" x="{width(genre)}" y="{posy(genre)}" orientation="horizontal" width="{areawidth}" height="16%" rowheight="16%" >
+				<drawtext debug="true" name="genre_loop" x="0" y="0" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrRed}" text=", {genres[genre]}" />		
+			</loop>
+		-->	
+			<drawtext name="duration" x="{width(recback)}+10" y="{posy(title)}+{height(title)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(duration)}: {duration} min" />
+			<drawtext name="year" x="{width(recback)}+10" y="{posy(duration)}+{height(duration)}" width="20%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(year)}: {year}" />
+			<drawtext name="studio" x="{width(recback)}+10" y="{posy(year)}+{height(year)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(studio)}: {studio}" />
+	
+			
+		<!-- rating -->
+			<drawtext name="rating" x="{posx(year)}+{width(year)}*1.3" y="{posy(duration)}+{height(duration)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(rating)}:" />
+			<drawimage name="stars" imagetype="icon" path="stars/stars" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 0)" name="stars" imagetype="icon" path="stars/stars_10" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 10)" name="stars" imagetype="icon" path="stars/stars_20" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 20)" name="stars" imagetype="icon" path="stars/stars_30" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 30)" name="stars" imagetype="icon" path="stars/stars_40" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 40)" name="stars" imagetype="icon" path="stars/stars_50" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 50)" name="stars" imagetype="icon" path="stars/stars_60" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 60)" name="stars" imagetype="icon" path="stars/stars_70" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 70)" name="stars" imagetype="icon" path="stars/stars_80" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 80)" name="stars" imagetype="icon" path="stars/stars_90" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 90)" name="stars" imagetype="icon" path="stars/stars_100" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawtext condition="strnotequal({ratingstring}, '-1.0')" name="ratingstr" x="{posx(stars)}+{width(stars)}" y="{posy(rating)}+4" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text=" ({ratingstring})" />
+			<drawtext condition="strequal({ratingstring}, '-1.0')" name="ratingstr" x="{posx(stars)}+{width(stars)}" y="{posy(rating)}+4" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text=" (0.0)" />
+	
+	<!-- icons -->	
+			<drawimage condition="eq({videoResolution},1080)" name="res"  imagetype="icon" path="1080_off" x="{width(recback)}+10" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="eq({videoResolution},720)" name="res"  imagetype="icon" path="720_off" x="{width(recback)}+10" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoResolution},'576')" name="res"  imagetype="icon" path="sdtv_off" x="{width(recback)}+10" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoResolution},'480')" name="res"  imagetype="icon" path="sdtv_off" x="{width(recback)}+10" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoResolution},'sd')" name="res"  imagetype="icon" path="sdtv_off" x="{width(recback)}+10" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({audioCodec}, 'mp2')" name="res1"  imagetype="icon" path="mp3_off" x="{width(res)}+{posx(res)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({audioCodec}, 'mp3')" name="res1"  imagetype="icon" path="mp3_off" x="{width(res)}+{posx(res)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({audioCodec}, 'ac3')" name="res1"  imagetype="icon" path="dd_off" x="{width(res)}+{posx(res)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({audioCodec}, 'dca')" name="res1"  imagetype="icon" path="dts_off" x="{width(res)}+{posx(res)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({videoCodec}, 'mpeg4')" name="res2"  imagetype="icon" path="mpeg_off" x="{width(res1)}+{posx(res1)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoCodec}, 'msmpeg4')" name="res2"  imagetype="icon" path="mpeg_off" x="{width(res1)}+{posx(res1)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoCodec}, 'h264')" name="res2"  imagetype="icon" path="h264_off" x="{width(res1)}+{posx(res1)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({container}, 'avi')" name="res3"  imagetype="icon" path="avi_off" x="{width(res2)}+{posx(res2)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({container}, 'mp4')" name="res3"  imagetype="icon" path="mp4_off" x="{width(res2)}+{posx(res2)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({container}, 'mkv')" name="res3"  imagetype="icon" path="mkv_off" x="{width(res2)}+{posx(res2)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({aspectRatio}, '1.33')" name="res4"  imagetype="icon" path="1.33_off" x="{width(res3)}+{posx(res3)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({aspectRatio}, '1.78')" name="res4"  imagetype="icon" path="1.78_off" x="{width(res3)}+{posx(res3)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({aspectRatio}, '1.85')" name="res4"  imagetype="icon" path="1.85_off" x="{width(res3)}+{posx(res3)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({aspectRatio}, '2.35')" name="res4"  imagetype="icon" path="2.35_off" x="{width(res3)}+{posx(res3)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({videoFrameRate}, 'PAL')" name="res5"  imagetype="icon" path="pal_off" x="{width(res4)}+{posx(res4)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoFrameRate}, 'NTSC')" name="res5"  imagetype="icon" path="ntsc_off" x="{width(res4)}+{posx(res4)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoFrameRate}, '24p')" name="res5"  imagetype="icon" path="24p_off" x="{width(res4)}+{posx(res4)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+		
+			<drawimage condition="empty{contentstudio}" name="res6"  imagetype="icon" path="mediaflag_off" x="{width(res5)}+{posx(res5)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({contentstudio}, 'R')" name="res6"  imagetype="icon" path="studio-r_off" x="{width(res5)}+{posx(res5)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({contentstudio}, 'PG-13')" name="res6"  imagetype="icon" path="studio-pg13_off" x="{width(res5)}+{posx(res5)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({contentstudio}, 'PG')" name="res6"  imagetype="icon" path="studio-pg_off" x="{width(res5)}+{posx(res5)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage name="seen" imagetype="icon" path="seen/seen{viewoffsetpercent}" x="{width(res6)}+{posx(res6)}" y="{height(studio)}+{posy(studio)}*1.11" width="{areaheight}/4" height="{areaheight}/4.5" />
+			<drawimage name="viewCount" imagetype="icon"  condition="gt({viewCount}, 0)++eq({viewoffset}, 0)" path="seen/seen100" x="{width(res6)}+{posx(res6)}" y="{height(studio)}+{posy(studio)}*1.11" width="{areaheight}/4" height="{areaheight}/4.5" />		
+			
+		</area>
+	
+		<area layer="4" condition="{ismovie}++{current}">
+		<!-- isCurrent -->
+			<drawimage name="recbackblue" imagetype="skinpart" path="poster_top_active" x="0%" y="0" width="{areaheight}*0.65" height="{areaheight}*0.99" />		
+			<drawtext name="title" x="{width(recbackblue)}+10" y="0" width="100%" font="{vdrOsd}" fontsize="20%" color="{clrTheme}" text="{title}" />
+		
+		<!--<drawtext name="genre" x="{width(recbackblue)}+10" y="{posy(title)}+{height(title)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(genre)}:" />
+			<loop debug="true" name="genres" x="{width(genre)}" y="{posy(genre)}" orientation="horizontal" width="{areawidth}" height="16%" rowheight="16%" >
+				<drawtext debug="true" name="genre_loop" x="0" y="0" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrRed}" text=", {genres[genre]}" />		
+			</loop>
+		-->	
+			<drawtext name="duration" x="{width(recbackblue)}+10" y="{posy(title)}+{height(title)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(duration)}: {duration} min" />
+			<drawtext name="year" x="{width(recbackblue)}+10" y="{posy(duration)}+{height(duration)}" width="20%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(year)}: {year}" />
+			<drawtext name="studio" x="{width(recbackblue)}+10" y="{posy(year)}+{height(year)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(studio)}: {studio}" />
+			
+		<!-- rating -->
+			<drawtext name="rating" x="{posx(year)}+{width(year)}*1.3" y="{posy(duration)}+{height(duration)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(rating)}:" />
+			<drawimage name="stars" imagetype="icon" path="stars/stars_active" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 0)" name="stars" imagetype="icon" path="stars/stars_active_10" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 10)" name="stars" imagetype="icon" path="stars/stars_active_20" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 20)" name="stars" imagetype="icon" path="stars/stars_active_30" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 30)" name="stars" imagetype="icon" path="stars/stars_active_40" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 40)" name="stars" imagetype="icon" path="stars/stars_active_50" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 50)" name="stars" imagetype="icon" path="stars/stars_active_60" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 60)" name="stars" imagetype="icon" path="stars/stars_active_70" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 70)" name="stars" imagetype="icon" path="stars/stars_active_80" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 80)" name="stars" imagetype="icon" path="stars/stars_active_90" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="gt({rating}, 90)" name="stars" imagetype="icon" path="stars/stars_active_100" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+5" width="{areawidth}*0.25" height="{areawidth}*0.045" />
+			<drawtext condition="strnotequal({ratingstring}, '-1.0')" name="ratingstr" x="{posx(stars)}+{width(stars)}" y="{posy(rating)}+4" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text=" ({ratingstring})" />
+			<drawtext condition="strequal({ratingstring}, '-1.0')" name="ratingstr" x="{posx(stars)}+{width(stars)}" y="{posy(rating)}+4" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text=" (0.0)" />
+				
+		<!-- icons -->	
+			<drawimage condition="eq({videoResolution},1080)" name="res"  imagetype="icon" path="1080" x="{width(recbackblue)}+10" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="eq({videoResolution},720)" name="res"  imagetype="icon" path="720" x="{width(recbackblue)}+10" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoResolution},'480')" name="res"  imagetype="icon" path="sdtv" x="{width(recbackblue)}+10" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoResolution},'576')" name="res"  imagetype="icon" path="sdtv" x="{width(recbackblue)}+10" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoResolution},'sd')" name="res"  imagetype="icon" path="sdtv" x="{width(recbackblue)}+10" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			
+			<drawimage condition="strequal({audioCodec}, 'mp2')" name="res1"  imagetype="icon" path="mp3" x="{width(res)}+{posx(res)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({audioCodec}, 'mp3')" name="res1"  imagetype="icon" path="mp3" x="{width(res)}+{posx(res)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({audioCodec}, 'ac3')" name="res1"  imagetype="icon" path="dd" x="{width(res)}+{posx(res)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({audioCodec}, 'dca')" name="res1"  imagetype="icon" path="dts" x="{width(res)}+{posx(res)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({videoCodec}, 'mpeg4')" name="res2"  imagetype="icon" path="mpeg" x="{width(res1)}+{posx(res1)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoCodec}, 'msmpeg4')" name="res2"  imagetype="icon" path="mpeg" x="{width(res1)}+{posx(res1)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoCodec}, 'h264')" name="res2"  imagetype="icon" path="h264" x="{width(res1)}+{posx(res1)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({container}, 'avi')" name="res3"  imagetype="icon" path="avi" x="{width(res2)}+{posx(res2)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({container}, 'mp4')" name="res3"  imagetype="icon" path="mp4" x="{width(res2)}+{posx(res2)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({container}, 'mkv')" name="res3"  imagetype="icon" path="mkv" x="{width(res2)}+{posx(res2)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({aspectRatio}, '1.33')" name="res4"  imagetype="icon" path="1.33" x="{width(res3)}+{posx(res3)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({aspectRatio}, '1.78')" name="res4"  imagetype="icon" path="1.78" x="{width(res3)}+{posx(res3)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({aspectRatio}, '1.85')" name="res4"  imagetype="icon" path="1.85" x="{width(res3)}+{posx(res3)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({aspectRatio}, '2.35')" name="res4"  imagetype="icon" path="2.35" x="{width(res3)}+{posx(res3)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({videoFrameRate}, 'PAL')" name="res5"  imagetype="icon" path="pal" x="{width(res4)}+{posx(res4)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoFrameRate}, 'NTSC')" name="res5"  imagetype="icon" path="ntsc" x="{width(res4)}+{posx(res4)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoFrameRate}, '24p')" name="res5"  imagetype="icon" path="24p" x="{width(res4)}+{posx(res4)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="empty{contentstudio}" name="res6"  imagetype="icon" path="mediaflag" x="{width(res5)}+{posx(res5)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({contentstudio}, 'R')" name="res6"  imagetype="icon" path="studio-r" x="{width(res5)}+{posx(res5)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({contentstudio}, 'PG-13')" name="res6"  imagetype="icon" path="studio-pg13" x="{width(res5)}+{posx(res5)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({contentstudio}, 'PG')" name="res6"  imagetype="icon" path="studio-pg" x="{width(res5)}+{posx(res5)}" y="{height(studio)}+{posy(studio)}" width="{areaheight}/3" height="{areaheight}/3" />
+		
+			<drawimage name="seen" imagetype="icon" path="seen/seen{viewoffsetpercent}" x="{width(res6)}+{posx(res6)}" y="{height(studio)}+{posy(studio)}*1.11" width="{areaheight}/4" height="{areaheight}/4.5" />
+			<drawimage name="viewCount" imagetype="icon"  condition="gt({viewCount}, 0)++eq({viewoffset}, 0)" path="seen/seen100" x="{width(res6)}+{posx(res6)}" y="{height(studio)}+{posy(studio)}*1.11" width="{areaheight}/4" height="{areaheight}/4.5" />
 	
 		</area>
+
 		
-<!-- isSeason case background -->	
-		<area layer="4" condition="{isseason}" >
-				<drawimage name="recback" imagetype="image" path="{ressourcedir}/images/poster_top.png" x="0%" y="0" width="{areaheight}*0.73" height="{areaheight}*0.95" />
-				<drawimage condition="{current}" name="recbackblue" imagetype="image" path="{ressourcedir}/images/poster_top_blue.png" x="0"  y="0" width="{areaheight}*0.73" height="{areaheight}*0.95" />
+
+<!-- isShow  -->
+	<!-- notCurrent -->	
+		<area layer="3" condition="{isshow}" >
+			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder_new" x="0" y="7%" width="{areaheight}*0.65" height="{areaheight}*0.89" />
+			<drawimage condition="{hasthumb}" name="thumb" imagetype="image" path="{thumb}" x="0" y="7%" width="{areaheight}*0.65" height="{areaheight}*0.89" />
+		</area>
+		<area layer="4" condition="{isshow}++not{current}" >
+			<drawtext condition="eq({viewgroup}, 0)" name="title" x="{width(recback)}*1.05" y="0" width="100%" font="{vdrOsd}" valign="center" fontsize="30%" color="{clrWhite}" text="{title}" />
+			
+			<drawimage condition="eq({viewgroup}, 2)" name="recback" imagetype="skinpart" path="poster_top" x="0%" y="0" width="{areaheight}*0.65" height="{areaheight}*0.99" />		
+			<drawtext condition="eq({viewgroup}, 2)" name="title1" x="{width(recback)}*1.05" y="0" width="100%" font="{vdrOsd}" fontsize="20%" color="{clrWhite}" text="{title}" />
+			<!--<drawtext name="genre" x="{width(recback)}+10" y="{posy(title)}+{height(title)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(genre)}:" />
+			<loop debug="true" name="genres" x="{width(genre)}" y="{posy(genre)}" orientation="horizontal" width="{areawidth}" height="16%" rowheight="16%" >
+				<drawtext debug="true" name="genre_loop" x="0" y="0" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrRed}" text=", {genres[genre]}" />		
+			</loop>
+		-->	
+			<drawtext condition="eq({viewgroup}, 2)" name="seasons" x="{width(recback)}*1.05" y="{posy(title1)}+{height(title1)}" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(seasons)}: {childCount}" />
+			<drawtext condition="eq({viewgroup}, 2)" name="episodes" x="{width(recback)}*1.05" y="{posy(seasons)}+{height(seasons)}" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(episodes)}: {leafCount}" />
+			<drawtext condition="eq({viewgroup}, 2)" name="seen" x="{width(episodes)}*1.5+{posx(episodes)}" y="{posy(seasons)}+{height(seasons)}" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(seen)}: {viewedLeafCount}" />
+			
+		<!-- rating -->
+			<drawtext condition="eq({viewgroup}, 2)" name="rating" x="{width(recback)}*1.05" y="{posy(seen)}+{height(seen)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(rating)}:" />
+			<drawimage condition="eq({viewgroup}, 2)" name="stars" imagetype="icon" path="stars/stars" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 0)" name="stars" imagetype="icon" path="stars/stars_10" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 10)" name="stars" imagetype="icon" path="stars/stars_20" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 20)" name="stars" imagetype="icon" path="stars/stars_30" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 30)" name="stars" imagetype="icon" path="stars/stars_40" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 40)" name="stars" imagetype="icon" path="stars/stars_50" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 50)" name="stars" imagetype="icon" path="stars/stars_60" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 60)" name="stars" imagetype="icon" path="stars/stars_70" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 70)" name="stars" imagetype="icon" path="stars/stars_80" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 80)" name="stars" imagetype="icon" path="stars/stars_90" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 90)" name="stars" imagetype="icon" path="stars/stars_100" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawtext condition="eq({viewgroup}, 2) ++ strnotequal({ratingstring}, '-1.0')" name="ratingstr" x="{posx(stars)}+{width(stars)}" y="{posy(rating)}+1" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text=" ({ratingstring})" />
+			<drawtext condition="eq({viewgroup}, 2) ++ strequal({ratingstring}, '-1.0')" name="ratingstr" x="{posx(stars)}+{width(stars)}" y="{posy(rating)}+1" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text=" (0.0)" />
+
+			<drawtext condition="eq({viewgroup}, 2)++isset{studio}" name="studio" x="{width(recback)}*1.05" y="{posy(rating)}+{height(rating)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(studio)}: {studio}" />
+	
+	</area>	
+	
+	<!-- isCurrent -->
+		<area layer="4" condition="{isshow}++{current}" >
+			<drawimage name="recback" imagetype="skinpart" path="poster_top_active" x="0%" y="0" width="{areaheight}*0.65" height="{areaheight}*0.99" />	
+		
+			<drawtext condition="eq({viewgroup}, 0)" name="title" x="{width(recback)}*1.05" y="0" width="100%" font="{vdrOsd}" valign="center" fontsize="30%" color="{clrTheme}" text="{title}" />
+	
+			<drawtext condition="eq({viewgroup}, 2)" name="title1" x="{width(recback)}*1.05" y="0" width="100%" font="{vdrOsd}" fontsize="20%" color="{clrTheme}" text="{title}" />
+			<drawtext condition="eq({viewgroup}, 2)" name="seasons" x="{width(recback)}*1.05" y="{posy(title1)}+{height(title1)}" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(seasons)}: {childCount}" />
+			<drawtext condition="eq({viewgroup}, 2)" name="episodes" x="{width(recback)}*1.05" y="{posy(seasons)}+{height(seasons)}" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(episodes)}: {leafCount}" />
+			<drawtext condition="eq({viewgroup}, 2)" name="seen" x="{width(episodes)}*1.5+{posx(episodes)}" y="{posy(seasons)}+{height(seasons)}" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(seen)}: {viewedLeafCount}" />
+			
+		<!-- rating -->
+			<drawtext condition="eq({viewgroup}, 2)" name="rating" x="{width(recback)}*1.05" y="{posy(seen)}+{height(seen)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(rating)}:" />
+			<drawimage condition="eq({viewgroup}, 2)" name="stars" imagetype="icon" path="stars/stars_active.png" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 0)" name="stars" imagetype="icon" path="stars/stars_active_10" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 10)" name="stars" imagetype="icon" path="stars/stars_active_20" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 20)" name="stars" imagetype="icon" path="stars/stars_active_30" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 30)" name="stars" imagetype="icon" path="stars/stars_active_40" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 40)" name="stars" imagetype="icon" path="stars/stars_active_50" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 50)" name="stars" imagetype="icon" path="stars/stars_active_60" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 60)" name="stars" imagetype="icon" path="stars/stars_active_70" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 70)" name="stars" imagetype="icon" path="stars/stars_active_80" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 80)" name="stars" imagetype="icon" path="stars/stars_active_90" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawimage condition="eq({viewgroup}, 2) ++ gt({rating}, 90)" name="stars" imagetype="icon" path="stars/stars_active_100" x="{posx(rating)}+{width(rating)}" y="{posy(rating)}+2" width="{areaheight}*0.72" height="{areaheight}*0.125" />
+			<drawtext condition="eq({viewgroup}, 2) ++ strnotequal({ratingstring}, '-1.0')" name="ratingstr" x="{posx(stars)}+{width(stars)}" y="{posy(rating)}+1" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text=" ({ratingstring})" />
+			<drawtext condition="eq({viewgroup}, 2) ++ strequal({ratingstring}, '-1.0')" name="ratingstr" x="{posx(stars)}+{width(stars)}" y="{posy(rating)}+1" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text=" (0.0)" />
+
+		
+		<drawtext condition="eq({viewgroup}, 2)++isset{studio}" name="studio" x="{width(recback)}*1.05" y="{posy(rating)}+{height(rating)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(studio)}: {studio}" />
+			</area>	
+
+
+
+<!-- isSeason} -->	
+	<!-- notCurrent -->	
+		<area condition="{isseason}" layer="3">
+			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder_new" x="0" y="7%" width="{areaheight}*0.65" height="{areaheight}*0.89" />
+			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="0" y="7%" width="{areaheight}*0.65" height="{areaheight}*0.89" />
 		</area>
 		
+		<area condition="{isseason}++not{current}" layer="4">
+			<drawimage name="recback"  imagetype="skinpart" path="poster_top" x="0%" y="0" width="{areaheight}*0.65" height="{areaheight}*0.99" />	
+		
+			<drawtext name="seriestitle" x="{width(recback)}+10" y="0" width="80%" font="{vdrOsd}" fontsize="20%" color="{clrWhite}" text="{seriestitle} - {title}" />
+			<drawtext name="title" x="{width(recback)}+10" y="{posy(seriestitle)}+{height(seriestitle)}" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(season)}: {season}" />
+			<drawtext name="episodes" x="{width(recback)}+10" y="{posy(title)}+{height(title)}" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(episodes)}: {leafCount}" />
+			<drawtext name="seen" x="{width(recback)}+10" y="{posy(episodes)}+{height(episodes)}" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(seen)}: {viewedLeafCount}" />
+		</area>
+		<area condition="{isseason}++{current}" layer="3">
+	<!-- isCurrent -->		
+			<drawimage name="recbackblue" imagetype="skinpart" path="poster_top_active" x="0%" y="0" width="{areaheight}*0.65" height="{areaheight}*0.99" />	
+	
+			<drawtext name="seriestitle" x="{width(recbackblue)}+10" y="0" width="80%" font="{vdrOsd}" fontsize="20%" color="{clrTheme}" text="{seriestitle} - {title}" />
+			<drawtext name="title" x="{width(recbackblue)}+10" y="{posy(seriestitle)}+{height(seriestitle)}" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(season)}: {season}" />
+			<drawtext name="episodes" x="{width(recbackblue)}+10" y="{posy(title)}+{height(title)}" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(episodes)}: {leafCount}" />
+			<drawtext name="seen" x="{width(recbackblue)}+10" y="{posy(episodes)}+{height(episodes)}" width="80%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(seen)}: {viewedLeafCount}" />		
+		</area>
+
 		
 <!-- isEpisode -->
-		<area layer="3" condition="{isepisode}" >
-			<drawimage condition="not{hasthumb}" name="thumb" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="{areaheight}*0.9" height="{areaheight}" />
-			<drawimage condition="{hasthumb}" name="thumb" imagetype="image" path="{thumb}" x="0" y="0" width="{areaheight}*0.9" height="{areaheight}" />
 	<!-- notCurrent -->
-			<drawtext name="seriestitle" x="{width(thumb)}+20" y="10%" width="100%" font="{bold}" fontsize="20%" color="{clrWhite}" text="{seriestitle}-{printf('S%02dxE%02d', season, episode)}---{title}" />
-			<drawtext name="date" x="{width(thumb)}+20" y="{posy(seriestitle)}+{height(seriestitle)}+5" width="100%" font="{bold}" fontsize="16%" color="{clrWhite}" text="Date: {date}" />
-			<drawtext name="duration" x="{width(thumb)}+20" y="{posy(date)}+{height(date)}" width="100%" font="{bold}" fontsize="16%" color="{clrWhite}" text="Laufzeit: {duration} min" />
-			<drawimage condition="eq({videoResolution},1080)" name="res"  imagetype="icon" path="1080_off" x="{width(thumb)}+10" y="{areaheight}-{height(res)}" width="{areaheight}/3" height="{areaheight}/3" />
-			<drawimage condition="eq({videoResolution},720)" name="res"  imagetype="icon" path="720_off" x="{width(thumb)}+10" y="{areaheight}-{height(res)}" width="{areaheight}/3" height="{areaheight}/3" />
-	<!-- isCurrent -->
-			
-			<drawtext condition="{current}" name="seriestitle" x="{width(thumb)}+20" y="10%" width="100%" font="{bold}" fontsize="20%" color="{clrTheme}" text="{seriestitle}-{printf('S%02dxE%02d', season, episode)}---{title}" />
-			<drawtext condition="{current}" name="date" x="{width(thumb)}+20" y="{posy(seriestitle)}+{height(seriestitle)}+5" width="100%" font="{bold}" fontsize="16%" color="{clrTheme}" text="Date: {date}" />
-			<drawtext condition="{current}" name="duration" x="{width(thumb)}+20" y="{posy(date)}+{height(date)}" width="100%" font="{bold}" fontsize="16%" color="{clrTheme}" text="Laufzeit: {duration} min" />
-			<drawimage condition="{current} ++ eq({videoResolution},1080)" name="res"  imagetype="icon" path="1080_off" x="{width(thumb)}+10" y="{areaheight}-{height(res)}" width="{areaheight}/3" height="{areaheight}/3" />
-			<drawimage condition="{current} ++ eq({videoResolution},720)" name="res"  imagetype="icon" path="720_off" x="{width(thumb)}+10" y="{areaheight}-{height(res)}" width="{areaheight}/3" height="{areaheight}/3" />
-
+		<area layer="3" condition="{isepisode}" >
+			<drawimage condition="not{hasthumb}" name="thumb" imagetype="skinpart" path="plexplaceholder_new" x="3%" y="25%" width="{areaheight}/2" height="{areaheight}/2" />
+			<drawimage condition="{hasthumb}" name="thumb" imagetype="image" path="{thumb}" x="0" y="0" width="{areaheight}*0.9" height="{areaheight}" />
 		</area>
-
-<!-- isEpisode case background -->	
-		<area layer="4" condition="{isepisode}" >
+	
+		<area layer="4" condition="{isepisode}++not{current}" >
 			<drawimage name="recback" imagetype="skinpart" path="filmstrip" x="0" y="12%" width="{areaheight}*0.9" height="{areaheight}*0.75" />
-			<drawimage condition="{current}"  name="recbackblue" imagetype="skinpart" path="filmstrip_blue" x="0" y="12%" width="{areaheight}*0.9" height="{areaheight}*0.75" />		
-		</area>
-		
 
-<!-- isDummy -->		
-		<area layer="3" condition="{isdummy}" >
-			<drawimage condition="not{current}" name="thumb" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="{areaheight}" height="{areaheight}" />
-			<drawimage condition="{current}" name="thumb" imagetype="skinpart" path="plexplaceholder_current" x="0" y="0" width="{areaheight}" height="{areaheight}" />
-			<drawtext condition="not{current}" name="title" x="{areaheight}+10" y="0" width="100%" font="{bold}" valign="center" fontsize="70%" color="{clrWhite}" text="{title}" />
-			<drawtext condition="{current}" name="title" x="{areaheight}+10" y="0" width="100%" font="{bold}" valign="center" fontsize="70%" color="{clrTheme}" text="{title}" />
+			<drawtext name="seriestitle" x="{width(recback)}+20" y="10%" width="100%" font="{vdrOsd}" fontsize="20%" color="{clrWhite}" text="{seriestitle} - {printf('S%02dxE%02d', season, episode)} - {title}" />
+			<drawtext name="date" x="{width(recback)}+20" y="{posy(seriestitle)}+{height(seriestitle)}+5" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(date)}: {printf('%02d', originallyAvailableDay)}.{printf('%02d', originallyAvailableMonth)}.{originallyAvailableYear}" />
+			<drawtext name="duration" x="{width(recback)}+20" y="{posy(date)}+{height(date)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(duration)}: {duration} min" />
+		
+			<!-- icons -->	
+			<drawimage condition="eq({videoResolution},1080)" name="res"  imagetype="icon" path="1080_off" x="{width(recback)}+10" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="eq({videoResolution},720)" name="res"  imagetype="icon" path="720_off" x="{width(recback)}+10" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoResolution},'480')" name="res"  imagetype="icon" path="sdtv_off" x="{width(recback)}+10" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoResolution},'576')" name="res"  imagetype="icon" path="sdtv_off" x="{width(recback)}+10" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoResolution},'sd')" name="res"  imagetype="icon" path="sdtv_off" x="{width(recback)}+10" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({audioCodec}, 'mp2')" name="res1"  imagetype="icon" path="mp3_off" x="{width(res)}+{posx(res)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({audioCodec}, 'mp3')" name="res1"  imagetype="icon" path="mp3_off" x="{width(res)}+{posx(res)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({audioCodec}, 'ac3')" name="res1"  imagetype="icon" path="dd_off" x="{width(res)}+{posx(res)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({audioCodec}, 'dca')" name="res1"  imagetype="icon" path="dts_off" x="{width(res)}+{posx(res)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({videoCodec}, 'mpeg4')" name="res2"  imagetype="icon" path="mpeg_off" x="{width(res1)}+{posx(res1)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoCodec}, 'msmpeg4')" name="res2"  imagetype="icon" path="mpeg_off" x="{width(res1)}+{posx(res1)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoCodec}, 'h264')" name="res2"  imagetype="icon" path="h264_off" x="{width(res1)}+{posx(res1)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({container}, 'avi')" name="res3"  imagetype="icon" path="avi_off" x="{width(res2)}+{posx(res2)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({container}, 'mp4')" name="res3"  imagetype="icon" path="mp4_off" x="{width(res2)}+{posx(res2)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({container}, 'mkv')" name="res3"  imagetype="icon" path="mkv_off" x="{width(res2)}+{posx(res2)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({aspectRatio}, '1.33')" name="res4"  imagetype="icon" path="1.33_off" x="{width(res3)}+{posx(res3)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({aspectRatio}, '1.78')" name="res4"  imagetype="icon" path="1.78_off" x="{width(res3)}+{posx(res3)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({aspectRatio}, '1.85')" name="res4"  imagetype="icon" path="1.85_off" x="{width(res3)}+{posx(res3)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({aspectRatio}, '2.35')" name="res4"  imagetype="icon" path="2.35_off" x="{width(res3)}+{posx(res3)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({videoFrameRate}, 'PAL')" name="res5"  imagetype="icon" path="pal_off" x="{width(res4)}+{posx(res4)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoFrameRate}, 'NTSC')" name="res5"  imagetype="icon" path="ntsc_off" x="{width(res4)}+{posx(res4)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoFrameRate}, '24p')" name="res5"  imagetype="icon" path="24p_off" x="{width(res4)}+{posx(res4)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+		
+			<drawimage name="seen" imagetype="icon" path="seen/seen{viewoffsetpercent}" x="{width(res5)}+{posx(res5)}" y="{height(duration)}+{posy(duration)}*1.11" width="{areaheight}/4" height="{areaheight}/4.5" />
+			<drawimage name="viewCount" imagetype="icon"  condition="gt({viewCount}, 0)++eq({viewoffset}, 0)" path="seen/seen100" x="{width(res5)}+{posx(res5)}" y="{height(duration)}+{posy(duration)}*1.11" width="{areaheight}/4" height="{areaheight}/4.5" />
+	
+		
+		<!-- possible more icons
+			<drawimage condition="empty{contentrating}" name="res6"  imagetype="icon" path="mediaflag_off" x="{width(res5)}+{posx(res5)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({contentrating}, 'R')" name="res6"  imagetype="icon" path="rating-r" x="{width(res5)}+{posx(res5)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({contentrating}, 'PG-13')" name="res6"  imagetype="icon" path="rating-pg13" x="{width(res5)}+{posx(res5)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({contentrating}, 'PG')" name="res6"  imagetype="icon" path="rating-pg" x="{width(res5)}+{posx(res5)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+		-->
 		</area>
 		
+	
+	
+	<!-- isCurrent -->
+		<area layer="4" condition="{isepisode}++{current}" >
+			<drawimage condition="{current}"  name="recbackblue" imagetype="skinpart" path="filmstrip_active" x="0" y="12%" width="{areaheight}*0.9" height="{areaheight}*0.75" />		
+	
+			<drawtext name="seriestitle" x="{width(recbackblue)}+20" y="10%" width="100%" font="{vdrOsd}" fontsize="20%" color="{clrTheme}" text="{seriestitle} - {printf('S%02dxE%02d', season, episode)} - {title}" />
+			<drawtext name="date" x="{width(recbackblue)}+20" y="{posy(seriestitle)}+{height(seriestitle)}+5" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(date)}: {printf('%02d', originallyAvailableDay)}.{printf('%02d', originallyAvailableMonth)}.{originallyAvailableYear}" />
+			<drawtext name="duration" x="{width(recbackblue)}+20" y="{posy(date)}+{height(date)}" width="100%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(duration)}: {duration} min" />
+			
+			<!-- icons -->	
+			<drawimage condition="eq({videoResolution},1080)" name="res"  imagetype="icon" path="1080" x="{width(recbackblue)}+10" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="eq({videoResolution},720)" name="res"  imagetype="icon" path="720" x="{width(recbackblue)}+10" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoResolution},'sd')" name="res"  imagetype="icon" path="sdtv" x="{width(recbackblue)}+10" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({audioCodec}, 'mp2')" name="res1"  imagetype="icon" path="mp3" x="{width(res)}+{posx(res)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({audioCodec}, 'mp3')" name="res1"  imagetype="icon" path="mp3" x="{width(res)}+{posx(res)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({audioCodec}, 'ac3')" name="res1"  imagetype="icon" path="dd" x="{width(res)}+{posx(res)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({audioCodec}, 'dca')" name="res1"  imagetype="icon" path="dts" x="{width(res)}+{posx(res)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({videoCodec}, 'mpeg4')" name="res2"  imagetype="icon" path="mpeg" x="{width(res1)}+{posx(res1)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoCodec}, 'msmpeg4')" name="res2"  imagetype="icon" path="mpeg" x="{width(res1)}+{posx(res1)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoCodec}, 'h264')" name="res2"  imagetype="icon" path="h264" x="{width(res1)}+{posx(res1)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({container}, 'avi')" name="res3"  imagetype="icon" path="avi" x="{width(res2)}+{posx(res2)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({container}, 'mp4')" name="res3"  imagetype="icon" path="mp4" x="{width(res2)}+{posx(res2)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({container}, 'mkv')" name="res3"  imagetype="icon" path="mkv" x="{width(res2)}+{posx(res2)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({aspectRatio}, '1.33')" name="res4"  imagetype="icon" path="1.33" x="{width(res3)}+{posx(res3)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({aspectRatio}, '1.78')" name="res4"  imagetype="icon" path="1.78" x="{width(res3)}+{posx(res3)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({aspectRatio}, '1.85')" name="res4"  imagetype="icon" path="1.85" x="{width(res3)}+{posx(res3)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({aspectRatio}, '2.35')" name="res4"  imagetype="icon" path="2.35" x="{width(res3)}+{posx(res3)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			
+			<drawimage condition="strequal({videoFrameRate}, 'PAL')" name="res5"  imagetype="icon" path="pal" x="{width(res4)}+{posx(res4)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoFrameRate}, 'NTSC')" name="res5"  imagetype="icon" path="ntsc" x="{width(res4)}+{posx(res4)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({videoFrameRate}, '24p')" name="res5"  imagetype="icon" path="24p" x="{width(res4)}+{posx(res4)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+		
+			<drawimage name="seen" imagetype="icon" path="seen/seen{viewoffsetpercent}" x="{width(res5)}+{posx(res5)}" y="{height(duration)}+{posy(duration)}*1.11" width="{areaheight}/4" height="{areaheight}/4.5" />
+			<drawimage name="viewCount" imagetype="icon"  condition="gt({viewCount}, 0)++eq({viewoffset}, 0)" path="seen/seen100" x="{width(res5)}+{posx(res5)}" y="{height(duration)}+{posy(duration)}*1.11" width="{areaheight}/4" height="{areaheight}/4.5" />
+	
+		
+		<!-- possible more icons
+			<drawimage condition="empty{contentrating}" name="res6"  imagetype="icon" path="mediaflag" x="{width(res5)}+{posx(res5)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({contentrating}, 'R')" name="res6"  imagetype="icon" path="rating-r" x="{width(res5)}+{posx(res5)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({contentrating}, 'PG-13')" name="res6"  imagetype="icon" path="rating-pg13" x="{width(res5)}+{posx(res5)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+			<drawimage condition="strequal({contentrating}, 'PG')" name="res6"  imagetype="icon" path="rating-pg" x="{width(res5)}+{posx(res5)}" y="{height(duration)}+{posy(duration)}" width="{areaheight}/3" height="{areaheight}/3" />
+		-->
+		</area>
+	
 <!-- isDirectory} -->	
 		<area layer="3" condition="{isdirectory}" >
-			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="{areaheight}" height="{areaheight}" />
-			
-			<drawimage condition="eq({viewgroup}, 0)++{hasthumb}"  name="thumb" imagetype="image" path="{thumb}" x="1%" y="0" width="{areaheight}*0.6" height="{areaheight}" />
-	<!-- notCurrent -->		
-			<drawtext condition="eq({viewgroup}, 0)" name="title" x="{width(thumb)}*0.8" y="0" width="100%" font="{bold}" fontsize="20%" color="{clrWhite}" text="{title}" />
-			<drawtext condition="eq({viewgroup}, 0)" name="series" x="{width(thumb)}*0.8" y="{posy(title)}+{height(title)}" width="100%" font="{bold}" fontsize="16%" color="{clrWhite}" text="Serien: {serien} Staffeln: {staffeln} Episoden: {episoden}" />
-			<drawtext condition="eq({viewgroup}, 0)" name="seen" x="{width(thumb)}*0.8" y="{posy(series)}+{height(series)}" width="100%" font="{bold}" fontsize="16%" color="{clrWhite}" text="Gesamt gesehen: ?{seen}" />
-			<drawtext condition="eq({viewgroup}, 0)" name="duration" x="{width(thumb)}*0.8" y="{posy(seen)}+{height(seen)}" width="100%" font="{bold}" fontsize="16%" color="{clrWhite}" text="Laufzeit: {gesamt}" />
-	<!-- isCurrent -->	
-			<drawtext condition="{current} ++ eq({viewgroup}, 0)" name="title" x="{width(thumb)}*0.8" y="0" width="100%" font="{bold}" fontsize="20%" color="{clrTheme}" text="{title}" />
-			<drawtext condition="{current} ++ eq({viewgroup}, 0)" name="series" x="{width(thumb)}*0.8" y="{posy(title)}+{height(title)}" width="100%" font="{bold}" fontsize="16%" color="{clrTheme}" text="Serien: {serien} Staffeln: {staffeln} Episoden: {episoden}" />
-			<drawtext condition="{current} ++ eq({viewgroup}, 0)" name="seen" x="{width(thumb)}*0.8" y="{posy(series)}+{height(series)}" width="100%" font="{bold}" fontsize="16%" color="{clrTheme}" text="Gesamt gesehen: ?{seen}" />
-			<drawtext condition="{current} ++ eq({viewgroup}, 0)" name="duration" x="{width(thumb)}*0.8" y="{posy(seen)}+{height(seen)}" width="100%" font="{bold}" fontsize="16%" color="{clrTheme}" text="Laufzeit: {gesamt}" />
-	<!-- debug 
-			<drawtext name="title" x="50%" y="0" width="100%" font="{bold}" align="right" fontsize="10%" color="{clrRed}" text="viewmode:{viewmode}" />
-			<drawtext name="title" x="50%" y="10%" width="100%" font="{bold}" align="right" fontsize="10%" color="{clrRed}" text="viewgroup:{viewgroup}" />
-	-->
+			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder_new" x="0" y="7%" width="{areaheight}*0.65" height="{areaheight}*0.89" />
+			<drawimage condition="{hasthumb}" name="thumb" imagetype="image" path="{thumb}" x="0" y="7%" width="{areaheight}*0.65" height="{areaheight}*0.89" />
+		
 		</area>
-<!-- isDirectory case background -->	
 		<area layer="4" condition="{isdirectory}" >
-				<drawimage condition="{current}" name="recbackblue" imagetype="image" path="{ressourcedir}/images/poster_top_blue.png" x="0"  y="0" width="{areaheight}*0.73" height="{areaheight}*0.95" />
-				<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitembackX" x="0" y="0" width="{areawidth}-2" height="{areaheight}-4"/>
+			<drawimage condition="eq({viewgroup}, 3)" name="recback" imagetype="skinpart" path="poster_top" x="0%" y="0" width="{areaheight}*0.65" height="{areaheight}*0.99" />
+			<drawimage condition="{current}" name="recback" imagetype="skinpart" path="poster_top_active" x="0%" y="0" width="{areaheight}*0.65" height="{areaheight}*0.99" />
+			
+			<drawtext condition="eq({viewgroup}, 0)" name="title" x="{width(recback)}*1.05" y="0" valign="center" width="100%" font="{vdrOsd}" fontsize="30%" color="{clrWhite}" text="{title}" />
+			<drawtext condition="eq({viewgroup}, 0) ++ {current}" name="title" x="{width(recback)}*1.05" y="0" valign="center" width="100%" font="{vdrOsd}" fontsize="30%" color="{clrTheme}" text="{title}" />
+			<drawtext condition="eq({viewgroup}, 3)" name="title" x="{width(recback)}*1.05" y="0" valign="center" width="100%" font="{vdrOsd}" fontsize="30%" color="{clrWhite}" text="{title}" />
+			<drawtext condition="eq({viewgroup}, 3)++{current}" name="title" x="{width(recback)}*1.05" y="0" valign="center" width="100%" font="{vdrOsd}" fontsize="30%" color="{clrTheme}" text="{title}" />
+		
 		</area>
 		
-		
-<!-- isShow  -->
-		<area layer="3" condition="{isshow}" >
-			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder" width="{areaheight}" height="{areaheight}" />
-	<!-- notCurrent -->			
-			<drawimage condition="eq({viewgroup}, 0)++{hasthumb}"  name="thumb" imagetype="image" path="{thumb}" x="1%" y="0" width="{areaheight}*0.6" height="{areaheight}" />
-			<drawtext condition="eq({viewgroup}, 0)" name="title" x="{width(thumb)}*0.8" y="0" width="100%" font="{bold}" fontsize="20%" color="{clrWhite}" text="{title}" />
-			<drawtext condition="eq({viewgroup}, 0)" name="series" x="{width(thumb)}*0.8" y="{posy(title)}+{height(title)}" width="100%" font="{bold}" fontsize="16%" color="{clrWhite}" text="Serien: {serien} Staffeln: {staffeln} Episoden: {episoden}" />
-			<drawtext condition="eq({viewgroup}, 0)" name="seen" x="{width(thumb)}*0.8" y="{posy(series)}+{height(series)}" width="100%" font="{bold}" fontsize="16%" color="{clrWhite}" text="Gesamt gesehen: ?{seen}" />
-			<drawtext condition="eq({viewgroup}, 0)" name="duration" x="{width(thumb)}*0.8" y="{posy(seen)}+{height(seen)}" width="100%" font="{bold}" fontsize="16%" color="{clrWhite}" text="Laufzeit: {gesamt}" />
 
-			<drawimage condition="eq({viewgroup}, 2)++{hasthumb}"  name="thumb" imagetype="image" path="{thumb}" x="1%" y="0" width="{areaheight}*0.6" height="{areaheight}" />
-			<drawtext condition="eq({viewgroup}, 2)" name="title" x="{width(thumb)}*0.8" y="0" width="100%" font="{bold}" fontsize="20%" color="{clrWhite}" text="{title}" />
-			<drawtext condition="eq({viewgroup}, 2)" name="sasons" x="{width(thumb)}*0.8" y="{posy(title)}+{height(title)}" width="80%" font="{semibold}" fontsize="16%" color="{clrWhite}" text="Staffeln: {seasons}" />
-			<drawtext condition="eq({viewgroup}, 2)" name="episodes" x="{width(sasons)}*2" y="{posy(title)}+{height(title)}" width="80%" font="{semibold}" fontsize="16%" color="{clrWhite}" text="Episoden: {episodes}" />
-			<drawtext condition="eq({viewgroup}, 2)" name="seen" x="{width(thumb)}*0.8" y="{posy(episodes)}+{height(episodes)}" width="80%" font="{semibold}" fontsize="16%" color="{clrWhite}" text="Gesehen: x von y" />
-			<drawtext condition="eq({viewgroup}, 2)" name="studio" x="{width(thumb)}*0.8" y="{posy(seen)}+{height(seen)}" width="80%" font="{semibold}" fontsize="16%" color="{clrWhite}" text="Studio: {studio}" />
-			<drawtext condition="eq({viewgroup}, 2)" name="genre" x="{width(thumb)}*0.8" y="{posy(studio)}+{height(studio)}" width="80%" font="{semibold}" fontsize="16%" color="{clrWhite}" text="Genre: {genre}" />
-	
-	<!-- isCurrent -->	
-			<drawtext condition="{current} ++ eq({viewgroup}, 0)" name="title" x="{width(thumb)}*0.8" y="0" width="100%" font="{bold}" fontsize="20%" color="{clrTheme}" text="{title}" />
-			<drawtext condition="{current} ++ eq({viewgroup}, 0)" name="series" x="{width(thumb)}*0.8" y="{posy(title)}+{height(title)}" width="100%" font="{bold}" fontsize="16%" color="{clrTheme}" text="Serien: {serien} Staffeln: {staffeln} Episoden: {episoden}" />
-			<drawtext condition="{current} ++ eq({viewgroup}, 0)" name="seen" x="{width(thumb)}*0.8" y="{posy(series)}+{height(series)}" width="100%" font="{bold}" fontsize="16%" color="{clrTheme}" text="Gesamt gesehen: ?{seen}" />
-			<drawtext condition="{current} ++ eq({viewgroup}, 0)" name="duration" x="{width(thumb)}*0.8" y="{posy(seen)}+{height(seen)}" width="100%" font="{bold}" fontsize="16%" color="{clrTheme}" text="Laufzeit: {gesamt}" />
-			
-			<drawtext condition="{current} ++ eq({viewgroup}, 2)" name="title" x="{width(thumb)}*0.8" y="0" width="100%" font="{bold}" fontsize="20%" color="{clrTheme}" text="{title}" />
-			<drawtext condition="{current} ++ eq({viewgroup}, 2)" name="sasons" x="{width(thumb)}*0.8" y="{posy(title)}+{height(title)}" width="80%" font="{semibold}" fontsize="16%" color="{clrTheme}" text="Staffeln: {seasons}" />
-			<drawtext condition="{current} ++ eq({viewgroup}, 2)" name="episodes" x="{width(sasons)}*2" y="{posy(title)}+{height(title)}" width="80%" font="{semibold}" fontsize="16%" color="{clrTheme}" text="Episoden: {episodes}" />
-			<drawtext condition="{current} ++ eq({viewgroup}, 2)" name="seen" x="{width(thumb)}*0.8" y="{posy(episodes)}+{height(episodes)}" width="80%" font="{semibold}" fontsize="16%" color="{clrTheme}" text="Gesehen: x von y" />
-			<drawtext condition="{current} ++ eq({viewgroup}, 2)" name="studio" x="{width(thumb)}*0.8" y="{posy(seen)}+{height(seen)}" width="80%" font="{semibold}" fontsize="16%" color="{clrTheme}" text="Studio: {studio}" />
-			<drawtext condition="{current} ++ eq({viewgroup}, 2)" name="genre" x="{width(thumb)}*0.8" y="{posy(studio)}+{height(studio)}" width="80%" font="{semibold}" fontsize="16%" color="{clrTheme}" text="Genre: {genre}" />
-			
-		</area>	
-		
-<!-- isShow case background -->
-		<area layer="4" condition="{isshow}" >
-				<drawimage condition="eq({viewgroup}, 0)" name="recback" imagetype="image" path="{ressourcedir}/images/poster_top.png" x="0%" y="0" width="{areaheight}*0.73" height="{areaheight}*0.95" />
-				<drawimage condition="{current} ++ eq({viewgroup}, 0)" name="recbackblue" imagetype="image" path="{ressourcedir}/images/poster_top_blue.png" x="0"  y="0" width="{areaheight}*0.73" height="{areaheight}*0.95" />
-				<drawimage condition="eq({viewgroup}, 2)" name="recback" imagetype="image" path="{ressourcedir}/images/poster_top.png" x="0%" y="0" width="{areaheight}*0.73" height="{areaheight}*0.95" />
-				<drawimage condition="{current} ++ eq({viewgroup}, 2)" name="recbackblue" imagetype="image" path="{ressourcedir}/images/poster_top_blue.png" x="0"  y="0" width="{areaheight}*0.73" height="{areaheight}*0.95" />
-
-		</area>		
 
 <!-- isServer  -->		
 		<area layer="3" condition="{isserver}" >
-			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder" x="1%" y="0" width="{areaheight}*0.6" height="{areaheight}" />
-	
-			<drawtext name="serverstartpointname" x="11%" y="6%" width="50%" font="{light}" fontsize="20%" color="{clrWhite}" text="{serverstartpointname}" />
-			<drawtext name="title" x="11%" y="{posy(serverstartpointname)} + {height(serverstartpointname)}" width="100%" font="{bold}" fontsize="18%" color="{clrWhite}" text="Host: {title}" />
-			<drawtext name="serverip" x="11%" y="{posy(title)} + {height(title)}" width="50%" font="{light}" fontsize="16%" color="{clrWhite}" text="IP: {serverip}" />
-			<drawtext name="serverport" x="11%" y="{posy(serverip)} + {height(serverip)}" width="50%" font="{light}" fontsize="16%" color="{clrWhite}" text="Port: {serverport}" />
-			<drawtext name="serverversion" x="11%" y="{posy(serverport)} + {height(serverport)}" width="50%" font="{light}" fontsize="16%" color="{clrWhite}" text="Version:{serverversion}" />
-
-			<drawtext condition="{current}" name="serverstartpointname" x="11%" y="6%" width="50%" font="{light}" fontsize="20%" color="{clrTheme}" text="{serverstartpointname}" />
-			<drawtext condition="{current}" name="title" x="11%" y="{posy(serverstartpointname)} + {height(serverstartpointname)}" width="100%" font="{bold}" fontsize="18%" color="{clrTheme}" text="Host: {title}" />
-			<drawtext condition="{current}" name="serverip" x="11%" y="{posy(title)} + {height(title)}" width="50%" font="{light}" fontsize="16%" color="{clrTheme}" text="IP: {serverip}" />
-			<drawtext condition="{current}" name="serverport" x="11%" y="{posy(serverip)} + {height(serverip)}" width="50%" font="{light}" fontsize="16%" color="{clrTheme}" text="Port: {serverport}" />
-			<drawtext condition="{current}" name="serverversion" x="11%" y="{posy(serverport)} + {height(serverport)}" width="50%" font="{light}" fontsize="16%" color="{clrTheme}" text="Version:{serverversion}" />
-
+			<drawimage name="thumb" imagetype="skinpart" path="plexplaceholder_new" x="0" y="7%" width="{areaheight}*0.65" height="{areaheight}*0.89" />
 		</area>
-
-<!-- isServer case background -->
 		<area layer="4" condition="{isserver}" >
-			<drawimage name="recback" imagetype="image" path="{ressourcedir}/images/poster_top.png" x="0%" y="0" width="{areaheight}*0.73" height="{areaheight}*0.95" />
-			<drawimage condition="{current}" name="recbackblue" imagetype="image" path="{ressourcedir}/images/poster_top_blue.png" x="0"  y="0" width="{areaheight}*0.73" height="{areaheight}*0.95" />
-		</area>
-		
-	</grid>
+			<drawimage name="recback" imagetype="skinpart" path="poster_top" x="0%" y="0" width="{areaheight}*0.65" height="{areaheight}*0.99" />
+			<drawimage condition="{current}" name="recbackblue" imagetype="skinpart" path="poster_top_active" x="0%" y="0" width="{areaheight}*0.65" height="{areaheight}*0.99" />
+	
+			<drawtext name="serverstartpointname" x="{width(recback)}*1.05" y="6%" width="50%" font="{vdrOsd}" fontsize="20%" color="{clrWhite}" text="{serverstartpointname}" />
+			<drawtext name="title" x="{width(recback)}*1.05" y="{posy(serverstartpointname)} + {height(serverstartpointname)}" width="100%" font="{vdrOsd}" fontsize="18%" color="{clrWhite}" text="{tr(host)}: {title}" />
+			<drawtext name="serverip" x="{width(recback)}*1.05" y="{posy(title)} + {height(title)}" width="50%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(ip)}: {serverip}" />
+			<drawtext name="serverport" x="{width(recback)}*1.05" y="{posy(serverip)} + {height(serverip)}" width="50%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(port)}: {serverport}" />
+			<drawtext name="serverversion" x="{width(recback)}*1.05" y="{posy(serverport)} + {height(serverport)}" width="50%" font="{vdrOsd}" fontsize="16%" color="{clrWhite}" text="{tr(version)}:{serverversion}" />
 
-<!-- LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW -->
-<!-- LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW -->
-<!-- LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW LISTVIEW -->
-	<grid name="listbrowser" x="0" y="15%" width="72%" height="75%">
+			<drawtext condition="{current}" name="serverstartpointname" x="{width(recback)}*1.05" y="6%" width="50%" font="{vdrOsd}" fontsize="20%" color="{clrTheme}" text="{serverstartpointname}" />
+			<drawtext condition="{current}" name="title" x="{width(recback)}*1.05" y="{posy(serverstartpointname)} + {height(serverstartpointname)}" width="100%" font="{vdrOsd}" fontsize="18%" color="{clrTheme}" text="{tr(host)}: {title}" />
+			<drawtext condition="{current}" name="serverip" x="{width(recback)}*1.05" y="{posy(title)} + {height(title)}" width="50%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(ip)}: {serverip}" />
+			<drawtext condition="{current}" name="serverport" x="{width(recback)}*1.05" y="{posy(serverip)} + {height(serverip)}" width="50%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(port)}: {serverport}" />
+			<drawtext condition="{current}" name="serverversion" x="{width(recback)}*1.05" y="{posy(serverport)} + {height(serverport)}" width="50%" font="{vdrOsd}" fontsize="16%" color="{clrTheme}" text="{tr(version)}:{serverversion}" />
+		</area>
+
+<!-- isDummy -->
+		<area layer="3" condition="{isdummy}++ eq({useBack},1)" >
+			<drawimage condition="not{current}" name="thumb" imagetype="skinpart" path="plexplaceholder_new_back" x="3%" y="0" valign="center" width="{areaheight}/2" height="{areaheight}/2" />
+			<drawimage condition="{current}" name="thumb" imagetype="skinpart" path="plexplaceholder_new_back_current" x="3%" y="0" valign="center" width="{areaheight}/2" height="{areaheight}/2" />
+			</area>
+		<area layer="3" condition="{isdummy}++ eq({useBack},0)" >
+			<drawimage condition="not{current}" name="thumb" imagetype="skinpart" path="plexplaceholder_new" x="5%" y="0" valign="center" width="{areaheight}/2" height="{areaheight}/2" />
+			<drawimage condition="{current}" name="thumb" imagetype="skinpart" path="plexplaceholder_new_current" x="5%" y="0" valign="center" width="{areaheight}/2" height="{areaheight}/2" />
+			<drawtext condition="not{current}" name="title" x="{areaheight}+10" y="0" width="100%" font="{vdrOsd}" valign="center" fontsize="70%" color="{clrWhite}" text="{title}" />
+			<drawtext condition="{current}" name="title" x="{areaheight}+10" y="0" width="100%" font="{vdrOsd}" valign="center" fontsize="70%" color="{clrTheme}" text="{title}" />
+		</area>
+</grid>
+
+<!-- LISTVIEW LISTVIEW LISTVIEW  -->
+<grid name="listbrowser" x="0" y="15%" width="72%" height="75%">
 
 <!-- current -->
 		<area layer="2">
@@ -587,86 +856,67 @@
 
 <!-- isMovie -->		
 		<area layer="3" condition="{ismovie}">
-			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="{areaheight}" height="{areaheight}" />
+			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder_new" x="{areaheight}/{areaheight}*5" y="18%" width="{areaheight}*0.75" height="{areaheight}*0.65" />
 			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="0" y="0" width="{areaheight}" height="{areaheight}" />
-			<drawtext name="title" x="{width(thumb)}" y="0" width="100%" font="{bold}" fontsize="70%" valign="center" color="{clrWhite}" text="{title}" />
+			<drawtext name="title" x="{areaheight}+10" y="0" width="100%" font="{vdrOsd}" fontsize="70%" valign="center" color="{clrWhite}" text="{title}" />
+			
+			<!-- <drawtext name="viewCount" x="62%" y="0" width="100%" font="{vdrOsd}" valign="center" fontsize="70%" color="{clrRed}" text="{viewCount}/{viewoffset}/{viewoffsetpercent}" />
+			-->
+			<drawimage name="seen" imagetype="icon" path="seen/seen{viewoffsetpercent}" x="{areawidth}-{width(seen)}-10" y="0" valign="center" width="{areaheight}*0.6" height="{areaheight}*0.6" />
+			<drawimage name="viewCount" condition="gt({viewCount}, 0)++eq({viewoffset}, 0)" imagetype="icon" path="seen/seen100" x="{areawidth}-{width(seen)}-10" y="0" valign="center" width="{areaheight}*0.6" height="{areaheight}*0.6" />
 			
 		</area>
-		
+
+<!-- isShow -->
+		<area layer="3" condition="{isshow}" >
+			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder_new" x="{areaheight}/{areaheight}*5" y="18%" width="{areaheight}*0.75" height="{areaheight}*0.65" />
+			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="0" y="0" width="{areaheight}" height="{areaheight}" />
+			<drawtext name="title" x="{areaheight}+10" y="0" width="100%" font="{vdrOsd}" valign="center" fontsize="70%" color="{clrWhite}" text="{title}" />
+		</area>		
 <!-- isSeason -->
 		<area layer="3" condition="{isseason}" >
-			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="{areaheight}" height="{areaheight}" />
+			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder_new" x="{areaheight}/{areaheight}*5" y="18%" width="{areaheight}*0.75" height="{areaheight}*0.65" />
 			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="0" y="0" width="{areaheight}" height="{areaheight}" />
-			<drawtext condition="lt({viewgroup}, 3)" name="title" x="{width(thumb)}" y="0" width="100%" font="{bold}" fontsize="70%" valign="center" color="{clrWhite}" text="{seriesname} - {title}" />
-			<drawtext condition="eq({viewgroup}, 3)" name="title" x="{width(thumb)}" y="0" width="100%" font="{bold}" fontsize="70%" valign="center" color="{clrWhite}" text="{title}" />
-		
-		
-		<!-- debug  
-			<drawtext name="debug1" x="50%" y="0" width="20%" font="{bold}" fontsize="50%" color="{clrRed}" text="viewmode:{viewmode}" />
-			<drawtext name="debug2" x="50%" y="0%" width="20%" font="{bold}" align="right" fontsize="50%" color="{clrRed}" text="viewgroup:{viewgroup}" />
-		-->
-			
+			<drawtext name="title" x="{areaheight}+10" y="0" width="100%" font="{vdrOsd}" fontsize="70%" valign="center" color="{clrWhite}" text="{seriestitle} - {title}" />
 		</area>
 		
 <!-- isEpisode -->		
 		<area layer="3" condition="{isepisode}" >
-			<drawimage name="thumb" condition="not{hasseriesthumb}" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="{areaheight}" height="{areaheight}" />
+			<drawimage name="thumb" condition="not{hasseriesthumb}" imagetype="skinpart" path="plexplaceholder_new" x="{areaheight}/{areaheight}*5" y="18%" width="{areaheight}*0.75" height="{areaheight}*0.65" />
 			<drawimage name="thumb" condition="{hasseriesthumb}" imagetype="image" path="{thumb}" x="0" y="0" width="{areaheight}" height="{areaheight}" />
-			<drawtext name="title" x="{areaheight}+10" y="0" width="100%" font="{bold}" fontsize="70%" valign="center" color="{clrWhite}" text="{seriestitle} - {printf('S%02d E%02d', season, episode)} - {title}" />
-			
+			<drawtext name="title" x="{areaheight}+10" y="0" width="100%" font="{vdrOsd}" fontsize="70%" valign="center" color="{clrWhite}" text="{seriestitle} - {printf('S%02dxE%02d', season, episode)} - {title}" />
+		
+			<drawimage name="seen" imagetype="icon" path="seen/seen{viewoffsetpercent}" x="{areawidth}-{width(seen)}-10" y="0" valign="center" width="{areaheight}*0.6" height="{areaheight}*0.6" />
+			<drawimage name="viewCount" condition="gt({viewCount}, 0)++eq({viewoffset}, 0)" imagetype="icon" path="seen/seen100" x="{areawidth}-{width(seen)}-10" y="0" valign="center" width="{areaheight}*0.6" height="{areaheight}*0.6" />
+		
 		</area>
+
+<!-- isDirectory -->
+		<area layer="3" condition="{isdirectory}" >
+			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder_new" x="{areaheight}/{areaheight}*5" y="18%" width="{areaheight}*0.75" height="{areaheight}*0.65" />
+			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="0" y="0" width="{areaheight}" height="{areaheight}" />
+			<drawtext condition="lt({viewgroup}, 3) || gt({viewgroup}, 3)" name="title" x="{areaheight}+10" y="0" width="100%" font="{vdrOsd}" valign="center" fontsize="70%" color="{clrWhite}" text="{title}" />
+			<drawtext condition="eq({viewgroup}, 3)" name="title" x="{areaheight}" y="0" width="100%" font="{vdrOsd}" valign="center" fontsize="70%" color="{clrWhite}" text="{title}" />
+		</area>		
 		
 <!-- isServer -->			
 		<area layer="3" condition="{isserver}" >
-			<drawimage name="thumb" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="{areaheight}" height="{areaheight}" />
-			<drawtext name="title" x="{areaheight}" y="0" width="100%" font="{bold}" fontsize="70%" valign="center" color="{clrWhite}" text="{title} - {serverstartpointname}" />
+			<drawimage name="thumb" imagetype="skinpart" path="plexplaceholder_new" x="{areaheight}/{areaheight}*5" y="18%" width="{areaheight}*0.75" height="{areaheight}*0.65" />
+			<drawtext name="title" x="{areaheight}+10" y="0" width="100%" font="{vdrOsd}" fontsize="70%" valign="center" color="{clrWhite}" text="{title} - {serverstartpointname}" />
 		</area>
-		
-<!-- isDirectory -->
-		<area layer="3" condition="{isdirectory}" >
-			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="{areaheight}" height="{areaheight}" />
-			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="0" y="0" width="{areaheight}" height="{areaheight}" />
-			<drawtext name="title" x="{areaheight}+10" y="0" width="100%" font="{bold}" valign="center" fontsize="70%" color="{clrWhite}" text="{title}" />
-		</area>
-		
-<!-- isShow -->
-		<area layer="3" condition="{isshow}" >
-			<drawimage name="thumb" condition="not{hasthumb}" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="{areaheight}" height="{areaheight}" />
-			<drawimage name="thumb" condition="{hasthumb}" imagetype="image" path="{thumb}" x="0" y="0" width="{areaheight}" height="{areaheight}" />
-			<drawtext name="title" x="{areaheight}+10" y="0" width="100%" font="{bold}" valign="center" fontsize="70%" color="{clrWhite}" text="{title}" />
-		</area>
-		
 
 <!-- isDummy -->		
-		<area layer="3" condition="{isdummy}" >
-			<drawimage name="thumb" imagetype="skinpart" path="plexplaceholder" x="0" y="0" width="{areaheight}" height="{areaheight}" />
-			<drawtext name="title" x="{areaheight}+10" y="0" width="100%" font="{bold}" valign="center" fontsize="70%" color="{clrWhite}" text="{title}" />
+		<area layer="3" condition="{isdummy}++ eq({useBack},1)" >
+			<drawimage name="thumb" condition="not{current}" imagetype="skinpart" path="plexplaceholder_new_back" x="{areaheight}/{areaheight}*5" y="18%" width="{areaheight}*0.75" height="{areaheight}*0.65" />
+			<drawimage name="thumb" condition="{current}" imagetype="skinpart" path="plexplaceholder_new_back_current" x="{areaheight}/{areaheight}*5" y="18%" width="{areaheight}*0.75" height="{areaheight}*0.65" />
 		</area>
-		
+		<area layer="3" condition="{isdummy}++ eq({useBack},0)" >
+			<drawimage name="thumb" imagetype="skinpart" path="plexplaceholder_new" x="{areaheight}/{areaheight}*5" y="18%" width="{areaheight}*0.75" height="{areaheight}*0.65" />
+			<drawtext name="title" x="{areaheight}+10" y="0" width="100%" font="{vdrOsd}" valign="center" fontsize="70%" color="{clrWhite}" text="{title}" />
+		</area>
 	</grid>
 	
-	<!-- Available Variables Footer:
-    {red1}                    true if red button is button 1
-    {red2}                    true if red button is button 2
-    {red3}                    true if red button is button 3
-    {red4}                    true if red button is button 4
-    {green1}                  true if green button is button 1
-    {green2}                  true if green button is button 2
-    {green3}                  true if green button is button 3
-    {green4}                  true if green button is button 4
-    {yellow1}                 true if yellow button is button 1
-    {yellow2}                 true if yellow button is button 2
-    {yellow3}                 true if yellow button is button 3
-    {yellow4}                 true if yellow button is button 4
-    {blue1}                   true if blue button is button 1
-    {blue2}                   true if blue button is button 2
-    {blue3}                   true if blue button is button 3
-    {blue4}                   true if blue button is button 4
-    {red}                     label of red button
-    {green}                   label of green button
-    {yellow}                  label of yellow button
-    {blue}                    label of blue button
-    -->
+
     <viewelement name="footer">
        	<area x="10%" y="94%" width="20%" height="7%" layer="2">
 		<drawimage condition="{yellow1}" name="yellow" imagetype="skinpart" path="button_yellow" x="0" valign="bottom" width="100%" height="100%"/>
@@ -677,10 +927,10 @@
 	</area>
 
 	<area x="10%" y="94%" width="20%" height="7%" layer="2">
-		<drawtext condition="{yellow1}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red1}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{green1}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{green}" />
-		<drawtext condition="{blue1}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{yellow1}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red1}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{green1}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{blue1}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{blue}" />
 	</area>
 	
 	<area x="30%" y="94%" width="20%" height="7%" layer="2">
@@ -690,10 +940,10 @@
 		<drawimage condition="{green2}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="30%" y="94%" width="20%" height="7%" layer="2">
-		<drawtext condition="{yellow2}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red2}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue2}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green2}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow2}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red2}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue2}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green2}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{green}" />
 	</area>
 
 	<area x="50%" y="94%" width="20%" height="7%" layer="2">
@@ -703,10 +953,10 @@
 		<drawimage condition="{green3}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="50%" y="94%" width="20%" height="7%" layer="2">
-		<drawtext condition="{yellow3}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red3}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue3}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green3}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow3}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red3}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue3}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green3}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{green}" />
 	</area>
 	
 	<area x="70%" y="94%" width="20%" height="7%" layer="2">
@@ -718,11 +968,12 @@
 		
 	</area>
 	 <area x="70%" y="94%" width="20%" height="7%" layer="2">
-		<drawtext condition="{yellow4}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red4}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue4}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green4}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow4}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red4}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue4}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green4}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{green}" />
 	</area> 
     </viewelement>
 	
 </displayplugin>
+

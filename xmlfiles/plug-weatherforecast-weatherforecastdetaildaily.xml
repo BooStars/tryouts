@@ -90,7 +90,7 @@
     {daily[pressure]}                   pressure in HPa
     {daily[ozone]}                      Ozone in DU (Dobson Unit)
 	
-	<drawtext name="w_time" x="{width(icon)}" y="0" valign="center" font="{light}" fontsize="{rowheight}/1.5" color="{clrWhite}" text="{hourly[timestamp]}" />
+	<drawtext name="w_time" x="{width(icon)}" y="0" valign="center" font="{vdrOsd}" fontsize="{rowheight}/1.5" color="{clrWhite}" text="{hourly[timestamp]}" />
                 
     -->
 
@@ -100,7 +100,7 @@
              <drawimage imagetype="icon" path="{icon}" align="center" y="10" width="{areaheight}" height="{areaheight}"/>
         </area>
          <area x="22%" y="66%" width="78%" height="24%" layer="4">
-            <drawtextbox name="summary" x="0" y="0" width="{areawidth}-10" align="center" height="{areaheight}" font="{light}" fontsize="20%" color="{clrTheme}" text="{summary}" />
+            <drawtextbox name="summary" x="0" y="0" width="{areawidth}-10" align="center" height="{areaheight}" font="{vdrOsd}" fontsize="20%" color="{clrTheme}" text="{summary}" />
         </area>
     </detailheader>
 
@@ -109,15 +109,15 @@
 	   
 			<drawimage name="icon" imagetype="icon" path="{daily[icon]}" align="left" y="0" width="{rowheight}" height="{rowheight}"/>
             
-			<drawtext x="{width(icon)}" valign="top" font="{semibold}" fontsize="{rowheight}/2" color="{clrWhite}" text="{daily[dayname]}" />
-            <drawtext name="w_date" x="{width(icon)}" valign="bottom" font="{semibold}" fontsize="{rowheight}/2" color="{clrWhite}" text="{daily[day]}" />
+			<drawtext x="{width(icon)}" valign="top" font="{vdrOsd}" fontsize="{rowheight}/2" color="{clrWhite}" text="{daily[dayname]}" />
+            <drawtext name="w_date" x="{width(icon)}" valign="bottom" font="{vdrOsd}" fontsize="{rowheight}/2" color="{clrWhite}" text="{daily[day]}" />
             
-			<drawtext x="{width(icon)}+{width(w_date)}" y="0" valign="top" width="{columnwidth}" font="{light}" fontsize="{rowheight}*0.30" color="{clrWhite}" text=" {daily[summary]}" />
-            <drawtext x="{width(icon)}+{width(w_date)}" y="0" valign="center" width="{columnwidth}" font="{light}" fontsize="{rowheight}*0.30" color="{clrWhite}" text=" {tr(precipitationprobability)} {daily[precipitationprobability]}%, {daily[precipitationintensity]} l/qm, {tr(windspeed)} {daily[windspeed]} km/h {tr(from)} {daily[windbearingstring]}" />
-            <drawtext x="{width(icon)}+{width(w_date)}" y="0" valign="bottom" width="{columnwidth}" font="{light}" fontsize="{rowheight}*0.30" color="{clrWhite}" text=" {tr(cloudcover)} {daily[cloudcover]}%, {tr(visibility)} {daily[visibility]} km, {tr(pressure)} {daily[pressure]} HPa, {tr(ozone)} {daily[ozone]} DU" />
+			<drawtext x="{width(icon)}+{width(w_date)}" y="0" valign="top" width="{columnwidth}" font="{vdrOsd}" fontsize="{rowheight}*0.30" color="{clrWhite}" text=" {daily[summary]}" />
+            <drawtext x="{width(icon)}+{width(w_date)}" y="0" valign="center" width="{columnwidth}" font="{vdrOsd}" fontsize="{rowheight}*0.30" color="{clrWhite}" text=" {tr(precipitationprobability)} {daily[precipitationprobability]}%, {daily[precipitationintensity]} l/qm, {tr(windspeed)} {daily[windspeed]} km/h {tr(from)} {daily[windbearingstring]}" />
+            <drawtext x="{width(icon)}+{width(w_date)}" y="0" valign="bottom" width="{columnwidth}" font="{vdrOsd}" fontsize="{rowheight}*0.30" color="{clrWhite}" text=" {tr(cloudcover)} {daily[cloudcover]}%, {tr(visibility)} {daily[visibility]} km, {tr(pressure)} {daily[pressure]} HPa, {tr(ozone)} {daily[ozone]} DU" />
            	
-			<drawtext name="tempmin" x="{columnwidth}-{width(tempmin)}"  valign="center"  font="{light}" y="0" fontsize="{rowheight}*0.35" color="{clrWhite}" text="{tr(min)}. {daily[temperaturemin]}°C" />
-            <drawtext name="tempmax" x="{columnwidth}-{width(tempmax)}" valign="bottom" font="{light}" y="{rowheight}" fontsize="{rowheight}*0.35" color="{clrWhite}" text="{tr(max)}. {daily[temperaturemax]}°C" />
+			<drawtext name="tempmin" x="{columnwidth}-{width(tempmin)}"  valign="center"  font="{vdrOsd}" y="0" fontsize="{rowheight}*0.35" color="{clrWhite}" text="{tr(min)}. {daily[temperaturemin]}°C" />
+            <drawtext name="tempmax" x="{columnwidth}-{width(tempmax)}" valign="bottom" font="{vdrOsd}" y="{rowheight}" fontsize="{rowheight}*0.35" color="{clrWhite}" text="{tr(max)}. {daily[temperaturemax]}°C" />
       			
 			<drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="0" valign="bottom" width="{areawidth}" height="2"/>
         </loop>

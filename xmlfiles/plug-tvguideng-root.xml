@@ -140,10 +140,10 @@
     -->
       <viewelement name="header_hor">
         <areascroll condition="not{isdummy}++not{hasposter}" orientation="vertical" mode="forthandback" delay="1000" scrollspeed="medium" x="1%" y="1%" width="67%" height="17%" layer="2">
-            <drawtext x="0" y="0" font="{semibold}" width="100%" fontsize="20%" color="{clrWhite}" text="{day} {daynumeric}.{month} {start} - {stop}" />
-            <drawtext x="0" y="20%" font="{semibold}" width="100%" fontsize="28%" color="{clrTheme}" text="{title}" />
-            <drawtextbox name="shorttext" x="0" y="50%" width="100%" font="{light}" fontsize="17%" color="{clrWhite}" text="{shorttext}" />
-            <drawtextbox x="0" y="{posy(shorttext)} + {height(shorttext)} - {areaheight}*0.05" width="100%" font="{light}" fontsize="15%" color="{clrWhite}" text="{description}" />
+            <drawtext x="0" y="0" font="{vdrOsd}" width="100%" fontsize="20%" color="{clrWhite}" text="{day} {daynumeric}.{month} {start} - {stop}" />
+            <drawtext x="0" y="20%" font="{vdrOsd}" width="100%" fontsize="28%" color="{clrTheme}" text="{title}" />
+            <drawtextbox name="shorttext" x="0" y="50%" width="100%" font="{vdrOsd}" fontsize="17%" color="{clrWhite}" text="{shorttext}" />
+            <drawtextbox x="0" y="{posy(shorttext)} + {height(shorttext)} - {areaheight}*0.05" width="100%" font="{vdrOsd}" fontsize="15%" color="{clrWhite}" text="{description}" />
         </areascroll>
 		
 		
@@ -151,21 +151,21 @@
             <drawimage imagetype="image" path="{posterpath}" x="0" y="0" width="100%" height="100%"/>
         </area>
         <areascroll condition="not{isdummy}++{hasposter}" orientation="vertical" mode="forthandback" delay="1000" scrollspeed="medium" x="12%" y="1%" width="56%" height="17%" layer="2">
-            <drawtext x="0" y="0" font="{semibold}" width="100%" fontsize="20%" color="{clrWhite}" text="{day} {daynumeric}.{month} {start} - {stop}" />
-            <drawtext x="0" y="20%" font="{semibold}" width="100%" fontsize="28%" color="{clrWhite}" text="{title}" />
-            <drawtextbox name="shorttext" x="0" y="50%" width="100%" font="{light}" fontsize="17%" color="{clrWhite}" text="{shorttext}" />
-            <drawtextbox x="0" y="{posy(shorttext)} + {height(shorttext)} - {areaheight}*0.05" width="100%" font="{light}" fontsize="15%" color="{clrWhite}" text="{description}" />
+            <drawtext x="0" y="0" font="{vdrOsd}" width="100%" fontsize="20%" color="{clrWhite}" text="{day} {daynumeric}.{month} {start} - {stop}" />
+            <drawtext x="0" y="20%" font="{vdrOsd}" width="100%" fontsize="28%" color="{clrWhite}" text="{title}" />
+            <drawtextbox name="shorttext" x="0" y="50%" width="100%" font="{vdrOsd}" fontsize="17%" color="{clrWhite}" text="{shorttext}" />
+            <drawtextbox x="0" y="{posy(shorttext)} + {height(shorttext)} - {areaheight}*0.05" width="100%" font="{vdrOsd}" fontsize="15%" color="{clrWhite}" text="{description}" />
         </areascroll>
         <area condition="{isdummy}" x="1%" y="1%" width="68%" height="17%" layer="2">
-            <drawtext x="0" y="20%" font="{semibold}" width="100%" fontsize="35%" color="{clrWhite}" text="{title}" />
+            <drawtext x="0" y="20%" font="{vdrOsd}" width="100%" fontsize="35%" color="{clrWhite}" text="{title}" />
         </area>
     </viewelement>
 	      <viewelement name="header_ver">
         <areascroll condition="not{isdummy}++not{hasposter}" orientation="vertical" mode="forthandback" delay="1000" scrollspeed="medium" x="1%" y="1%" width="67%" height="17%" layer="2">
-            <drawtext x="0" y="0" font="{semibold}" width="100%" fontsize="20%" color="{clrWhite}" text="{day} {daynumeric}.{month} {start} - {stop}" />
-            <drawtext x="0" y="20%" font="{semibold}" width="100%" fontsize="28%" color="{clrTheme}" text="{title}" />
-            <drawtextbox name="shorttext" x="0" y="50%" width="100%" font="{light}" fontsize="17%" color="{clrWhite}" text="{shorttext}" />
-            <drawtextbox x="0" y="{posy(shorttext)} + {height(shorttext)} - {areaheight}*0.05" width="100%" font="{light}" fontsize="15%" color="{clrWhite}" text="{description}" />
+            <drawtext x="0" y="0" font="{vdrOsd}" width="100%" fontsize="20%" color="{clrWhite}" text="{day} {daynumeric}.{month} {start} - {stop}" />
+            <drawtext x="0" y="20%" font="{vdrOsd}" width="100%" fontsize="28%" color="{clrTheme}" text="{title}" />
+            <drawtextbox name="shorttext" x="0" y="50%" width="100%" font="{vdrOsd}" fontsize="17%" color="{clrWhite}" text="{shorttext}" />
+            <drawtextbox x="0" y="{posy(shorttext)} + {height(shorttext)} - {areaheight}*0.05" width="100%" font="{vdrOsd}" fontsize="15%" color="{clrWhite}" text="{description}" />
         </areascroll>
 		
 		
@@ -173,13 +173,13 @@
             <drawimage imagetype="image" path="{posterpath}" x="0" y="0" width="100%" height="100%"/>
         </area>
         <areascroll condition="not{isdummy}++{hasposter}" orientation="vertical" mode="forthandback" delay="1000" scrollspeed="medium" x="12%" y="1%" width="56%" height="17%" layer="2">
-            <drawtext x="0" y="0" font="{semibold}" width="100%" fontsize="20%" color="{clrWhite}" text="{day} {daynumeric}.{month} {start} - {stop}" />
-            <drawtext x="0" y="20%" font="{semibold}" width="100%" fontsize="28%" color="{clrWhite}" text="{title}" />
-            <drawtextbox name="shorttext" x="0" y="50%" width="100%" font="{light}" fontsize="17%" color="{clrWhite}" text="{shorttext}" />
-            <drawtextbox x="0" y="{posy(shorttext)} + {height(shorttext)} - {areaheight}*0.05" width="100%" font="{light}" fontsize="15%" color="{clrWhite}" text="{description}" />
+            <drawtext x="0" y="0" font="{vdrOsd}" width="100%" fontsize="20%" color="{clrWhite}" text="{day} {daynumeric}.{month} {start} - {stop}" />
+            <drawtext x="0" y="20%" font="{vdrOsd}" width="100%" fontsize="28%" color="{clrWhite}" text="{title}" />
+            <drawtextbox name="shorttext" x="0" y="50%" width="100%" font="{vdrOsd}" fontsize="17%" color="{clrWhite}" text="{shorttext}" />
+            <drawtextbox x="0" y="{posy(shorttext)} + {height(shorttext)} - {areaheight}*0.05" width="100%" font="{vdrOsd}" fontsize="15%" color="{clrWhite}" text="{description}" />
         </areascroll>
         <area condition="{isdummy}" x="1%" y="1%" width="68%" height="17%" layer="2">
-            <drawtext x="0" y="20%" font="{semibold}" width="100%" fontsize="35%" color="{clrWhite}" text="{title}" />
+            <drawtext x="0" y="20%" font="{vdrOsd}" width="100%" fontsize="35%" color="{clrWhite}" text="{title}" />
         </area>
     </viewelement>
 	
@@ -202,16 +202,16 @@
     -->
     <viewelement name="time_hor">
        <area x="70%" y="0%" width="30%" height="10%" layer="2">
-			<drawtext name="dayname" x="2%" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
-			<drawtext x="2%" y="{height(dayname)}" font="{light}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
-			<drawtext align="right" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{time}" />
+			<drawtext name="dayname" x="2%" y="0" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
+			<drawtext x="2%" y="{height(dayname)}" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
+			<drawtext align="right" valign="center" font="{vdrOsd}" fontsize="85%" color="{clrWhite}" text="{time}" />
 		</area>     
     </viewelement>
 	<viewelement name="time_ver">
        <area x="70%" y="0%" width="30%" height="10%" layer="2">
-			<drawtext name="dayname" x="2%" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
-			<drawtext x="2%" y="{height(dayname)}" font="{light}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
-			<drawtext align="right" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{time}" />
+			<drawtext name="dayname" x="2%" y="0" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
+			<drawtext x="2%" y="{height(dayname)}" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
+			<drawtext align="right" valign="center" font="{vdrOsd}" fontsize="85%" color="{clrWhite}" text="{time}" />
 		</area>     
     </viewelement>
 
@@ -221,13 +221,13 @@
     -->
     <viewelement name="datetimeline_hor">
         <area x="0" y="20%" width="15%" height="5%" layer="3">
-            <drawtext align="center" valign="top" font="{semibold}" fontsize="80%" color="{clrWhite}" text="{weekday} {date}" />
+            <drawtext align="center" valign="top" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{weekday} {date}" />
         </area>
     </viewelement>
 
     <viewelement name="datetimeline_ver">
         <area x="0" y="29%" width="9%" height="5%" layer="2">
-             <drawtext align="center" valign="top" font="{semibold}" fontsize="80%" color="{clrWhite}" text="{weekday} {date}." />
+             <drawtext align="center" valign="top" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{weekday} {date}." />
 			 <drawimage name="line_bottom" imagetype="skinpart" path="line_bottom" x="10%" y="{areaheight}-2" width="{areawidth}/1.5" height="2"/>
 
         </area>
@@ -259,8 +259,8 @@
     </area>
     
     <area layer="2">
-            <drawtext condition="{fullhour}" x="0" align="center" valign="center" font="{light}" fontsize="80%" color="{clrBlack}" text="{timestring}" />
-            <drawtext condition="not{fullhour}" x="0" align="center" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{timestring}" />
+            <drawtext condition="{fullhour}" x="0" align="center" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrBlack}" text="{timestring}" />
+            <drawtext condition="not{fullhour}" x="0" align="center" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{timestring}" />
         </area>
     </grid>
 
@@ -270,8 +270,8 @@
             
         </area>
         <area layer="2">
-            <drawtext condition="{fullhour}" align="center" valign="center" y="5%" font="{light}" fontsize="60%" color="{clrBlack}" text="{timestring}" />
-            <drawtext condition="not{fullhour}" align="center" valign="center" y="5%" font="{light}" fontsize="60%" color="{clrWhite}" text="{timestring}" />
+            <drawtext condition="{fullhour}" align="center" valign="center" y="5%" font="{vdrOsd}" fontsize="60%" color="{clrBlack}" text="{timestring}" />
+            <drawtext condition="not{fullhour}" align="center" valign="center" y="5%" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{timestring}" />
         </area>
     </grid>
 
@@ -284,14 +284,14 @@
     <grid name="channels_hor" x="3%" y="25%" width="10%" height="67%">
         <area layer="2">
             <drawimage condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" align="center" valign="center" width="80%" height="80%" />
-            <drawtext condition="not{channellogoexists}" x="1%" valign="center" width="98%" font="{light}" fontsize="45%" color="{clrWhite}" text="{name}" />
+            <drawtext condition="not{channellogoexists}" x="1%" valign="center" width="98%" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="{name}" />
         </area>
     </grid>
 
     <grid name="channels_ver" x="11%" y="25%" width="89%" height="8%">
         <area layer="2">
             <drawimage condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" align="center" valign="center" width="75%" height="75%" />
-            <drawtext condition="not{channellogoexists}" align="center" valign="center" width="98%" font="{light}" fontsize="45%" color="{clrWhite}" text="{name}" />
+            <drawtext condition="not{channellogoexists}" align="center" valign="center" width="98%" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="{name}" />
         </area>
     </grid>
 
@@ -305,7 +305,7 @@
 		</area>
       -->  
 		<area layer="3">
-            <drawtextvertical align="center" valign="center" font="{semibold}" fontsize="55%" color="{clrWhite}" text="{group}" />
+            <drawtextvertical align="center" valign="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{group}" />
         </area>
     </grid>
 
@@ -314,7 +314,7 @@
             <drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" y="0%" width="2" height="{areaheight}/1.25"/>
 		</area> 
         <area layer="3">
-            <drawtext align="center" valign="top" font="{semibold}" fontsize="80%" color="{clrWhite}" text="{group}" />
+            <drawtext align="center" valign="top" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{group}" />
 			
         </area>
     </grid>
@@ -340,9 +340,9 @@
 			
 		</area>
         <area layer="3">
-            <drawtext condition="not{dummy}" x="3" y="7%" font="{light}" fontsize="35%" color="{clrWhite}" text="{start} - {stop}" />
-            <drawtext condition="not{dummy}" x="3" y="40%" width="{areawidth}-6" font="{semibold}" fontsize="45%" color="{clrWhite}" text="{title}" />
-            <drawtext condition="{dummy}" x="3" valign="center" width="98%" font="{semibold}" fontsize="45%" color="{clrWhite}" text="{title}" />
+            <drawtext condition="not{dummy}" x="3" y="7%" font="{vdrOsd}" fontsize="35%" color="{clrWhite}" text="{start} - {stop}" />
+            <drawtext condition="not{dummy}" x="3" y="40%" width="{areawidth}-6" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="{title}" />
+            <drawtext condition="{dummy}" x="3" valign="center" width="98%" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="{title}" />
             <drawimage condition="{timer}" imagetype="icon" path="ico_rec_on" x="{areawidth} - {areaheight}*0.32*45/23" y="68%" width="{areaheight}*0.3*45/23" height="{areaheight}*0.3"/>
             <drawimage condition="{switchtimer}++not{timer}" imagetype="icon" path="ico_switchtimer" x="{areawidth} - {areaheight}*0.32*45/23" y="68%" width="{areaheight}*0.3*45/23" height="{areaheight}*0.3"/>
             <drawimage condition="{switchtimer}++{timer}" imagetype="icon" path="ico_switchtimer" x="{areawidth} - {areaheight}*0.32*45/23*2 - 5" y="68%" width="{areaheight}*0.3*45/23" height="{areaheight}*0.3" />
@@ -358,9 +358,9 @@
 			<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" y="2" width="{areawidth}-2" height="{areaheight}-4"/>
 		</area>
         <area layer="3">
-            <drawtext condition="not{dummy}" x="3" y="2%" font="{light}" fontsize="{areawidth}*0.12" color="{clrWhite}" text="{start} - {stop}" />
-            <drawtextbox name="title" condition="not{dummy}" x="2%" y="{areawidth}*0.15" width="96%" font="{semibold}" fontsize="{areawidth}*0.13" color="{clrWhite}" text="{title}" />
-            <drawtextbox condition="not{dummy}" x="2%" y="{posy(title)} + {height(title)} - {areawidth}*0.1" width="96%" height="{areaheight}*1.0 - {posy(title)} - {height(title)}" font="{light}" fontsize="{areawidth}*0.12" color="{clrWhite}" text="{shorttext}" />
+            <drawtext condition="not{dummy}" x="3" y="2%" font="{vdrOsd}" fontsize="{areawidth}*0.12" color="{clrWhite}" text="{start} - {stop}" />
+            <drawtextbox name="title" condition="not{dummy}" x="2%" y="{areawidth}*0.15" width="96%" font="{vdrOsd}" fontsize="{areawidth}*0.13" color="{clrWhite}" text="{title}" />
+            <drawtextbox condition="not{dummy}" x="2%" y="{posy(title)} + {height(title)} - {areawidth}*0.1" width="96%" height="{areaheight}*1.0 - {posy(title)} - {height(title)}" font="{vdrOsd}" fontsize="{areawidth}*0.12" color="{clrWhite}" text="{shorttext}" />
             <drawtextbox condition="{dummy}" x="2%" y="5%" width="96%" font="{regular}" fontsize="{areawidth}*0.2" color="{clrWhite}" text="{title}" />
             <drawimage condition="{timer}" imagetype="icon" path="ico_rec_on" x="{areawidth} - {areaheight}*0.32*45/23" y="68%" width="{areaheight}*0.3*45/23" height="{areaheight}*0.3"/>
             <drawimage condition="{switchtimer}++not{timer}" imagetype="icon" path="ico_switchtimer" x="{areawidth} - {areaheight}*0.32*45/23" y="68%" width="{areaheight}*0.3*45/23" height="{areaheight}*0.3"/>
@@ -405,10 +405,10 @@
 	</area>
 
 	<area x="10%" y="94%" width="20%" height="7%" layer="2">
-		<drawtext condition="{yellow1}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red1}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{green1}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{green}" />
-		<drawtext condition="{blue1}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{yellow1}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red1}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{green1}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{blue1}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{blue}" />
 	</area>
 	
 	<area x="30%" y="94%" width="20%" height="7%" layer="2">
@@ -418,10 +418,10 @@
 		<drawimage condition="{green2}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="30%" y="94%" width="20%" height="7%" layer="2">
-		<drawtext condition="{yellow2}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red2}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue2}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green2}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow2}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red2}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue2}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green2}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{green}" />
 	</area>
 
 	<area x="50%" y="94%" width="20%" height="7%" layer="2">
@@ -431,10 +431,10 @@
 		<drawimage condition="{green3}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="50%" y="94%" width="20%" height="7%" layer="2">
-		<drawtext condition="{yellow3}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red3}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue3}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green3}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow3}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red3}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue3}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green3}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{green}" />
 	</area>
 	
 	<area x="70%" y="94%" width="20%" height="7%" layer="2">
@@ -446,10 +446,10 @@
 		
 	</area>
 	 <area x="70%" y="94%" width="20%" height="7%" layer="2">
-		<drawtext condition="{yellow4}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red4}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue4}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green4}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow4}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red4}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue4}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green4}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{green}" />
 	</area> 
 	
 
@@ -466,10 +466,10 @@
 	
 	
 	<area x="0%" y="94%" width="25%" height="7%" layer="2">
-		<drawtext condition="{yellow4}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red4}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue4}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green4}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow4}" valign="center" align="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red4}" valign="center" align="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue4}" valign="center" align="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green4}" valign="center" align="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{green}" />
 	</area>-->
 	
     </viewelement>
@@ -484,10 +484,10 @@
 	</area>
 
 	<area x="10%" y="94%" width="20%" height="7%" layer="2">
-		<drawtext condition="{yellow1}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red1}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{green1}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{green}" />
-		<drawtext condition="{blue1}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{yellow1}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red1}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{green1}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{blue1}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{blue}" />
 	</area>
 	
 	<area x="30%" y="94%" width="20%" height="7%" layer="2">
@@ -497,10 +497,10 @@
 		<drawimage condition="{green2}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="30%" y="94%" width="20%" height="7%" layer="2">
-		<drawtext condition="{yellow2}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red2}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue2}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green2}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow2}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red2}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue2}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green2}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{green}" />
 	</area>
 
 	<area x="50%" y="94%" width="20%" height="7%" layer="2">
@@ -510,10 +510,10 @@
 		<drawimage condition="{green3}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="50%" y="94%" width="20%" height="7%" layer="2">
-		<drawtext condition="{yellow3}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red3}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue3}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green3}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow3}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red3}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue3}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green3}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{green}" />
 	</area>
 	
 	<area x="70%" y="94%" width="20%" height="7%" layer="2">
@@ -525,10 +525,10 @@
 		
 	</area>
 	 <area x="70%" y="94%" width="20%" height="7%" layer="2">
-		<drawtext condition="{yellow4}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red4}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue4}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green4}" valign="center" align="center" font="{light}" fontsize="55%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow4}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red4}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue4}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green4}" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{green}" />
 	</area> 
 	
 
@@ -545,10 +545,10 @@
 	
 	
 	<area x="0%" y="94%" width="25%" height="7%" layer="2">
-		<drawtext condition="{yellow4}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red4}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue4}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green4}" valign="center" align="center" font="{light}" fontsize="65%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow4}" valign="center" align="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red4}" valign="center" align="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue4}" valign="center" align="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green4}" valign="center" align="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{green}" />
 	</area>-->
 	
     </viewelement>

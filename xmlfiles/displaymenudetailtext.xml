@@ -32,9 +32,9 @@
 
 <datetime>
 	<area x="70%" y="0%" width="30%" height="10%" layer="2">
-		<drawtext name="dayname" x="2%" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
-		<drawtext x="2%" y="{height(dayname)}" font="{light}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
-		<drawtext align="right" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{time}" />
+		<drawtext name="dayname" x="2%" y="0" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
+		<drawtext x="2%" y="{height(dayname)}" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
+		<drawtext align="right" valign="center" font="{vdrOsd}" fontsize="85%" color="{clrWhite}" text="{time}" />
     </area>
 </datetime>
 
@@ -52,6 +52,6 @@
     </scrollbar>
 
 <tab name="text" x="2%" y="13%" width="87%" height="73%" layer="2" scrollheight="{areaheight}/4">
-	<drawtextbox x="0" y="0" width="{areawidth}" font="{light}" fontsize="5%" color="{clrWhite}" text="{text}" />
+	<drawtextbox x="0" y="0" width="{areawidth}" font="{vdrOsd}" fontsize="5%" color="{clrWhite}" text="{text}" />
 </tab>
 </menudetailedtext>

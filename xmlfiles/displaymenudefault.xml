@@ -30,17 +30,17 @@
 
 <header>
 	<area x="0" y="0" width="64%" height="7%" layer="2">
-		<drawtext name="title" condition="not{hasicon}" x="0" width="{areawidth}" valign="center" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		<drawtext name="title" condition="not{hasicon}" x="0" width="{areawidth}" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{title}" />
 		<drawimage name="menuicon" condition="{hasicon}" imagetype="menuicon" path="{icon}" x="0" valign="center" width="{areaheight}" height="{areaheight}"/>
-		<drawtext name="title" condition="{hasicon}" x="{posx(menuicon)}+{width(menuicon)}" valign="center" width="{areawidth}" font="{light}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		<drawtext name="title" condition="{hasicon}" x="{posx(menuicon)}+{width(menuicon)}" valign="center" width="{areawidth}" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{title}" />
 	</area>
 </header>
  
 <datetime>
 	<area x="70%" y="0%" width="30%" height="10%" layer="2">
-		<drawtext name="dayname" x="2%" y="0" font="{light}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
-		<drawtext x="2%" y="{height(dayname)}" font="{light}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
-		<drawtext align="right" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{time}" />
+		<drawtext name="dayname" x="2%" y="0" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{dayname}" />
+		<drawtext x="2%" y="{height(dayname)}" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="{day}. {monthnameshort} {year}" />
+		<drawtext align="right" valign="center" font="{vdrOsd}" fontsize="85%" color="{clrWhite}" text="{time}" />
     </area>
 </datetime>
 
@@ -72,19 +72,19 @@
 			
 			
     <areascroll condition="{column2set}" scrollelement="column1" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="1%" width="{column1width}" layer="3">
-		<drawtext  name="column1" x="{column1x}" width="{column1width}" valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{column1}" />
+		<drawtext  name="column1" x="{column1x}" width="{column1width}" valign="center" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column1}" />
     </areascroll>
             
 	<areascroll condition="not{column2set}" scrollelement="column1" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="1%" width="97%" layer="3">
-		<drawtext  name="column1" x="{column1x}" width="{column1width}" valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{column1}" />
+		<drawtext  name="column1" x="{column1x}" width="{column1width}" valign="center" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column1}" />
     </areascroll>
             
 	<area x="2%" width="97%" layer="3">
-		<drawtext condition="{column2set}" x="{column2x}" valign="center" width="{column2width}" font="{light}" fontsize="90%" color="{clrWhite}" text="{column2}" />
-		<drawtext condition="{column3set}" x="{column3x}" valign="center" width="{column3width}" font="{light}" fontsize="90%" color="{clrWhite}" text="{column3}" />
-		<drawtext condition="{column4set}" x="{column4x}" valign="center" width="{column4width}" font="{light}" fontsize="90%" color="{clrWhite}" text="{column4}" />
-		<drawtext condition="{column5set}" x="{column5x}" valign="center" width="{column5width}" font="{light}" fontsize="90%" color="{clrWhite}" text="{column5}" />
-		<drawtext condition="{column6set}" x="{column6x}" valign="center" width="{column6width}" font="{light}" fontsize="90%" color="{clrWhite}" text="{column6}" />
+		<drawtext condition="{column2set}" x="{column2x}" valign="center" width="{column2width}" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column2}" />
+		<drawtext condition="{column3set}" x="{column3x}" valign="center" width="{column3width}" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column3}" />
+		<drawtext condition="{column4set}" x="{column4x}" valign="center" width="{column4width}" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column4}" />
+		<drawtext condition="{column5set}" x="{column5x}" valign="center" width="{column5width}" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column5}" />
+		<drawtext condition="{column6set}" x="{column6x}" valign="center" width="{column6width}" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column6}" />
 	</area>
 
 </listelement>

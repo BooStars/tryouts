@@ -13,7 +13,7 @@
 
 <volume>
 	<area x="{areawidth}/4" y="5%" width="50%" height="{areaheight}" layer="2">
-    <drawtext name="volume" x="1%" valign="top" font="{light}" fontsize="30%" color="{clrWhite}" text="{tr(volume)}: {volpercent}%" />
+    <drawtext name="volume" x="1%" valign="top" font="{vdrOsd}" fontsize="30%" color="{clrWhite}" text="{tr(volume)}: {volpercent}%" />
     <drawimage name="muteoff" condition="not{mute}" imagetype="icon" path="mute_off" x="{areawidth} - {width(muteoff)}" y="{posy(volume)}" width="{areawidth}/8" height="{height(volume)}"/>
     <drawimage name="mute" condition="{mute}" imagetype="icon" path="mute_on" x="{areawidth} - {width(mute)}" y="{posy(volume)}" width="{areawidth}/8" height="{height(volume)}"/>
     </area>

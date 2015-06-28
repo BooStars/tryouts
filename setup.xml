@@ -14,6 +14,10 @@
     -->
     <menu>
 		<!-- global parameter -->
+		<submenu name="plex" displaytext="{tr(plexText)}">
+			<parameter type="bool" name="useBack" displaytext="{tr(useBack)}">0</parameter>
+		</submenu>
+		
 		<parameter type="int" name="fadeTime" min="0" max="1000" displaytext="{tr(fadetext)}">0</parameter>
 		
 		<!-- displaychannel -->
@@ -48,7 +52,16 @@
     translations of displaytexts
     -->
 <translations>
+	<token name="tr(useBack)">
+		<trans lang="en_EN">Alternative BackButton</trans>
+		<trans lang="de_DE">Alternativer BackButton</trans>
+	</token>
+	
 
+<token name="tr(plexText)">
+		<trans lang="en_EN">Plugin - Plex</trans>
+		<trans lang="de_DE">Plugin - Plex</trans>
+	</token>
 	<token name="tr(fadetext)">
 		<trans lang="en_EN">global Fade time in ms</trans>
 		<trans lang="de_DE">Globale Einblendzeit in ms</trans>

@@ -54,23 +54,28 @@
         <drawimage name="banner" condition="{isseries}++{banneravailable}" imagetype="image" path="{bannerpath}" x="{areawidth} - {areawidth}/3" valign="center" width="{areawidth}/3" height="{areawidth}/3 * {bannerheight} / {bannerwidth}"/>
         <drawimage name="recimg" condition="{recimgavailable}++not{banneravailable}++not{posteravailable}" imagetype="image" path="{recimgpath}" x="{areawidth} - {areaheight}*8/10 * 174 / 130" valign="center" width="{areaheight}*8/10 * 174 / 130" height="{areaheight}*8 / 10"/>
 
-        <drawtext name="title" condition="{banneravailable}" x="0" width="{areawidth} - {width(banner)}" valign="center" font="{semibold}" fontsize="35%" color="{clrTheme}" text="{name}" />
-        <drawtext name="title" condition="not{banneravailable}" x="0" width="{areawidth}" valign="center" font="{semibold}" fontsize="35%" color="{clrTheme}" text="{name}" />
+        <drawtext name="title" condition="{banneravailable}" x="0" width="{areawidth} - {width(banner)}" valign="center" font="{vdrOsd}" fontsize="35%" color="{clrTheme}" text="{name}" />
+        <drawtext name="title" condition="not{banneravailable}" x="0" width="{areawidth}" valign="center" font="{vdrOsd}" fontsize="35%" color="{clrTheme}" text="{name}" />
            
-		<drawtext name="datetime" x="0" y="{posy(title)} - {height(datetime)}" font="{light}" fontsize="25%" color="{clrWhite}" text="{date} {time} ({duration} mins)" />
-        <drawtext name="shorttext" x="0" y="{posy(title)} + {height(title)}" font="{light}" fontsize="25%" color="{clrWhite}" text="{shorttext}" />
+		<drawtext name="datetime" x="0" y="{posy(title)} - {height(datetime)}" font="{vdrOsd}" fontsize="25%" color="{clrWhite}" text="{date} {time} ({duration} mins)" />
+        <drawtext name="shorttext" x="0" y="{posy(title)} + {height(title)}" font="{vdrOsd}" fontsize="25%" color="{clrWhite}" text="{shorttext}" />
     </area>
 	
 	
-	<area x="64%" y="18%" width="52%" height="52%" layer="3">
-		<drawimage condition="{isseries}" name="recback" imagetype="image" path="{ressourcedir}/images/recback_series.png" x="0" y="0" width="{areawidth}" height="{areaheight}" />
-		<drawimage condition="{ismovie}" name="recback" imagetype="image" path="{ressourcedir}/images/recback_movie.png" x="0"  y="0" width="{areawidth}" height="{areaheight}" />
-		
-	</area>
+	<!-- <area x="64%" y="18%" width="52%" height="52%" layer="3">	
+		</area>
+	-->
 	<area x="65%" y="23%" width="50%" height="45%" layer="4">
 		<drawimage condition="{isseries}" name="seriesposter" imagetype="image" path="{posterpath}" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
 		<drawimage condition="{ismovie}" name="movieposter" imagetype="image" path="{posterpath}" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
 		
+	</area>
+	
+	<area x="81%" y="18%" width="18%" height="51%" layer="5">
+
+		<drawimage condition="{isseries}" name="recback" imagetype="skinpart" path="poster_top" x="0" y="1%" width="{areawidth}" height="{areaheight}" />
+		<drawimage condition="{ismovie}" name="recback" imagetype="skinpart" path="poster_top" x="0" y="1%" width="{areawidth}" height="{areaheight}" />
+
 	</area>
 	
 </detailheader>
@@ -90,7 +95,7 @@
 <tab name="EPG Info" x="1%" y="20%" width="76%" height="57%" layer="2" scrollheight="{areaheight}/4">
 
 	<!--text-->
-        <drawtextbox name="text" x="0" y="0" width="{areawidth}" font="{light}" fontsize="8%" color="{clrWhite}" text="{description}" />
+        <drawtextbox name="text" x="0" y="0" width="{areawidth}" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{description}" />
 	 
 </tab>
 
@@ -98,7 +103,7 @@
 <tab name="{tr(recinfo)}" x="1%" y="20%" width="76%" height="57%" layer="2" scrollheight="{areaheight}/4">
 	
 	<!--text-->	
-        <drawtextbox name="text" x="0" y="0" width="{areawidth}" font="{light}" fontsize="8%" color="{clrWhite}" text="{tr(recsize)}: {recordingsize}&#10;{tr(recsizecutted)}: {recordingsizecutted}&#10;{tr(reclength)}: {recordinglength}&#10;{tr(reclengthcutted)}: {recordinglengthcutted}&#10;{tr(bitrate)}: {recordingbitrate}&#10;{tr(format)}: {recordingformat}&#10;{tr(searchtimer)}: {searchtimer}&#10;" />
+        <drawtextbox name="text" x="0" y="0" width="{areawidth}" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{tr(recsize)}: {recordingsize}&#10;{tr(recsizecutted)}: {recordingsizecutted}&#10;{tr(reclength)}: {recordinglength}&#10;{tr(reclengthcutted)}: {recordinglengthcutted}&#10;{tr(bitrate)}: {recordingbitrate}&#10;{tr(format)}: {recordingformat}&#10;{tr(searchtimer)}: {searchtimer}&#10;" />
 </tab>
 	
 <!-- TAB ACTORS -->
@@ -107,15 +112,15 @@
 	<!-- items -->
     <loop name="actors" x="1%" y="0" width="{areawidth}" orientation="horizontal" columnwidth="{areawidth}/5" rowheight="{areawidth}/5*2.3"  overflow="linewrap">
 		<drawimage name="thumb" imagetype="image" path="{actors[thumb]}" x="0" y="0" width="{columnwidth}-40" height="{columnwidth} * {actors[thumbheight]} / {actors[thumbwidth]} - 40 * {actors[thumbheight]} / {actors[thumbwidth]}"/>
-		<drawtext align="center" y="{height(thumb)}+40" width="{columnwidth}" name="actorname" font="{light}" fontsize="7%" color="{clrWhite}" text="{actors[name]}" />
-        <drawtext align="center" y="{height(thumb)}+40 + {height(actorname)}" width="{columnwidth}" font="{light}" fontsize="7%" color="{clrWhite}" text="{actors[role]}" /> 
+		<drawtext align="center" y="{height(thumb)}+40" width="{columnwidth}" name="actorname" font="{vdrOsd}" fontsize="7%" color="{clrWhite}" text="{actors[name]}" />
+        <drawtext align="center" y="{height(thumb)}+40 + {height(actorname)}" width="{columnwidth}" font="{vdrOsd}" fontsize="7%" color="{clrWhite}" text="{actors[role]}" /> 
     </loop>
 </tab>
 	
 	
 <!-- TAB MOVIEDBINFO -->
 <tab condition="{ismovie}" name="MovieDBInfo" x="1%" y="20%" width="76%" height="57%" layer="2" scrollheight="{areaheight}/4">
-		<drawtextbox name="text" x="0" y="0" width="{areawidth}" font="{light}" fontsize="8%" color="{clrWhite}" text="{tr(originaltitle)}: {movieoriginalTitle}&#10;&#10;|{tr(genre)}: {moviegenres}&#10;&#10;||{movietagline}&#10;&#10;|{movieoverview}&#10;&#10;|{tr(budget)}: {moviebudget}&#10;||{tr(revenue)}: {movierevenue}&#10;&#10;||{tr(adult)}: {movieadult}&#10;||{tr(releasedate)}: {moviereleasedate}&#10;||{tr(runtime)}: {movieruntime} min&#10;||&#10;{tr(popularity)}: {moviepopularity}&#10;||&#10;{tr(voteaverage)}: {movievoteaverage}&#10;||&#10;{tr(homepage)}: {moviehomepage}|&#10;" />
+		<drawtextbox name="text" x="0" y="0" width="{areawidth}" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{tr(originaltitle)}: {movieoriginalTitle}&#10;&#10;|{tr(genre)}: {moviegenres}&#10;&#10;||{movietagline}&#10;&#10;|{movieoverview}&#10;&#10;|{tr(budget)}: {moviebudget}&#10;||{tr(revenue)}: {movierevenue}&#10;&#10;||{tr(adult)}: {movieadult}&#10;||{tr(releasedate)}: {moviereleasedate}&#10;||{tr(runtime)}: {movieruntime} min&#10;||&#10;{tr(popularity)}: {moviepopularity}&#10;||&#10;{tr(voteaverage)}: {movievoteaverage}&#10;||&#10;{tr(homepage)}: {moviehomepage}|&#10;" />
 </tab>
 	
 <!-- TAB MOVIEGALERY -->
@@ -128,7 +133,7 @@
 	
 <!-- TAB TVDBINFO -->
 <tab condition="{isseries}" name="TvDBInfo" x="1%" y="20%" width="76%" height="57%" layer="2" scrollheight="{areaheight}/4">
-        <drawtextbox x="0" y="0" width="96%" font="{light}" fontsize="8%" color="{clrWhite}" text="{tr(episode)}: {episodetitle} ({tr(season)} {episodeseason}, {tr(episode)} {episodenumber}) &#10;&#10;{episodeoverview}|&#10;&#10;{tr(gueststars)}: {episodegueststars}||&#10;&#10;{tr(seriesfirstaired)}: {seriesfirstaired}||&#10;{tr(episodefirstaired)}: {episodefirstaired}||&#10;{tr(network)}: {seriesnetwork}||&#10;{tr(genre)}: {seriesgenre}||&#10;{tr(status)}: {seriesstatus}||&#10;{tr(rating)}: {seriesrating}||&#10;{tr(episoderating)}: {episoderating}&#10;|{seriesoverview}&#10;" />
+        <drawtextbox x="0" y="0" width="96%" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{tr(episode)}: {episodetitle} ({tr(season)} {episodeseason}, {tr(episode)} {episodenumber}) &#10;&#10;{episodeoverview}|&#10;&#10;{tr(gueststars)}: {episodegueststars}||&#10;&#10;{tr(seriesfirstaired)}: {seriesfirstaired}||&#10;{tr(episodefirstaired)}: {episodefirstaired}||&#10;{tr(network)}: {seriesnetwork}||&#10;{tr(genre)}: {seriesgenre}||&#10;{tr(status)}: {seriesstatus}||&#10;{tr(rating)}: {seriesrating}||&#10;{tr(episoderating)}: {episoderating}&#10;|{seriesoverview}&#10;" />
 </tab>
 	
 	
@@ -158,7 +163,7 @@
 			<drawimage condition="{tabs[current]}" name="line_left" imagetype="skinpart" path="line_left" x="{width(label)}" y="2" width="2" height="{areaheight}-4"/>
 			<drawimage condition="{tabs[current]}" name="line_left" imagetype="skinpart" path="line_left" x="0" y="2" width="2" height="{areaheight}-4"/>
 			<drawimage condition="not{tabs[current]}" name="line_left" imagetype="skinpart" path="line_left" x="{width(label)}" y="2" width="2" height="{areaheight}-4"/>
-			<drawtext name="label" x="0" valign="center" font="{light}" fontsize="65%" color="{clrWhite}" text="  {tabs[title]}  " />
+			<drawtext name="label" x="0" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="  {tabs[title]}  " />
 		</loop>
 	</area>
 </tablabels>
@@ -174,10 +179,10 @@
 	</area>
 
 	<area x="40%" y="94%" width="15%" height="7%" layer="2">
-		<drawtext condition="{yellow1}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red1}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{green1}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{green}" />
-		<drawtext condition="{blue1}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{yellow1}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red1}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{green1}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{blue1}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{blue}" />
 	</area>
 	
 	<area x="55%" y="94%" width="15%" height="7%" layer="2">
@@ -187,10 +192,10 @@
 		<drawimage condition="{green2}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="55%" y="94%" width="15%" height="7%" layer="2">
-		<drawtext condition="{yellow2}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red2}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue2}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green2}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow2}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red2}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue2}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green2}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{green}" />
 	</area>
 
 	<area x="70%" y="94%" width="15%" height="7%" layer="2">
@@ -200,10 +205,10 @@
 		<drawimage condition="{green3}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="70%" y="94%" width="15%" height="7%" layer="2">
-		<drawtext condition="{yellow3}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red3}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue3}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green3}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow3}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red3}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue3}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green3}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{green}" />
 	</area>
 	
 	<area x="85%" y="94%" width="15%" height="7%" layer="2">
@@ -213,10 +218,10 @@
 		<drawimage condition="{green4}" name="green" imagetype="skinpart" path="button_green" x="0" valign="bottom" width="100%" height="100%"/>
 	</area>
 	<area x="85%" y="94%" width="15%" height="7%" layer="2">
-		<drawtext condition="{yellow4}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
-		<drawtext condition="{red4}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{red}" />
-		<drawtext condition="{blue4}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{blue}" />
-		<drawtext condition="{green4}" valign="center" align="center" font="{light}" fontsize="60%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{yellow4}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red4}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue4}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green4}" valign="center" align="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{green}" />
 	</area>
 </colorbuttons>
 	

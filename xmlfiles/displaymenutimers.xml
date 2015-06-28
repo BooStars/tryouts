@@ -45,16 +45,16 @@
 			 <drawimage condition="{flagactive}" name="active" imagetype="icon" path="ico_timer_active" x="0" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
              <drawimage condition="not{flagactive}" name="active" imagetype="icon" path="ico_timer_inactive" x="0" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
              <drawimage condition="{flagrecording}" name="active" imagetype="icon" path="ico_timer_recording" x="0" width="0.9*{areaheight}" height="0.9*{areaheight}" valign="center" />
-			 <drawtext name="timerday" x="0" align="right" valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{dayname} {day}" />	 
+			 <drawtext name="timerday" x="0" align="right" valign="center" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{dayname} {day}" />	 
 		</area>
 <!--timertime -->
 	<area x="13%" width="17%" layer="3">
 		
-		<drawtext name="timertime" x="{width(timerday)}"  valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{timerstart}-{timerstop}" />
+		<drawtext name="timertime" x="{width(timerday)}"  valign="center" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{timerstart}-{timerstop}" />
 	</area>
 		
 	<areascroll scrollelement="timertext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="27%" width="50%" layer="3">
-		<drawtext name="timertext" x="0" valign="center" font="{light}" fontsize="90%" color="{clrWhite}" text="{title}" />
+		<drawtext name="timertext" x="0" valign="center" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{title}" />
 	</areascroll>
 
 </listelement>

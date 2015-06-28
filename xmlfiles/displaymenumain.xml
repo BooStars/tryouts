@@ -39,7 +39,7 @@
 <header>
 <area x="0%" y="0%" width="70%" height="7%" layer="2">
 	<drawimage name="vdrlogo" imagetype="icon" path="vdrlogo" x="0" width="{areawidth}/7" height="{areaheight}" valign="top" />
-	<drawtext x="{width(vdrlogo)}" valign="center" font="{light}" fontsize="85%" color="{clrWhite}" text="{vdrversion}" />	
+	<drawtext x="{width(vdrlogo)}" valign="center" font="{vdrOsd}" fontsize="85%" color="{clrWhite}" text="{vdrversion}" />	
 </area>
 </header>
 
@@ -47,9 +47,9 @@
 <area condition="eq({showTimers},1)" x="71%" y="16%" width="29%" height="53%" layer="2">
 	<loop name="timers" x="0" y="0" orientation="vertical" columnwidth="{areawidth}" rowheight="{areaheight}/7">
 		<drawimage  cache="true" condition="{timers[channellogoexists]}" name="logo" imagetype="channellogo" path="{timers[channelid]}" x="{areawidth}-{width(logo)}*1.075" y="0" width="20%" height="{areaheight}/7" />
-		<drawtext condition="not{timers[channellogoexists]}" name="channame" x="{areawidth}-{width(channame)}*1.075" y="0" width="20%" valign="center" font="{light}" fontsize="10%" color="{clrWhite}" text="{timers[channelnumber]}" />		
-		<drawtext name="datetime" x="{areawidth}-{width(logo)}*1.15-{width(datetime)}" y="0%" font="{light}" fontsize="7%" color="{clrWhite}" text="{timers[datetime]}" />
-		<drawtextbox name="title" x="0" y="{height(datetime)}" width="{columnwidth}-{width(logo)}*1.15" align="right" maxlines="1" font="{light}" fontsize="7%" color="{clrWhite}" text="{timers[title]}" />     
+		<drawtext condition="not{timers[channellogoexists]}" name="channame" x="{areawidth}-{width(channame)}*1.075" y="0" width="20%" valign="center" font="{vdrOsd}" fontsize="10%" color="{clrWhite}" text="{timers[channelnumber]}" />		
+		<drawtext name="datetime" x="{areawidth}-{width(logo)}*1.15-{width(datetime)}" y="0%" font="{vdrOsd}" fontsize="7%" color="{clrWhite}" text="{timers[datetime]}" />
+		<drawtextbox name="title" x="0" y="{height(datetime)}" width="{columnwidth}-{width(logo)}*1.15" align="right" maxlines="1" font="{vdrOsd}" fontsize="7%" color="{clrWhite}" text="{timers[title]}" />     
 		<drawimage condition="{timers[recording]}" name="rec" imagetype="icon" path="ico_timer_recording" x="{areawidth}-{width(logo)}*1.15-{width(datetime)}-{height(datetime)}*1.2" width="{height(datetime)}*1.2" height="{height(datetime)}*1.2" y="0" />
 		<drawimage name="timer_sep" imagetype="skinpart" path="timer_sep" align="right" valign="bottom" width="{areawidth}" height="2"/>
 	</loop>
@@ -68,7 +68,7 @@
 	</area>
 			
 	<areascroll scrollelement="menutext" mode="forthandback" orientation="horizontal" delay="1000" scrollspeed="medium" x="2%" width="30%"  layer="3">
-		<drawtext name="menutext" x="0" valign="center" font="{light}" fontsize="75%" color="{clrWhite}" text="{number} {label}" />
+		<drawtext name="menutext" x="0" valign="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{number} {label}" />
     </areascroll>
 
 </listelement>
