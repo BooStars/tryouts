@@ -44,6 +44,11 @@
         <submenu name="displaymainmenu" displaytext="{tr(displaymainmenuText)}">
 			<parameter type="bool" name="showTimers" displaytext="{tr(showTimers)}">1</parameter>
 		</submenu>
+		
+		<!-- displaymenrecordings -->
+        <submenu name="displaymenrecordings" displaytext="{tr(displaymenrecordingsText)}">
+			<parameter type="bool" name="useLongRecList" displaytext="{tr(useLongRecList)}">1</parameter>
+		</submenu>
     
 		
 		</menu>
@@ -52,6 +57,15 @@
     translations of displaytexts
     -->
 <translations>
+	<token name="tr(useLongRecList)">
+		<trans lang="en_EN">Use long list</trans>
+		<trans lang="de_DE">Breites Aufzeichnungsmenü</trans>
+	</token>
+	<token name="tr(displaymenrecordingsText)">
+		<trans lang="en_EN">RecordingMenu</trans>
+		<trans lang="de_DE">Aufnahmemenü</trans>
+	</token>
+	
 	<token name="tr(useBack)">
 		<trans lang="en_EN">Alternative BackButton</trans>
 		<trans lang="de_DE">Alternativer BackButton</trans>
