@@ -37,7 +37,9 @@
     set such a variable to 1 for true and 0 for false
     -->
     <variables>
-	 <!--	<var type="int" name="test">0</var>-->
+	 <!--	<var type="int" name="test">0</var> -->
+			<var type="int" name="useRec">1</var> 
+			
     </variables>
     <!--
     translations used in the skin

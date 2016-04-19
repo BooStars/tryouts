@@ -47,8 +47,18 @@
 		
 		<!-- displaymenrecordings -->
         <submenu name="displaymenrecordings" displaytext="{tr(displaymenrecordingsText)}">
-			<parameter type="bool" name="useLongRecList" displaytext="{tr(useLongRecList)}">1</parameter>
+			<parameter type="bool" name="useLongRecList" displaytext="{tr(useLongRecList_text)}">1</parameter>
 		</submenu>
+	<!--	<token name="tr(useLongRecList_text)">
+		<trans lang="en_EN">Use long list</trans>
+		<trans lang="de_DE">Breites Aufzeichnungsmenü</trans>
+	</token>
+	<token name="tr(displaymenrecordingsText)">
+		<trans lang="en_EN">RecordingMenu</trans>
+		<trans lang="de_DE">Aufnahmemenü</trans>
+	</token>
+		
+		-->
     
 		
 		</menu>
@@ -57,14 +67,7 @@
     translations of displaytexts
     -->
 <translations>
-	<token name="tr(useLongRecList)">
-		<trans lang="en_EN">Use long list</trans>
-		<trans lang="de_DE">Breites Aufzeichnungsmenü</trans>
-	</token>
-	<token name="tr(displaymenrecordingsText)">
-		<trans lang="en_EN">RecordingMenu</trans>
-		<trans lang="de_DE">Aufnahmemenü</trans>
-	</token>
+	
 	
 	<token name="tr(useBack)">
 		<trans lang="en_EN">Alternative BackButton</trans>
