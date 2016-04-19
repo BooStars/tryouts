@@ -29,14 +29,14 @@
 	    </area>
 </background>
 
-<menuitems x="0" y="13%" orientation="vertical" width="100%" height="73%" numlistelements="15">
+<menuitems x="0" y="13%" orientation="vertical" width="100%" height="73%" align="center" numlistelements="15">
 <listelement>
 	<area x="1%" width="77%" layer="2">
 		<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" width="{areawidth}-2" height="{areaheight}-4"/>
 		<drawimage condition="{current}" name="line_top" imagetype="skinpart" path="line_top" x="5%" valign="top" width="{areawidth}/1.5" height="2"/>
 		<drawimage condition="{current}" name="line_bottom" imagetype="skinpart" path="line_bottom" x="5%" valign="bottom" width="{areawidth}/1.5" height="2"/>
-		<drawellipse condition="eq({nummenuitem},1)"  x="{areawidth} - {areaheight}*1.2" y="0" width="{areaheight}*1.2" height="{areaheight}*1.2" color="{clrTransparent}" quadrant="-1"/>
-		<drawellipse condition="eq({nummenuitem},15)" x="{areawidth} - {areaheight}*1.45" y="{areaheight} - {areaheight}*1.05" width="{areaheight}*1.50" height="{areaheight}*1.00" color="{clrTransparent}" quadrant="-4"/>
+		<drawellipse condition="eq({nummenuitem},0)"  x="{areawidth} - {areaheight}*1.2" y="0" width="{areaheight}*1.2" height="{areaheight}*1.2" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse condition="eq({nummenuitem},14)" x="{areawidth} - {areaheight}*1.45" y="{areaheight} - {areaheight}*1.05" width="{areaheight}*1.50" height="{areaheight}*1.00" color="{clrTransparent}" quadrant="-4"/>
 	</area>
          
 <!--icon + day -->

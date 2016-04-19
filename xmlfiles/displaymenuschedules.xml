@@ -62,7 +62,6 @@
 		
 		<!-- <drawtext condition="isset{title}++not{whatson}" x="{width(menuicon)}" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrRed}" text="TEST" /> -->
 		
-		
 		<drawtext condition="not{hasicon}++{whatson}" x="0"  valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{channelnumber} - {channelname}" />
 		<drawtext condition="not{hasicon}++{whatsonnext}" x="0" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{title}" />
 		<drawtext condition="not{hasicon}++{whatsonnow}" x="0" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{title}" />
@@ -70,19 +69,28 @@
 		
 		
 	</area>
+	
+	
+	<area x="1%" y="56%" width="16%" height="43%" layer="2">
+	        <drawimage cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" align="center" valign="center" width="{areawidth}" height="{areaheight}" />
+            <drawtext condition="not{channellogoexists}" align="center" valign="center" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{channelnumber}" />
+	</area> 
+		
+	    
+	
 </header>
 
 
 
-<menuitems x="0" y="13%" orientation="vertical" width="100%" height="51%"  numlistelements="12">
+<menuitems x="0" y="13%" orientation="vertical" width="100%" height="51%" align="center" numlistelements="12">
 	
 <listelement>
 	<area x="1%" width="77%" layer="2">
 		<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" width="{areawidth}-2" height="{areaheight}-4"/>
 		<drawimage condition="{current}" name="line_top" imagetype="skinpart" path="line_top" x="5%" valign="top" width="{areawidth}/1.5" height="2"/>
 		<drawimage condition="{current}" name="line_bottom" imagetype="skinpart" path="line_bottom" x="5%" valign="bottom" width="{areawidth}/1.5" height="2"/>
-		<drawellipse condition="eq({nummenuitem},1)"  x="{areawidth} - {areaheight}*0.85" y="0" width="{areaheight}*0.85" height="{areaheight}*0.85" color="{clrTransparent}" quadrant="-1"/>
-		<drawellipse condition="eq({nummenuitem},12)" x="{areawidth} - {areaheight}*1.0" y="{areaheight} - {areaheight}*1.0" width="{areaheight}*1" height="{areaheight}*1.0" color="{clrTransparent}" quadrant="-4"/>
+		<drawellipse condition="eq({nummenuitem},0)"  x="{areawidth} - {areaheight}*0.85" y="0" width="{areaheight}*0.85" height="{areaheight}*0.85" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse condition="eq({nummenuitem},11)" x="{areawidth} - {areaheight}*1.0" y="{areaheight} - {areaheight}*1.0" width="{areaheight}*1" height="{areaheight}*1.0" color="{clrTransparent}" quadrant="-4"/>
 	
 	</area>
          
@@ -164,11 +172,7 @@
 		<drawtext name="shorttext" x="0" y="{height(title)}" font="{vdrOsd}" width="{areawidth}" fontsize="15%" color="{clrWhite}" text="{shorttext}" />
 		
         <drawtext condition="{running}" name="start" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{vdrOsd}" fontsize="12%" color="{clrWhite}" text="{start}" />
-        
-	<!--	<drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2" width="{areawidth}/2" height="1" color="{clrTheme}" />
-			<drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2-2" width="{areawidth}/2 * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrTheme}" />
-        -->
-		
+  	
 		<drawimage condition="{running}" name="sb2" imagetype="skinpart" path="scroll_back_vert" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/4" width="{areawidth}/2" height="10" /> 
 		<drawimage condition="{running}" name="sb2" imagetype="skinpart" path="scroll_active_vert" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/4" width="{areawidth}/2 * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="10" /> 
 		
@@ -183,11 +187,7 @@
 	</areascroll>
 
 			
-<!-- channellogo  -->
-	<area x="1%" y="106%" width="16%" height="43%" layer="2">
-	        <drawimage cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" align="center" valign="center" width="{areawidth}" height="{areaheight}" />
-            <drawtext condition="not{channellogoexists}" align="center" valign="center" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{channelnumber}" />
-	</area> 
+
 		
 	<!-- scraper poster -->
 		<area x="80%" y="0" width="18%" height="95%" layer="3">

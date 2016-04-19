@@ -230,12 +230,12 @@
           <area x="1%" y="55%" width="78%" height="35%" layer="2">
 		<!-- dummies -->
 			<drawrectangle name="prev" x="1%" y="0"  width="29%" height="10" color="{clrTransparent}" />
-			<drawrectangle name="group" x="0" y="0" align="center" width="30%" height="1" color="{clrTransparent}" />
+			<drawrectangle name="group" x="0" y="0" align="center" width="30%" height="10" color="{clrTransparent}" />
 
             <drawtext valign="center" align="left" width="29%"  font="{vdrOsd}" fontsize="18%" color="{clrWhite}" text="{prevgroup}" />
-			<drawimage valign="center" imagetype="icon" path="playback" x="{width(prev)}" width="5%" height="{areaheight}/5" />
+			<drawimage valign="center" imagetype="icon" name="playback" path="playback" x="{width(prev)}" width="5%" height="{areaheight}/5" />
 			<drawtext valign="center" align="center" width="30%"  font="{vdrOsd}" fontsize="18%" color="{clrTheme}" text="{group}" />
-            <drawimage valign="center" imagetype="icon" path="play" x="{width(group)}+{posx(group)}"  width="5%" height="{areaheight}/5" />
+            <drawimage valign="center" imagetype="icon" path="play" x="{posx(playback)}+{width(group)}+{width(playback)}"  width="5%" height="{areaheight}/5" />
             <drawtext valign="center" align="right" width="29%"  font="{vdrOsd}" fontsize="18%" color="{clrWhite}" text="{nextgroup}" />
         </area>             
     </channelgroup>
@@ -249,14 +249,17 @@
 		<drawrectangle x="{areawidth}*{signalstrength}/100" y="0" width="{areawidth} - {areawidth}*{signalstrength}/100" height="45%" color="{clrTransBlack}" />
         <drawrectangle x="{areawidth}*{signalquality}/100" y="50%" width="{areawidth} - {areawidth}*{signalquality}/100" height="45%" color="{clrTransBlack}" />
     </area>
-</signalquality>
-
-<signalqualityback>
-	<area condition="eq({showSignal},1)" x="41%" y="95%" width="12%" height="4%" layer="4">
+	<area background="true" condition="eq({showSignal},1)" x="41%" y="95%" width="12%" height="4%" layer="4">
         <drawimage imagetype="skinpart" path="signal" x="0" y="0" width="100%" height="45%"/>
         <drawimage imagetype="skinpart" path="signal" x="0" y="50%" width="100%" height="45%"/>
     </area>
+</signalquality>
+
+<!--
+<signalqualityback>
+	
 </signalqualityback>
+-->
 
   <message>
 	  <area x="0" y="13%" width="90%" height="15%" layer="7">  

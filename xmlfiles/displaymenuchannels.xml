@@ -1,5 +1,5 @@
 <menuchannels x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
-<menuitems x="0" y="45%" orientation="vertical" width="100%" height="55%" numlistelements="11">
+<menuitems x="0" y="45%" orientation="vertical" width="100%" height="55%" align="center" numlistelements="11">
 
 <listelement>
 <!--active item -->
@@ -7,7 +7,7 @@
 		<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" width="{areawidth}-2" height="{areaheight}-4"/>
 		<drawimage condition="{current}" name="line_top" imagetype="skinpart" path="line_top" x="5%" valign="top" width="{areawidth}/1.5" height="2"/>
 		<drawimage condition="{current}" name="line_bottom" imagetype="skinpart" path="line_bottom" x="5%" valign="bottom" width="{areawidth}/1.5" height="2"/>
-		<drawellipse condition="eq({nummenuitem},1)" x="{areawidth} - {areaheight}*1.00" y="0" width="{areaheight}*1.00" height="{areaheight}*1.00" color="{clrTransparent}" quadrant="-1"/>
+		<drawellipse condition="eq({nummenuitem},0)" x="{areawidth} - {areaheight}*1.00" y="0" width="{areaheight}*1.00" height="{areaheight}*1.00" color="{clrTransparent}" quadrant="-1"/>
 	</area>
 <!-- channel -->
 	<area condition="{separator}" x="2%" width="32%" layer="3">

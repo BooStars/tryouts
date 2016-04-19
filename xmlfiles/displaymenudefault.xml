@@ -13,10 +13,12 @@
 		</area>
 <!--list-->
 	<area x="0" y="12%" width="90%" height="78%" layer="1">
+	
 		<drawrectangle x="0" y="0" width="{areawidth}-2" height="{areaheight}" color="{clrTransBlack}" />
 		<drawellipse x="{areawidth} - {areaheight}*0.10" y="0" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-1"/>
 		<drawellipse x="{areawidth} - {areaheight}*0.10" y="{areaheight} - {areaheight}*0.10" width="{areaheight}*0.10" height="{areaheight}*0.10" color="{clrTransparent}" quadrant="-4"/>
 		<drawimage name="line_right" imagetype="skinpart" path="line_right" x="{areawidth}-2" y="15%" width="2" height="{areaheight}/1.5"/>
+	
 	</area>
 		
 <!-- button background -->
@@ -52,41 +54,55 @@
          <area x="0" y="12%" width="1%" height="77%" layer="6">
             <drawimage imagetype="skinpart" path="scroll_active" x="0" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.5" height="{areaheight} * {height} / 1000"/>
         </area>
-    </scrollbar>
+</scrollbar>
 
     <!-- IMPORTANT: menuitemwidth and determinatefont have to be defined here. 
 	menuitemwidth defines the total width of the default menu items, 
 	determinatefont the function which sets the actual font to use. With that it is possible to determinate
     the correct column widths -->
 	
-<menuitems x="0" y="13%" orientation="vertical" width="90%" height="77%" menuitemwidth="96%" determinatefont="column1" numlistelements="15">
+<menuitems x="0" y="13%" orientation="vertical" width="90%" height="77%" menuitemwidth="96%" determinatefont="column1" align="center" numlistelements="15">
 
-<listelement>
-	<area x="1%" width="99%" layer="2">
-		<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" width="{areawidth}-2" height="{areaheight}-4"/>
-		<drawimage condition="{current}" name="line_top" imagetype="skinpart" path="line_top" x="5%" valign="top" width="{areawidth}/1.5" height="2"/>
-		<drawimage condition="{current}" name="line_bottom" imagetype="skinpart" path="line_bottom" x="5%" valign="bottom" width="{areawidth}/1.5" height="2"/>
-		<drawellipse condition="eq({nummenuitem},1)"  x="{areawidth} - {areaheight}*1.10" y="0" width="{areaheight}*1.10" height="{areaheight}*1.10" color="{clrTransparent}" quadrant="-1"/>
-		<drawellipse condition="eq({nummenuitem},15)" x="{areawidth} - {areaheight}*1.05" y="{areaheight} - {areaheight}*1.05" width="{areaheight}*1.05" height="{areaheight}*1.05" color="{clrTransparent}" quadrant="-4"/>
-	</area>
-			
-			
-    <areascroll condition="{column2set}" scrollelement="column1" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="1%" width="{column1width}" layer="3">
-		<drawtext  name="column1" x="{column1x}" width="{column1width}" valign="center" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column1}" />
-    </areascroll>
-            
-	<areascroll condition="not{column2set}" scrollelement="column1" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="1%" width="97%" layer="3">
-		<drawtext  name="column1" x="{column1x}" width="{column1width}" valign="center" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column1}" />
-    </areascroll>
-            
-	<area x="2%" width="97%" layer="3">
-		<drawtext condition="{column2set}" x="{column2x}" valign="center" width="{column2width}" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column2}" />
-		<drawtext condition="{column3set}" x="{column3x}" valign="center" width="{column3width}" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column3}" />
-		<drawtext condition="{column4set}" x="{column4x}" valign="center" width="{column4width}" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column4}" />
-		<drawtext condition="{column5set}" x="{column5x}" valign="center" width="{column5width}" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column5}" />
-		<drawtext condition="{column6set}" x="{column6x}" valign="center" width="{column6width}" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column6}" />
-	</area>
+        <listelement>
+			<area x="1%" width="99%" layer="2">
+				<drawimage condition="{current}" name="menuitemback" imagetype="skinpart" path="menuitemback" x="0" width="{areawidth}-2" height="{areaheight}-4"/>
+				<drawimage condition="{current}" name="line_top" imagetype="skinpart" path="line_top" x="5%" valign="top" width="{areawidth}/1.5" height="2"/>
+				<drawimage condition="{current}" name="line_bottom" imagetype="skinpart" path="line_bottom" x="5%" valign="bottom" width="{areawidth}/1.5" height="2"/>
+				<drawellipse condition="eq({nummenuitem},0)"  x="{areawidth} - {areaheight}*1.10" y="0" width="{areaheight}*1.10" height="{areaheight}*1.10" color="{clrTransparent}" quadrant="-1"/>
+				<drawellipse condition="eq({nummenuitem},14)" x="{areawidth} - {areaheight}*1.55" y="{areaheight} - {areaheight}*1.55" width="{areaheight}*1.55" height="{areaheight}*1.55" color="{clrTransparent}" quadrant="-4"/>
+			</area>
+		
+           
+            <!-- Separators -->
+            <area x="0" condition="{separator}" width="100%" layer="2">
+                
+            </area>
+            <area x="1%" condition="{separator}" width="98%" layer="3">
+                <drawtext align="left" valign="center" font="{vdrOsd}" fontsize="90%" width="98%" color="{clrWhite}" text="{column1}" />
+            </area>
 
-</listelement>
-</menuitems>
-</menudefault>
+            <!-- Setup Menus -->
+            <areascroll condition="not{separator} ++ {setup} ++ {column2set}" scrollelement="column1" mode="forthandback" orientation="horizontal" delay="1000" scrollspeed="medium" x="1%" width="59%" layer="3">
+                <drawtext name="column1" x="0" width="99%" valign="center" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column1}" />
+            </areascroll>
+            <area x="60%" condition="not{separator} ++ {setup} ++ {column2set}" width="37%" layer="3">
+                <drawtext align="right" valign="center" font="{vdrOsd}" fontsize="90%" width="99%" color="{clrWhite}" text="{column2}" />
+			</area>
+
+            <area x="1%" condition="not{separator} ++ {setup} ++ not{column2set}" width="98%" layer="3">
+                <drawtext align="left" valign="center" font="{vdrOsd}" fontsize="90%" width="99%" color="{clrWhite}" text="{column1}" />
+            </area>
+            
+            <!-- Default Menus -->
+            <areascroll condition="not{separator} ++ not{setup}" scrollelement="column1" mode="forthandback" orientation="horizontal" delay="1000" scrollspeed="medium" x="1%" width="{column1width}" layer="3">
+                <drawtext name="column1" x="{column1x}" width="{column1width}" valign="center" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{column1}" />
+            </areascroll>
+            <area condition="not{separator} ++ not{setup}" x="1%" width="100%" layer="4">
+                <drawtext condition="{column2set}" x="{column2x}" valign="center" font="{vdrOsd}" fontsize="90%" width="{column2width}" color="{clrWhite}" text="{column2}" />
+                <drawtext condition="{column3set}" x="{column3x}" valign="center" font="{vdrOsd}" fontsize="90%" width="{column3width}" color="{clrWhite}" text="{column3}" />
+                <drawtext condition="{column4set}" x="{column4x}" valign="center" font="{vdrOsd}" fontsize="90%" width="{column4width}" color="{clrWhite}" text="{column4}" />
+                <drawtext condition="{column5set}" x="{column5x}" valign="center" font="{vdrOsd}" fontsize="90%" width="{column5width}" color="{clrWhite}" text="{column5}" />
+                <drawtext condition="{column6set}" x="{column6x}" valign="center" font="{vdrOsd}" fontsize="90%" width="{column6width}" color="{clrWhite}" text="{column6}" />
+            </area>
+        </listelement>
+    </menuitems></menudefault>

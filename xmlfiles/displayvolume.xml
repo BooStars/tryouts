@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 <!DOCTYPE displayvolume SYSTEM "../../../dtd/displayvolume.dtd">
 
 <displayvolume  x="0" y="75%" width="100%" height="25%" fadetime="{fadeTime}">

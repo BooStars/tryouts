@@ -9,7 +9,7 @@
 <!ENTITY displaymenurecordings SYSTEM "displaymenurecordings.xml">
 <!ENTITY displaymenudetailepg SYSTEM "displaymenudetailepg.xml">
 <!ENTITY displaymenudetailrecording SYSTEM "displaymenudetailrecording.xml">
-<!ENTITY displaymenudetailtext SYSTEM "displaymenudetailtext.xml">
+<!ENTITY displaymenudetailtext SYSTEM "displaymenudetailtext.xml"> 
 ]>
 
 <displaymenu  x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
